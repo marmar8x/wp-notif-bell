@@ -2,6 +2,9 @@
 
 namespace Irmmr\WpNotifBell;
 
+// If this file is called directly, abort.
+defined('WPINC') || die;
+
 use Irmmr\WpNotifBell\Helpers\Data;
 use Irmmr\WpNotifBell\Helpers\Date;
 use Irmmr\WpNotifBell\Helpers\Fs;

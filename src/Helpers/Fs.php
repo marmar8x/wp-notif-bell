@@ -2,6 +2,9 @@
 
 namespace Irmmr\WpNotifBell\Helpers;
 
+// If this file is called directly, abort.
+defined('WPINC') || die;
+
 /**
  * Class Fs
  * file writing and reading

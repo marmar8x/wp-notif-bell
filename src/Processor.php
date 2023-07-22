@@ -2,11 +2,8 @@
 
 namespace Irmmr\WpNotifBell;
 
-use Collator;
-use Irmmr\WpNotifBell\Admin\Master;
-use Irmmr\WpNotifBell\Notif\Collector;
-use Irmmr\WpNotifBell\Notif\Receiver;
-use Irmmr\WpNotifBell\Notif\Sender;
+// If this file is called directly, abort.
+defined('WPINC') || die;
 
 /**
  * Class Processor

@@ -2,6 +2,9 @@
 
 namespace Irmmr\WpNotifBell\Admin;
 
+// If this file is called directly, abort.
+defined('WPINC') || die;
+
 /**
  * Class Master
  * start anything about admin panel

@@ -2,6 +2,9 @@
 
 namespace Irmmr\WpNotifBell;
 
+// If this file is called directly, abort.
+defined('WPINC') || die;
+
 /**
  * Class I18n
  * maintain and register multi-language feature

@@ -2,6 +2,9 @@
 
 namespace Irmmr\WpNotifBell\Notif;
 
+// If this file is called directly, abort.
+defined('WPINC') || die;
+
 /**
  * Class Receiver
  * create identifiers to highlight notification

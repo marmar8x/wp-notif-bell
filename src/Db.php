@@ -2,6 +2,9 @@
 
 namespace Irmmr\WpNotifBell;
 
+// If this file is called directly, abort.
+defined('WPINC') || die;
+
 /**
  * Class Db
  * database manages for plugin starts with

@@ -6,6 +6,9 @@
  * @since    0.9.0
  */
 
+// If this file is called directly, abort.
+defined('WPINC') || die;
+
 ?>
 
 <div class="wpnb-ad-box">
