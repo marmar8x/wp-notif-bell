@@ -1,0 +1,21 @@
+{
+    "name": "irmmr/wp-notif-bell",
+    "description": "Wordpress notification bell handler",
+    "type": "project",
+    "license": "GPL-2.0+",
+    "autoload": {
+        "psr-4": {
+            "Irmmr\\WpNotifBell\\": "src/"
+        },
+        "files": [
+            "include/notification.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Irmmr",
+            "email": "irmm.ir@gmail.com"
+        }
+    ],
+    "require": {}
+}

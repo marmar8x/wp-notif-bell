@@ -1,0 +1,170 @@
+.fnt-12 {
+  font-size: 12px;
+}
+
+.fnt-13 {
+  font-size: 13px;
+}
+
+.fnt-14 {
+  font-size: 14px;
+}
+
+.fnt-15 {
+  font-size: 15px;
+}
+
+.fnt-16 {
+  font-size: 16px;
+}
+
+.fnt-17 {
+  font-size: 17px;
+}
+
+.fnt-18 {
+  font-size: 18px;
+}
+
+.fnt-19 {
+  font-size: 19px;
+}
+
+.fnt-20 {
+  font-size: 20px;
+}
+
+.fnt-21 {
+  font-size: 21px;
+}
+
+.fnt-22 {
+  font-size: 22px;
+}
+
+.fnt-23 {
+  font-size: 23px;
+}
+
+.fnt-24 {
+  font-size: 24px;
+}
+
+.fnt-25 {
+  font-size: 25px;
+}
+
+.fnt-26 {
+  font-size: 26px;
+}
+
+.fnt-27 {
+  font-size: 27px;
+}
+
+.fnt-28 {
+  font-size: 28px;
+}
+
+.fnt-29 {
+  font-size: 29px;
+}
+
+.fnt-30 {
+  font-size: 30px;
+}
+
+.fnt-31 {
+  font-size: 31px;
+}
+
+.fnt-32 {
+  font-size: 32px;
+}
+
+.fnt-33 {
+  font-size: 33px;
+}
+
+.fnt-34 {
+  font-size: 34px;
+}
+
+.fnt-35 {
+  font-size: 35px;
+}
+
+.wpnb-ad-header {
+  margin-top: 15px;
+  margin-bottom: 30px;
+  display: block;
+}
+.wpnb-ad-header .wpnb-ad-header-title {
+  padding: 0;
+  margin: 0;
+}
+.wpnb-ad-header-title {
+  font-size: 1.7rem;
+  color: #333;
+  padding-bottom: 4px;
+  align-items: center;
+  display: flex;
+}
+.wpnb-ad-header-text {
+  font-size: 1.1rem;
+  color: #5f5f5f;
+  margin-top: 8px;
+  margin-right: 46px;
+}
+.wpnb-ad-header-tab {
+  background-color: #0370ca;
+  color: #333;
+  font-size: 14px;
+  margin-right: 8px !important;
+  padding: 4px;
+  text-align: center;
+  margin: 0;
+  display: inline-block;
+}
+.wpnb-ad-header-tab.ylw {
+  background: rgb(252, 255, 40);
+  background: linear-gradient(-90deg, rgba(252, 255, 40, 0.8141456412) 0%, rgba(241, 255, 40, 0.4499999829) 50%, rgba(255, 251, 40, 0.1334733723) 100%);
+}
+.wpnb-ad-header-tab.org {
+  background: rgb(255, 186, 40);
+  background: linear-gradient(-90deg, rgba(255, 186, 40, 0.8141456412) 0%, rgba(255, 179, 40, 0.4499999829) 50%, rgba(255, 157, 40, 0.2119047448) 100%);
+}
+.wpnb-ad-header-tab.rnd {
+  border-radius: 8px;
+}
+
+.wpnb-ad-box {
+  margin: 10px 0;
+  padding: 15px 0;
+  border-top: 2px dashed #191b1b;
+  border-bottom: 2px dashed #191b1b;
+  width: calc(100% - 15px);
+}
+
+.wpnb-ad-l-box {
+  margin: 20px 0;
+  width: 100%;
+  box-shadow: -2px -2px 59px 0px rgba(26, 222, 211, 0.15);
+  -webkit-box-shadow: -2px -2px 59px 0px rgba(26, 222, 211, 0.15);
+  -moz-box-shadow: -2px -2px 59px 0px rgba(26, 222, 211, 0.15);
+  background: white;
+  border-radius: 15px;
+  padding: 14px;
+}
+
+.wpnb-txt-block {
+  font-size: 15px;
+  line-height: 1.5rem;
+}
+.wpnb-txt-block.jst {
+  text-align: justify;
+}
+
+[class^=wpnb-] *, [class^=wpnb-] *::before, [class^=wpnb-] *::after {
+  box-sizing: border-box;
+}

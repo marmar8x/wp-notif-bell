@@ -1,0 +1,15 @@
+@use "../core/variables"
+@use "../mixins/box"
+
+.wpnb-ad-box
+    $border-style: 2px dashed #191b1b
+
+    margin: 10px 0
+    padding: 15px 0
+    border-top: $border-style
+    border-bottom: $border-style
+    width: variables.$global-width
+
+.wpnb-ad-l-box
+    margin: 20px 0
+    @include box.light-box($padding: 14px)

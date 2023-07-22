@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+      "target": "ES5",
+      "module": "ESNext",
+      "noImplicitAny": true,
+      "removeComments": true,
+      "preserveConstEnums": true,
+      "sourceMap": true,
+      "strict": true,
+      "allowJs": true,
+      "outDir": "./dist/js"
+    },
+    "include": [
+      "script"
+    ]
+  }
+  
