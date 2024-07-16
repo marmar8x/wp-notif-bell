@@ -1,1 +1,63 @@
 @import "fnt"
+@import "colors"
+@import "root"
+
+.wpnb-w-100
+    width: 100% !important
+
+.wpnb-mx-0
+    margin-left: 0 !important
+    margin-right: 0 !important
+
+.wpnb-my-0
+    margin-top: 0 !important
+    margin-bottom: 0 !important
+
+.wpnb-rt
+    direction: rtl #{"/*rtl:ignore */"}
+
+.wpnb-lt
+    direction: ltr #{"/*rtl:ignore */"}
+
+.wpnb-space-top-1
+    margin-top: 1rem
+
+.wpnb-space-top-2
+    margin-top: 2rem
+
+.wpnb-d-none
+    display: none !important
+
+.wpnb-d-block
+    display: block !important
+
+.wpnb-hide-more
+    text-overflow: hidden
+    white-space: nowrap
+    overflow: hidden
+
+.wpnb-mx-width-unset
+    max-width: unset !important
+
+// margin-bottom
+@for $i from 1 through 5
+  .wpnb-mb-#{$i}
+    margin-bottom: $i * 0.25rem
+
+// margin-top
+@for $i from 1 through 5
+  .wpnb-mt-#{$i}
+    margin-top: $i * 0.25rem
+
+.wpnb-p-0
+    padding: 0
+
+.wpnb-m-0
+    margin: 0
+
+.wpnb-pm-0
+    padding: 0
+    margin: 0
+
+.wpnb-round
+    border-radius: 5px

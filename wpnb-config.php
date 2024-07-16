@@ -26,6 +26,12 @@ define('IRM_WP_NOTIF_BELL_DIR', dirname( plugin_basename(__FILE__) ));
 define('IRM_WP_NOTIF_BELL_PTH', plugin_dir_path(__FILE__));
 define('IRM_WP_NOTIF_BELL_URL', plugin_dir_url(__FILE__));
 
+// plugin helpers directions
+const IRM_WPNB_WP_CONTENT   = ABSPATH . DIRECTORY_SEPARATOR . 'wp-content';
+const IRM_WPNB_STORAGE_PATH = IRM_WPNB_WP_CONTENT . DIRECTORY_SEPARATOR . 'wpnb';
+const IRM_WPNB_CACHE_PATH   = IRM_WPNB_STORAGE_PATH . DIRECTORY_SEPARATOR . 'cache';
+const IRM_WPNB_LOGS_PATH    = IRM_WPNB_STORAGE_PATH . DIRECTORY_SEPARATOR . 'logs';
+
 /**
  * Safe require for plugin
  * 

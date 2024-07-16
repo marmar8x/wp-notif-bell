@@ -12,4 +12,43 @@
 
 .wpnb-ad-l-box
     margin: 20px 0
-    @include box.light-box($padding: 14px)
+    @include box.light-box($padding: 20px)
+
+.wpnb-ad-d-box
+    @include box.light-box($padding: 20px, $shadow-color: rgba(214, 214, 214, 0.3))
+
+.wpnb-ad-res-box
+    border: 1px solid #4d4d4d
+    display: flex
+    align-content: center
+    align-items: center
+    margin-bottom: 5px
+    @include box.light-box($padding: 20px, $shadow-color: rgba(214, 214, 214, 0.3))
+
+    .wpnb-tp-title
+        font-size: 1.1rem
+        color: #0951d6
+        text-transform: uppercase
+        margin-right: 10px
+
+    .wpnb-tp-text
+        font-size: 1rem
+        color: #333
+
+    .wpnb-tp-close
+        border-radius: 100%
+        margin: 0
+        padding: 0
+        background: #d33e3e
+        color: white
+        text-align: center
+        line-height: 0
+        border: 0
+        font-size: 1.3rem
+        cursor: pointer
+        width: 30px
+        height: 30px
+        transition: 0.25s all
+
+        &:hover
+            background: #c43131

@@ -81,4 +81,29 @@ class Data
 
         return $randomString;
     }
+
+    /**
+     * check for valid json
+     * 
+     * @since   0.9.0
+     * @param   string $str
+     * @return  bool
+     */
+    public static function is_json(string $str): bool
+    {
+        json_decode($str);
+        return json_last_error() === JSON_ERROR_NONE;
+    }
+
+    /**
+     * check if string is a formatted date/time
+     * 
+     * @since   0.9.0
+     * @param   string  $str
+     * @return  bool
+     */
+    public static function is_datetime(string $str): bool
+    {
+        return strlen($str) === 19 && strtotime($str) !== false;
+    }
 }

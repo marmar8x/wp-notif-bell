@@ -1,0 +1,18 @@
+@use '../core/colors' as c
+
+.wpnb-alert
+    padding: 12px
+    font-size: 0.95rem
+
+    text-align: start
+    line-height: 1.2rem
+    border-radius: 10px
+
+    @each $color in c.$colors-name
+        &.wpnb-alert-bg-#{$color}
+            color: white
+            background: var(--wpnb-#{$color})
+
+        &.wpnb-alert-cl-#{$color}
+            background: #f1f2f6
+            color: var(--wpnb-#{$color})

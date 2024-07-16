@@ -15,7 +15,7 @@ defined('WPINC') || die;
     <div class="wpnb-ad-header">
         <h3 class="wpnb-ad-header-title">
             🔔 WP Notif Bell
-            <span class="wpnb-ad-header-tab rnd org">General</span>
+            <span class="wpnb-ad-header-tab rnd org">WPNB</span>
         </h3>
 
         <p class="wpnb-ad-header-text">
@@ -23,7 +23,9 @@ defined('WPINC') || die;
         </p>
     </div>
 
-    <div class="wpnb-ad-l-box">
-        ds
+    <div class="wpnb-w-100" style="line-height: 1.7rem;font-size: 1.0rem;">
+        This plugin is designed to implement notifications on your site. As much as possible, I tried to avoid sieving foliage for the plugin. If you do not want to see the pages related to the plugin, get help from the help page.
+        <br />
+        This plugin is available in beta version. It is normal that parts of the plugin have problems or are not complete.
     </div>
 </div>

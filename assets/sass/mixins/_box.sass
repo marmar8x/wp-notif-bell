@@ -1,8 +1,8 @@
-@mixin light-box($padding: 10px)
+@mixin light-box($padding: 10px, $shadow-color: rgba(26,222,211,0.15))
     width: 100%
-    box-shadow: 2px -2px 59px 0px rgba(26,222,211,0.15)
-    -webkit-box-shadow: 2px -2px 59px 0px rgba(26,222,211,0.15)
-    -moz-box-shadow: 2px -2px 59px 0px rgba(26,222,211,0.15)
+    box-shadow: 2px -2px 59px 0px $shadow-color
+    -webkit-box-shadow: 2px -2px 59px 0px $shadow-color
+    -moz-box-shadow: 2px -2px 59px 0px $shadow-color
     background: white
     border-radius: 15px
     padding: $padding

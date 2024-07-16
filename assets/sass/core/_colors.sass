@@ -1,0 +1,19 @@
+$danger-color: #EA2027
+$primary-color: #0652DD
+$success-color: #27ae60
+$info-color: #D980FA
+$warn-color: #FFC312
+$black-color: #2d3436
+$white-color: #fff
+
+$colors-name: 'danger', 'success', 'primary', 'info', 'warn', 'black', 'white'
+
+@each $color in $colors-name
+    .wpnb-txt-#{$color}
+        color: var(--wpnb-#{$color})
+
+    .wpnb-bg-#{$color}
+        background: var(--wpnb-#{$color})
+
+    .wpnb-bgc-#{$color}
+        background-color: var(--wpnb-#{$color})

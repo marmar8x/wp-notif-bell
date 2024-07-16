@@ -1,0 +1,37 @@
+.wpnb-tabs
+    .wpnb-tab-wrapper
+        width: 100%
+        margin-bottom: 14px
+        border: 0 !important
+        text-align: start
+        align-content: start
+
+        .nav-tab
+            border: 0 !important
+            float: unset !important
+            margin-left: auto !important
+            cursor: pointer
+            background: none !important
+            color: #333
+            padding: 0
+            margin-right: 10px
+
+            &:hover, &.nav-tab-active
+                color: #0984e3
+                color: #0984e3
+
+            &::after
+                content: '|'
+                color: #2d3436 !important
+                margin-left: 10px
+            
+            &:last-child::after
+                content: unset !important
+                margin-left: auto
+
+    .tab-content
+        width: 100%
+        display: none
+    
+        &[data-wpnb-tab-active]
+            display: block

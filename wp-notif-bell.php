@@ -1,6 +1,14 @@
 <?php
 /**
  * WP Notif Bell
+ * - Less complexity along with more cache and optimal use of hardware
+ * - As far as possible, the plugin has been tried to be light and without additional parts
+ * - This plugin is more developer-oriented than user-oriented
+ * - Use `wpnb_collector|Collector` to receive notifications and display them
+ * - See `Sender` and `Collector`
+ *      + Collector: Receive all notifications with the ability to target and pagination and...
+ *      + Sender: Sending notifications with all tracking and tagging capabilities
+ * 
  * @package           Irmmr\WPNotifBell
  *
  * @wordpress-plugin

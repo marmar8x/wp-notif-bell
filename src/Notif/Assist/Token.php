@@ -1,6 +1,6 @@
 <?php
 
-namespace Irmmr\WpNotifBell\Notif;
+namespace Irmmr\WpNotifBell\Notif\Assist;
 
 // If this file is called directly, abort.
 defined('WPINC') || die;
@@ -11,7 +11,7 @@ defined('WPINC') || die;
  * in database columns
  * 
  * @since    0.9.0
- * @package  Irmmr\WpNotifBell\Notif
+ * @package  Irmmr\WpNotifBell\Notif\Assist
  */
 class Token
 {
@@ -21,7 +21,7 @@ class Token
      * @since   0.9.0
      * @var     string
      */
-    private static string $hash = 'sha256-needed';
+    private static string $hash = NONCE_KEY ?? 'sha256-needed';
 
     /**
      * create a data token

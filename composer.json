@@ -8,6 +8,7 @@
             "Irmmr\\WpNotifBell\\": "src/"
         },
         "files": [
+            "include/settings.php",
             "include/notification.php"
         ]
     },
@@ -17,5 +18,7 @@
             "email": "irmm.ir@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "nilportugues/sql-query-builder": "^1.8"
+    }
 }

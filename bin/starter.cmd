@@ -12,9 +12,8 @@ exit 1
 echo WP Notif Bell starter
 echo ---------------------
 echo [1] build styles
-echo [2] build scripts
-echo [3] build rtl styles
-echo [4] build styles + rtl
+echo [2] build rtl styles
+echo [3] build styles + rtl
 echo [0] exit
 
 set /p "opt=Choose option: "
@@ -22,10 +21,8 @@ set /p "opt=Choose option: "
 if "%opt%" == "1" (
     call "%cd%/bin/css-build.cmd"
 ) else if "%opt%" == "2" (
-    call "%cd%/bin/js-build.cmd"
-) else if "%opt%" == "3" (
     call "%cd%/bin/rtlcss-build.cmd"
-) else if "%opt%" == "4" (
+) else if "%opt%" == "3" (
     call "%cd%/bin/css-build.cmd"
     call "%cd%/bin/rtlcss-build.cmd"
 ) else if "%opt%" == "0" (

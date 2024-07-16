@@ -45,12 +45,38 @@ class Menu
 
         add_submenu_page(
             'wpnb-main',
+            __('Send', 'wp-notif-bell'),
+            __('Send', 'wp-notif-bell'),
+            'wpnb_can_send',
+            'wpnb-send',
+            [$this, 'send_content']
+        );
+
+        add_submenu_page(
+            'wpnb-main',
+            __('List', 'wp-notif-bell'),
+            __('List', 'wp-notif-bell'),
+            'manage_options',
+            'wpnb-list',
+            [$this, 'list_content']
+        );
+
+        add_submenu_page(
+            'wpnb-main',
+            __('Settings', 'wp-notif-bell'),
+            __('Settings', 'wp-notif-bell'),
+            'manage_options',
+            'wpnb-settings',
+            [$this, 'settings_content']
+        );
+
+        add_submenu_page(
+            'wpnb-main',
             __('About', 'wp-notif-bell'),
             __('About', 'wp-notif-bell'),
             'manage_options',
             'wpnb-about',
-            [$this, 'about_content'],
-            'dashicons-bell'
+            [$this, 'about_content']
         );
     }
 
@@ -74,5 +100,38 @@ class Menu
     public function about_content(): void
     {
         Partial::req('about-page', ['admin']);
+    }
+
+   /**
+     * [content -> settings] get settings menu content
+     * 
+     * @since    0.9.0
+     * @return   void
+     */
+    public function settings_content(): void
+    {
+        Partial::req('settings-page', ['admin']);
+    }
+
+   /**
+     * [content -> send] get send menu content
+     * 
+     * @since    0.9.0
+     * @return   void
+     */
+    public function send_content(): void
+    {
+        Partial::req('send-page', ['admin']);
+    }
+
+   /**
+     * [content -> list] get list menu content
+     * 
+     * @since    0.9.0
+     * @return   void
+     */
+    public function list_content(): void
+    {
+        Partial::req('list-page', ['admin']);
     }
 }

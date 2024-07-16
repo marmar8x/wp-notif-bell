@@ -6,323 +6,388 @@ namespace Irmmr\WpNotifBell\Notif;
 defined('WPINC') || die;
 
 use Irmmr\WpNotifBell\Db;
+use Irmmr\WpNotifBell\Error\Err;
+use Irmmr\WpNotifBell\Error\Stack;
+use Irmmr\WpNotifBell\Module\TextMagic;
+use Irmmr\WpNotifBell\Notif\Instance\Notification;
+use Irmmr\WpNotifBell\Notif\Instance\Receiver;
+use Irmmr\WpNotifBell\Notif\Module\Database;
+use Irmmr\WpNotifBell\Notif\Module\Observer;
+use Irmmr\WpNotifBell\Notif\Module\Pagination;
+use Irmmr\WpNotifBell\Module\Query\Selector as Query;
+use Irmmr\WpNotifBell\Traits\ConfigTrait;
 use Irmmr\WpNotifBell\User;
+use NilPortugues\Sql\QueryBuilder\Manipulation\Select;
 
 /**
  * Class Collector
- * implement notification sender
+ * collect and show all notifications
+ * 
+ * - database fetch:          get()
+ * - notifications fetch:     fetch()
  * 
  * @since    0.9.0
  * @package  Irmmr\WpNotifBell\Notif
  */
-class Collector
+final class Collector
 {
-    /**
-     * main notifs table name wiht all prefixes
-     * 
-     * @since   0.9.0
-     * @var     string
-     */
-    private string $db_table_name = '';
+    use ConfigTrait;
 
     /**
-     * collector database query
+     * table name
+     * database table name
      * 
      * @since   0.9.0
-     * @var     string
+     * @var     string  $table_name
      */
-    private string $db_query = '';
+    protected string $table_name;
 
     /**
-     * user identity using `User::get_identity`
+     * errors stack
      * 
      * @since   0.9.0
-     * @var     array
+     * @var     Stack   $errors
      */
-    private array $user_identity = [];
+    protected Stack $errors;
 
     /**
-     * db query selects using SELECT
+     * pagination
      * 
      * @since   0.9.0
-     * @var     array
+     * @var     Pagination   $pagination
      */
-    private array $db_selects = ['*'];
+    protected Pagination $pagination;
 
     /**
-     * db query limit using LIMIT x, y | x
+     * database
      * 
      * @since   0.9.0
-     * @var     array
+     * @var     Database   $db
      */
-    private array $db_limit = [];
+    protected Database $db;
 
     /**
-     * db query order using ORDER
+     * query
      * 
      * @since   0.9.0
-     * @var     string
+     * @var     Query   $query
      */
-    private string $db_order = '`id` DESC';
+    protected Query $query;
 
     /**
-     * is collector initialized or not
+     * text magic helper
      * 
      * @since   0.9.0
-     * @var     bool
+     * @var     TextMagic   $text_magic
      */
-    private bool $initialize = false;
+    protected TextMagic $text_magic;
 
     /**
-     * class constructor
+     * collector constructor
      * 
-     * @param   int|WP_User|array   $target     user-id | user | list of receivers like: [[ 'name', 'data' ]]
      * @since   0.9.0
      */
-    public function __construct($target)
+    public function __construct()
     {
-        if (is_int($target) || $target instanceof \WP_User) {
-            $this->user_identity = User::get_identity($target);
-        } elseif (is_array($target)) {
-            $this->user_identity = $target;
+        $this->table_name   = Db::table_name('notifs');
+
+        $this->errors       = new Stack;
+        $this->pagination   = new Pagination($this);
+        $this->db           = new Database;
+        $this->query        = new Query($this->table_name);
+        $this->text_magic   = new TextMagic;
+
+        // default configs
+        $this->configs_default = $this->configs = [
+            // TextMagic: render all tags and variables for a live text
+            'use_textmagic' => true
+        ];
+    }
+
+    /**
+     * get/render content of notification
+     * 
+     * @since   0.9.0
+     * @param   string  $content    Database table `content`
+     * @return  string  rendered
+    */
+    protected function get_content(string $content): string
+    {
+        // TextMagic
+        if ($this->get_config('use_textmagic')) {
+            $content = $this->text_magic->render($content);
         }
+
+        return $content;
     }
 
     /**
-     * set limit
+     * get selector
      * 
      * @since   0.9.0
-     * @param   array   $limit
-     * @return  void
+     * @return  Select
      */
-    public function set_limit(array $limit): void
+    public function select(): Select
     {
-        $this->db_limit = $limit;
+        return $this->query->selector();
     }
 
     /**
-     * set limit
-     * 
-     * @since   0.9.0
-     * @param   string   $order
-     * @return  void
-     */
-    public function set_order(string $order): void
-    {
-        $this->db_order = $order;
-    }
-
-    /**
-     * set selects
-     * 
-     * @since   0.9.0
-     * @param   array   $select
-     * @return  void
-     */
-    public function set_select(array $select): void
-    {
-        $this->db_selects = $select;
-    }
-
-    /**
-     * init collector
-     * 
-     * @since   0.9.0
-     * @return  void
-     */
-    public function init(): void
-    {
-        $this->db_table_name = Db::table_name('notifs');
-        $this->db_query      = $this->build_query();
-
-        $this->initialize = true;
-    }
-
-    /**
-     * get notifs full table name
+     * get query string
      * 
      * @since   0.9.0
      * @return  string
      */
-    public function get_db_table_name(): string
+    public function get_query(): string
     {
-        return Db::table_name($this->db_table_name);
+        return $this->query->get();
     }
 
     /**
-     * build where query for db select
+     * get database results (pure)
      * 
      * @since   0.9.0
      * @return  array
-     */
-    public function build_where_query(): array
-    {
-        if (empty($this->user_identity)) {
-            return '';
-        }
-
-        $targets = [];
-        $values  = [];
-
-        foreach ($this->user_identity as $identity) {
-            $id_string = json_encode($identity);
-
-            $targets[] = "JSON_CONTAINS(`recipients`, '%s')";
-            $values[]  = $id_string;
-        }
-
-        return [ implode(' OR ', $targets), $values ];
-    }
-
-    /**
-     * build limit query for db select
-     * 
-     * @since   0.9.0
-     * @return  string
-     */
-    public function build_limit_query(): string
-    {
-        $count = count($this->db_limit);
-
-        if ($count === 1) {
-            $query = (string) $this->db_limit[0];
-        } elseif ($count === 2) {
-            $query = implode(', ', $this->db_limit);
-        } else {
-            $query = '';
-        }
-
-        /**
-         * filter: database limit query manage
-         * 
-         * @since   0.9.0
-         * @param   array    $limit
-         * @param   string   $query
-         */
-        return apply_filters('wpnb_collect_limit', $query, $this->db_limit);
-    }
-
-    /**
-     * build order query for db select
-     * 
-     * @since   0.9.0
-     * @return  string
-     */
-    public function build_order_query(): string
-    {
-        $query = empty($this->db_order) ? '' : $this->db_order;
-
-        /**
-         * filter: database order query manage
-         * 
-         * @since   0.9.0
-         * @param   array    $order
-         * @param   string   $query
-         */
-        return (string) apply_filters('wpnb_collect_order', $query, $this->db_order);
-    }
-
-    /**
-     * build db query to get results
-     * 
-     * @since   0.9.0
-     * @return  string
-     */
-    public function build_query(): string
-    {
-        $query = [];
-
-        // #select
-        $query[] = sprintf('SELECT %s', implode(', ', $this->db_selects));
-
-        // #from
-        $query[] = sprintf('FROM `%s`', $this->db_table_name);
-
-        // #where
-        [$where_query, $where_values] = $this->build_where_query();
-
-        if (!empty($where_query)) {
-            $query[] = sprintf('WHERE %s', $where_query);
-        }
-
-        // #order
-        $order_query = $this->build_order_query();
-        
-        if (!empty($order_query)) {
-            $query[] = sprintf('ORDER BY %s', $order_query);
-        }
-
-        // #limit
-        $limit_query = $this->build_limit_query();
-
-        if (!empty($limit_query)) {
-            $query[] = sprintf('LIMIT %s', $limit_query);
-        }
-
-        global $wpdb;
-
-        $fetch = $wpdb->prepare(implode(' ', $query), ...$where_values);
-
-        /**
-         * filter: database order query manage
-         * 
-         * @since   0.9.0
-         * @param   string   $query
-         */
-        return apply_filters('wpnb_collect_query', $fetch) . ';';
-    }
-
-
-    /**
-     * get database data
-     * 
-     * @since   0.9.0
-     * @return  array
-     */
-    public function get_db(): array
-    {
-        if (!$this->initialize || empty($this->db_query)) {
-            return [];
-        }
-
-        global $wpdb;
-
-        $results = $wpdb->get_results($this->db_query);
-
-        /**
-         * filter: database get db results
-         * 
-         * @since   0.9.0
-         * @param   array   $results
-         */
-        return apply_filters('wpnb_collect_get_db', $results);
-    }
-
-    /**
-     * get notifications
-     * 
-     * @since   0.9.0
-     * @return  array<Notification>
      */
     public function get(): array
     {
-        $notifs = $this->get_db();
+        $query = $this->query->get();
+        $fetch = $this->db->get_results($query, $this->query->get_builder_values());
+
+        return (array) $fetch;
+    }
+
+    /**
+     * get database var
+     * 
+     * @since   0.9.0
+     * @return  string
+     */
+    public function get_var(): string
+    {
+        $query = $this->query->get();
+        $fetch = $this->db->get_var($query, $this->query->get_builder_values());
+
+        return $fetch;
+    }
+
+    /**
+     * get fetched notifications
+     * 
+     * @since   0.9.0
+     * @return  array<Notification> 
+     */
+    public function fetch(): array
+    {
+        $fetch  = $this->get();
         $result = [];
 
-        if (empty($notifs)) {
-            return [];
+        $instances = [
+            'textmagic' => $this->text_magic
+        ];
+
+        foreach ($fetch as $notif) {
+            if (isset($notif->key)) {
+                $result[] = new Notification($notif, $this->configs, $instances);
+            }
         }
 
-        foreach ($notifs as $notif) {
-            $result[] = new Notification($notif);
+        return $result;
+    }
+
+    // handlers
+
+    /**
+     * target with any receiver.
+     * 
+     * JSON_CONTAINS(`recipients`, \'%s\')
+     * 
+     * @since   0.9.0
+     * @param   Receiver    $receiver
+     * @return  self
+     */
+    public function target(Receiver $receiver): self
+    {
+        $json   = $receiver->get_json();
+        $where  = sprintf('JSON_CONTAINS(`recipients`, \'%s\')', $json);
+
+        $this->select()
+            ->where()
+                ->asLiteral($where)
+                ->end();
+
+        return $this;
+    }
+
+    /**
+     * target with any receiver (multiple).
+     * 
+     * @since   0.9.0
+     * @param   array<Receiver>  $receivers
+     * @return  self
+     */
+    public function targets(array $receivers): self
+    {
+        $select = $this->select()->where()->subWhere('OR');
+
+        foreach ($receivers as $receiver) {
+            if ($receiver instanceof Receiver) {
+                $json   = $receiver->get_json();
+                $where  = sprintf('JSON_CONTAINS(`recipients`, \'%s\')', $json);
+
+                $select->asLiteral($where);
+            }
         }
 
-        /**
-         * filter: database get db results
-         * 
-         * @since   0.9.0
-         * @param   array   $result
-         */
-        return apply_filters('wpnb_collect_get', $result);
+        $select->end();
+
+        return $this;
+    }
+
+    /**
+     * target a user for collector
+     * 
+     * @since   0.9.0
+     * @param   int|WP_User $user
+     * @return  self
+     */
+    public function target_by_user($user): self
+    {
+        $user_identity = User::get_identity($user);
+
+        if (empty($user_identity)) {
+            $this->errors->add( Err::_('user_target', 'can\'t find this user.', ['user' => $user]) );
+
+            return $this;
+        }
+        
+        $targets = [];
+
+        foreach ($user_identity as $id) {
+            $targets[] = new Receiver($id['name'], $id['data']);
+        }
+
+        $this->targets($targets);
+
+        return $this;
+    }
+
+    /**
+     * target with notif unique key
+     * 
+     * @since   0.9.0
+     * @param   string $key
+     * @return  self
+     */
+    public function target_by_key(string $key): self
+    {
+        $this->select()
+            ->where()
+                ->equals('key', $key)
+                ->end();
+
+        return $this;
+    }
+
+    // errors
+
+    /**
+     * get errors stack
+     * 
+     * @since   0.9.0
+     * @return  Stack
+     */
+    public function errors(): Stack
+    {
+        return $this->errors;
+    }
+
+    /**
+     * get errors list
+     * 
+     * @since   0.9.0
+     * @return  array
+     */
+    public function get_errors(): array
+    {
+        return $this->errors->get();
+    }
+
+    // pagination
+
+    /**
+     * get pagination instance from collector
+     * 
+     * @since   0.9.0
+     * @return  Pagination
+     */
+    public function pagination(): Pagination
+    {
+        return $this->pagination;
+    }
+
+    // observer
+
+    /**
+     * start observer over collector
+     * 
+     * @since   0.9.0
+     * @param   \WP_User    $user
+     * @return  Observer
+     */
+    public function observer(\WP_User $user): Observer
+    {
+        return new Observer($user, $this);
+    }
+
+    // count
+
+    /**
+     * get selector count without changing
+     * main builder and selector
+     * 
+     * @since   0.9.0
+     * @param   bool    $ignore_limit
+     * @return  int
+     */
+    public function get_count(bool $ignore_limit = true): int
+    {
+        // create new query with current builder
+        $query = new Query(
+            $this->table_name,
+            $this->query->builder(),
+            $this->query->selector()->__clone()
+        );
+
+        // set query builder mode to `count`
+        $query->selector()->count();
+
+        // ignore limit option for result
+        if ($ignore_limit) {
+            $query->selector()->limit(null, null);
+        }
+
+        // get the built query
+        $build_query = $query->get();
+
+        // try to get response using database var
+        $fetch = $this->db->get_var($build_query, $query->get_builder_values());
+
+        // convert result to integer
+        return intval($fetch);
+    }
+
+    // helping
+
+    /**
+     * check for any result exists
+     * 
+     * @since   0.9.0
+     * @param   bool    $ignore_limit
+     * @return  int
+     */
+    public function has(): bool
+    {
+        return $this->get_count() > 0;
     }
 }

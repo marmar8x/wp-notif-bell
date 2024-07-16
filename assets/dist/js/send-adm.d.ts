@@ -1,0 +1,45 @@
+declare const $: Function;
+declare const adminCore: any;
+type NotifReceiver = {
+    name: string;
+    data: string;
+};
+declare const ids: {
+    res_name_str: string;
+    res_name_slc: string;
+    res_data: string;
+    res_area: string;
+    res_add_btn: string;
+    res_none_alert: string;
+    send_btn: string;
+    notif_title: string;
+    notif_text: string;
+    notif_sender: string;
+    notif_text_type: string;
+    notif_date: string;
+};
+declare const cls: {
+    res_loop: string;
+    res_close: string;
+    res_count: string;
+};
+declare const setReceiverNameString: () => void;
+declare const setReceiverNameSelect: () => void;
+declare const setReceiverNameAsSelect: (name: string, set_placeholder?: boolean) => void;
+declare const setReceiverDataPlaceholder: (plc: string) => void;
+declare const setReceiverData: (data: string) => void;
+declare const manageResDataPlaceholder: (value: string) => void;
+declare const detectEzAccess: (value: string) => [string, string] | null;
+declare const buildReceiverHtmlBlock: (id: string, receiver: NotifReceiver) => string;
+declare const setReceiversEmptyError: (status: boolean) => any;
+declare const parseReceiverName: (name: string) => any;
+declare const addLogError: (content: string) => void;
+declare const cleanReceiver: (receiver: NotifReceiver) => NotifReceiver;
+declare const addReceiver: (receiver: NotifReceiver) => void;
+declare const getReceiversCount: () => number;
+declare const removeReceiver: (id: string) => void;
+declare const getNotifTitle: () => string;
+declare const getNotifText: () => string;
+declare const getNotifTextType: () => string;
+declare const getNotifDate: () => string;
+declare const getNotifSender: () => string;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Irmmr\WpNotifBell\Notif;
+namespace Irmmr\WpNotifBell\Notif\Instance;
 
 // If this file is called directly, abort.
 defined('WPINC') || die;
@@ -11,7 +11,7 @@ defined('WPINC') || die;
  * recipients
  * 
  * @since    0.9.0
- * @package  Irmmr\WpNotifBell\Notif
+ * @package  Irmmr\WpNotifBell\Notif\Instance
  */
 class Receiver
 {
@@ -21,7 +21,7 @@ class Receiver
      * @since   0.9.0
      * @var     string
      */
-    private string $name;
+    protected string $name;
 
     /**
      * according data string of `name`
@@ -29,7 +29,7 @@ class Receiver
      * @since   0.9.0
      * @var     string
      */
-    private string $data;
+    protected string $data;
 
     /**
      * class constructor

@@ -2,6 +2,8 @@
 
 namespace Irmmr\WpNotifBell;
 
+use Irmmr\WpNotifBell\Helpers\Fs;
+
 // If this file is called directly, abort.
 defined('WPINC') || die;
 
@@ -12,8 +14,15 @@ defined('WPINC') || die;
  * @since    0.9.0
  * @package  Irmmr\WpNotifBell
  */
-class WpHook
+final class WpHook
 {
+    //@since 0.9.0
+    private const REQUIRED_FOLDERS = [
+        IRM_WPNB_STORAGE_PATH,
+        IRM_WPNB_LOGS_PATH,
+        IRM_WPNB_CACHE_PATH
+    ];
+
     /**
      * Activate hook
      * 
@@ -30,9 +39,45 @@ class WpHook
             return;
         }
 
+        // before, creating required folders to prevent errors
+        $this->create_folders();
+
+        Logger::add("Starting activation process", Logger::N_MAIN, Logger::LEVEL_LOG, [
+            'php-ver'       => $php_version,
+            'required-php'  => $required_php
+        ]);
+
+        // create database tables
         $this->create_db_tables();
 
-        Logger::add('plugin activated.');
+        // save latest db version
+        Db::set_version(Db::LATEST_VERSION);
+
+        // run Cache preload
+        Logger::preload();
+
+        // run Cache preload
+        Cache::preload();
+
+        // create required options
+        $this->create_options();
+
+        Logger::add('Plugin activated');
+    }
+
+    /**
+     * creating required folders and path
+     * 
+     * @since   0.9.0
+     * @return  void
+     */
+    private function create_folders(): void
+    {
+        foreach (self::REQUIRED_FOLDERS as $folder) {
+            if (!Fs::dir_exists($folder)) {
+                Fs::mkdir($folder);
+            }
+        }
     }
 
     /**
@@ -43,9 +88,24 @@ class WpHook
      */
     public function deactivate(): void
     {
+        Logger::add("Starting deactivation process");
+
         $this->remove_db_tables();
 
-        Logger::add('plugin deactivated.');
+        Logger::add('Plugin deactivated');
+    }
+
+    /**
+     * create required options
+     * 
+     * @since   0.9.0
+     * @return  void
+     */
+    private function create_options(): void
+    {
+        // settings options
+        // create option with default settings
+        Settings::save([]);
     }
 
     /**
@@ -56,9 +116,11 @@ class WpHook
      */
     private function create_db_tables(): void
     {
+        Logger::add("Start creating database tables");
 
-        $exe = Db::create_tables();
-        Logger::add('database tables created.', Logger::N_MAIN, Logger::LEVEL_LOG, (array) $exe);
+        Db::create_tables();
+
+        Logger::add("Database tables created");
     }
 
     /**
@@ -69,7 +131,10 @@ class WpHook
      */
     private function remove_db_tables(): void
     {
+        Logger::add("Start removing database tables");
+
         Db::remove_tables();
-        Logger::add('database tables removed.', Logger::N_MAIN, Logger::LEVEL_LOG);
+
+        Logger::add("Database tables removed");
     }
 }
