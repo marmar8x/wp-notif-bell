@@ -408,7 +408,7 @@
         e.each(function (i) {
             var res = {
                 'name': e.eq(i).data('wpnb-res-name'),
-                'data': e.eq(i).data('wpnb-res-data'),
+                'data': e.eq(i).data('wpnb-res-data')
             };
             fetch.push(res);
         });
