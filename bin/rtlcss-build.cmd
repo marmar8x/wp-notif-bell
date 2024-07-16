@@ -35,4 +35,4 @@ for /R %fsDir% %%f in (*.rtl.css) do (
 )
 
 echo Building rtl-css files ...
-npx rtlcss -d %fsDir% -c .\assets\tsconfig.json
+npx rtlcss -d %fsDir% -c .\assets\rtlcss.json
