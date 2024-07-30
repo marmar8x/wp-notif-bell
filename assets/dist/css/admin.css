@@ -474,6 +474,7 @@ p.wpnb-txt-block.mx {
   padding: 3px 10px !important;
   font-size: 1.1rem !important;
   color: #333 !important;
+  border-radius: 0 !important;
 }
 
 .wpnb-input-slc {
@@ -489,7 +490,7 @@ p.wpnb-txt-block.mx {
 }
 .wpnb-input-row label {
   font-size: 1rem;
-  padding-bottom: 8px;
+  padding-bottom: 18px;
   padding-left: 2px;
 }
 
@@ -685,6 +686,18 @@ p.wpnb-txt-block.mx {
 }
 .wpnb-settings-field .wpnb-settings-text {
   line-height: 1.4rem;
+}
+
+.wpnb-txt-editor {
+  padding: 10px !important;
+  line-height: 1.8rem;
+  height: 250px;
+}
+
+.wpnb-preview-fr {
+  height: 200px;
+  width: 100%;
+  border: 2px #ccc dashed;
 }
 
 .wpnb-dashicon {
