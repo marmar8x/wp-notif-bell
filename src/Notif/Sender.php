@@ -14,6 +14,7 @@ use Irmmr\WpNotifBell\Helpers\Notif;
 use Irmmr\WpNotifBell\Traits\NotifTrait;
 use Irmmr\WpNotifBell\Notif\Assist\Tags;
 use Irmmr\WpNotifBell\Notif\Assist\Data as AssistData;
+use Irmmr\WpNotifBell\Notif\Assist\Formatter;
 use Irmmr\WpNotifBell\Notif\Instance\Data;
 use Irmmr\WpNotifBell\Notif\Instance\Receiver;
 use Irmmr\WpNotifBell\Traits\DateTrait;
@@ -472,6 +473,19 @@ final class Sender
     }
 
     /**
+     * get notif key after send
+     * 
+     * @since   0.9.0
+     * @return  string
+     */
+    public function get_key(): string
+    {
+        $data = $this->get_result_data();
+
+        return $data['key'] ?? '';
+    }
+
+    /**
      * send notif
      * 
      * @since   0.9.0
@@ -564,6 +578,9 @@ final class Sender
             'created_at' => $current_date,
             'updated_at' => $current_date
         ];
+
+        // clean and format data
+        $data = Formatter::encode($data);
 
         // send notification (save in db)
         $this->insert_db($data);

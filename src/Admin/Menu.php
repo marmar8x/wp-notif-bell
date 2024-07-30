@@ -69,15 +69,6 @@ class Menu
             'wpnb-settings',
             [$this, 'settings_content']
         );
-
-        add_submenu_page(
-            'wpnb-main',
-            __('About', 'wp-notif-bell'),
-            __('About', 'wp-notif-bell'),
-            'manage_options',
-            'wpnb-about',
-            [$this, 'about_content']
-        );
     }
 
     /**
@@ -89,17 +80,6 @@ class Menu
     public function main_content(): void
     {
         Partial::req('main-page', ['admin']);
-    }
-
-   /**
-     * [content -> about] get about menu content
-     * 
-     * @since    0.9.0
-     * @return   void
-     */
-    public function about_content(): void
-    {
-        Partial::req('about-page', ['admin']);
     }
 
    /**

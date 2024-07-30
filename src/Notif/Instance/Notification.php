@@ -5,9 +5,11 @@ namespace Irmmr\WpNotifBell\Notif\Instance;
 // If this file is called directly, abort.
 defined('WPINC') || die;
 
+use Irmmr\WpNotifBell\Module\TextMagic;
 use Irmmr\WpNotifBell\Notif\Assist\Data;
 use Irmmr\WpNotifBell\Notif\Assist\Tags;
 use Irmmr\WpNotifBell\Notif\Instance\Data as InstanceData;
+use Parsedown;
 use stdClass;
 
 /**
@@ -31,6 +33,12 @@ class Notification
      * @var     string
      */
     public string $sender;
+
+    /**
+     * @since   0.9.0
+     * @var     string
+     */
+    public string $format;
 
     /**
      * @since   0.9.0
@@ -111,6 +119,25 @@ class Notification
     protected array $instances = [];
 
     /**
+     * registered textmagic
+     * 
+     * @since   0.9.0
+     * @param   TextMagic   $text_magic
+     */
+    protected TextMagic $text_magic;
+
+    /**
+     * textmagic instance
+     * 
+     * @since   0.9.0
+     * @return  TextMagic
+     */
+    public function textmagic(): TextMagic
+    {
+        return $this->text_magic;
+    }
+
+    /**
      * class constructor
      * init notification data after database select
      * 
@@ -121,14 +148,23 @@ class Notification
      */
     public function __construct(stdClass $fetch, array $configs = [], array $instances = [])
     {
+        // create a textmagic module for this notif
+        $this->text_magic = new TextMagic;
+
+        // get main data for initialize notif class
         $this->configs      = $configs;
         $this->instances    = $instances;
         $this->fetch        = $fetch;
 
+        // without any data, abort
         if (empty($fetch)) {
             return;
         }
 
+        // get the text format
+        $this->format       = $fetch->format ?? 'pure-text';
+
+        // get every notif data from db fetch
         $this->key          = $fetch->key ?? '';
         $this->sender       = $fetch->sender ?? '';
         $this->title        = $fetch->title ?? '';
@@ -138,15 +174,17 @@ class Notification
         $this->create_date  = $fetch->created_at ?? '';
         $this->tags         = Tags::parse($fetch->tags ?? '');
 
-        // data
+        // data parse into Data Instance
         $data_fetch = Data::parse($fetch->data);
 
         foreach ($data_fetch as $key => $value) {
             $this->data[] = new InstanceData($key, $value);
         }
 
+        // get list of receivers as json
         $recipients = $fetch->recipients ?? '';
 
+        // convert json to a list of Receivers
         if (!empty($recipients)) {
             $this->recipients   = json_decode($fetch->recipients ?? '', true);
 
@@ -154,6 +192,17 @@ class Notification
                 $this->receivers[] = new Receiver($recipient['name'], $recipient['data']);
             }
         }
+
+        // register notif data to textmagic
+        $data_vars = [];
+
+        // extract data list for notif data
+        foreach ($this->data as $d) {
+            $data_vars[ $d->get_key() ] = $d->get_value();
+        }
+
+        // add data vars
+        $this->text_magic->set_data($data_vars);
     
         // render content
         $this->render_content();
@@ -167,10 +216,29 @@ class Notification
      */
     protected function render_content(): void
     {
-        // TextMagic
-        if ($this->configs['use_textmagic']) {
-            $this->content = $this->instances['textmagic']->render($this->content);
+        // render markdown data
+        if ($this->format === 'markdown') {
+            $parsedown = new Parsedown;
+
+            $this->content = $parsedown->text($this->content);
         }
+    }
+
+    /**
+     * get content after render
+     * $this->content           =>  pure
+     * $this->get_content()     =>  rendered
+     * 
+     * @since   0.9.0
+     * @return  string
+     */
+    public function get_content(): string
+    {
+        if ($this->configs['use_textmagic']) {
+            return $this->text_magic->render($this->content);
+        }
+
+        return $this->content;
     }
 
     // user methods

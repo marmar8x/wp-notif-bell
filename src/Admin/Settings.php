@@ -46,9 +46,11 @@ class Settings
     private function init_txt(): void
     {
         $this->txt = [
-            'sec_load'      => __('Load', 'wp-notif-bell'),
-            'tab_lightmode' => __('Light Mode', 'wp-notif-bell'),
-            'tab_debug'     => __('Debug', 'wp-notif-bell'),
+            'sec_load'       => __('Load', 'wp-notif-bell'),
+            'tab_lightmode'  => __('Light Mode', 'wp-notif-bell'),
+            'tab_debug'      => __('Debug', 'wp-notif-bell'),
+            'sec_admin'      => __('Admin', 'wp-notif-bell'),
+            'tab_ui'         => __('UI', 'wp-notif-bell'),
         ];
     }
 
@@ -226,10 +228,10 @@ class Settings
                         $field['_text'] ?? '',
                         $section,
                         $tab,
-                        [
-                            'data-wpnb-real-id' => $real_id,
-                            ...array_merge($field, $data)
-                        ]
+                        array_merge(
+                            ['data-wpnb-real-id' => $real_id],
+                            array_merge($field, $data)
+                        )
                     );
                 }
             }

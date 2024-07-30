@@ -5,6 +5,8 @@ namespace Irmmr\WpNotifBell\Admin;
 // If this file is called directly, abort.
 defined('WPINC') || die;
 
+use Irmmr\WpNotifBell\Helpers\Date;
+use Irmmr\WpNotifBell\Helpers\Option;
 use Irmmr\WpNotifBell\Notif\Assist\Tags;
 use Irmmr\WpNotifBell\Notif\Collector;
 use Irmmr\WpNotifBell\Notif\Remover;
@@ -264,7 +266,7 @@ class NotifList extends \WP_List_Table
         ], menu_page_url('wpnb-send', false));
 
         $actions = [
-            'edit' => sprintf('<a href="%s">Edit</a>', $edit_url)
+            'edit' => sprintf('<a href="%s">' . __('Edit', 'wp-notif-bell') . '</a>', $edit_url)
         ];
     
         //Return the title contents
@@ -311,20 +313,22 @@ class NotifList extends \WP_List_Table
         if ($column_name === 'recipients') {
             return count( json_decode($fetch, true) );
         } elseif ($column_name === 'date') {
-            $sent_date   = $fetch = date_i18n($item->sent_at);
+            $sent_date   = $fetch = Date::to_i18n($item->sent_at);
 
-            $create_date = date_i18n($item->created_at);
-            $update_date = date_i18n($item->updated_at);
+            $create_date = Date::to_i18n($item->created_at);
+            $update_date = Date::to_i18n($item->updated_at);
 
             if ($sent_date !== $create_date) {
                 $fetch .= '<b>';
-                if ($create_date !== $update_date) {
-                    $fetch .= '<br />' . __('Modified at', 'wp-notif-bell') . '<br />';
-                    $fetch .= $update_date;
-                } else {
-                    $fetch .= '<br />' . __('Created at', 'wp-notif-bell') . '<br />';
-                    $fetch .= $create_date;
-                }
+                $fetch .= '<br />' . __('Created at', 'wp-notif-bell') . '<br />';
+                $fetch .= $create_date;
+                $fetch .= '</b>';
+            }
+
+            if ($create_date !== $update_date) {
+                $fetch .= '<b>';
+                $fetch .= '<br />' . __('Modified at', 'wp-notif-bell') . '<br />';
+                $fetch .= $update_date;
                 $fetch .= '</b>';
             }
         } elseif ($column_name === 'tags') {

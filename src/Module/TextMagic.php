@@ -6,6 +6,9 @@ namespace Irmmr\WpNotifBell\Module;
 defined('WPINC') || die;
 
 use Irmmr\WpNotifBell\Container;
+use Irmmr\WpNotifBell\Helpers\Data;
+use Irmmr\WpNotifBell\Helpers\Date;
+use Irmmr\WpNotifBell\Helpers\Option;
 
 /**
  * Class TextMagic
@@ -29,6 +32,14 @@ class TextMagic
      * @var     array<>   $vars
      */
     public array $vars = [];
+
+    /**
+     * data with key and value
+     * 
+     * @since   0.9.0
+     * @var     array<>   $data
+     */
+    public array $data = [];
 
     /**
      * class constructor
@@ -79,6 +90,24 @@ class TextMagic
     }
 
     /**
+     * set data list of render data variables
+     * 
+     * @since   0.9.0
+     * @param   array   $data
+     * @return  self
+     */
+    public function set_data(array $data): self
+    {
+        foreach ($data as $key => $value) {
+            if (is_string($value)) {
+                $this->data[ $key ] = $value;
+            }
+        }
+
+        return $this;
+    }
+
+    /**
      * register variables with list
      * 
      * @since   0.9.0
@@ -106,6 +135,18 @@ class TextMagic
     public function has_var(string $name): bool
     {
         return array_key_exists($name, $this->vars);
+    }
+
+    /**
+     * check for data exists
+     * 
+     * @since   0.9.0
+     * @param   string   $key
+     * @return  bool
+     */
+    public function has_data(string $key): bool
+    {
+        return array_key_exists($key, $this->data);
     }
 
     /**
@@ -147,6 +188,24 @@ class TextMagic
             $var = $match[1] ?? '';
 
             return self::get_var($var);
+        });
+    }
+
+    /**
+     * [render]
+     * render data
+     * 
+     * @since   0.9.0
+     * @param   string  $text
+     * @return  string
+     */
+    protected function render_data(string $text): string
+    {
+        return self::register_callback('/\[data:([^"><]*?)\]/im', $text, function ($match) {
+            $key   = $match[1] ?? '';
+            $value = $this->data[$key] ?? '';
+            
+            return strval($value);
         });
     }
 
@@ -267,6 +326,7 @@ class TextMagic
         $text = $this->render_date($text);
         $text = $this->render_user($text);
         $text = $this->render_option($text);
+        $text = $this->render_data($text);
         $text = $this->render_vars($text);
 
         return $text;

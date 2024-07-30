@@ -274,7 +274,7 @@ function wpnb_render_settings(string $active_section = ''): void
     }
 
     $data_section = $wpnb_settings_tabs[$section_id];
-    $action_url   = menu_page_url('wpnb-settings', false);
+    $action_url   = add_query_arg('section', $section_id, menu_page_url('wpnb-settings', false));
 
     echo '<form class="pack:no-gutters wpnb-mx-0" id="wpnb_settings_form_'. $section_id .'" style="max-width: unset !important;" method="POST" action="' . $action_url . '">';
     echo '<div class="tier justify:center content:center wpnb-mx-0">';

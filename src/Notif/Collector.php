@@ -15,6 +15,7 @@ use Irmmr\WpNotifBell\Notif\Module\Database;
 use Irmmr\WpNotifBell\Notif\Module\Observer;
 use Irmmr\WpNotifBell\Notif\Module\Pagination;
 use Irmmr\WpNotifBell\Module\Query\Selector as Query;
+use Irmmr\WpNotifBell\Notif\Assist\Formatter;
 use Irmmr\WpNotifBell\Traits\ConfigTrait;
 use Irmmr\WpNotifBell\User;
 use NilPortugues\Sql\QueryBuilder\Manipulation\Select;
@@ -75,14 +76,6 @@ final class Collector
     protected Query $query;
 
     /**
-     * text magic helper
-     * 
-     * @since   0.9.0
-     * @var     TextMagic   $text_magic
-     */
-    protected TextMagic $text_magic;
-
-    /**
      * collector constructor
      * 
      * @since   0.9.0
@@ -95,30 +88,12 @@ final class Collector
         $this->pagination   = new Pagination($this);
         $this->db           = new Database;
         $this->query        = new Query($this->table_name);
-        $this->text_magic   = new TextMagic;
 
         // default configs
         $this->configs_default = $this->configs = [
             // TextMagic: render all tags and variables for a live text
             'use_textmagic' => true
         ];
-    }
-
-    /**
-     * get/render content of notification
-     * 
-     * @since   0.9.0
-     * @param   string  $content    Database table `content`
-     * @return  string  rendered
-    */
-    protected function get_content(string $content): string
-    {
-        // TextMagic
-        if ($this->get_config('use_textmagic')) {
-            $content = $this->text_magic->render($content);
-        }
-
-        return $content;
     }
 
     /**
@@ -151,10 +126,16 @@ final class Collector
      */
     public function get(): array
     {
-        $query = $this->query->get();
-        $fetch = $this->db->get_results($query, $this->query->get_builder_values());
+        $query  = $this->query->get();
+        $fetch  = (array) $this->db->get_results($query, $this->query->get_builder_values());
+        $format = [];
 
-        return (array) $fetch;
+        // decode and clean collected list
+        foreach ($fetch as $notif) {
+            $format[] = Formatter::decode($notif);
+        }
+
+        return $format;
     }
 
     /**
@@ -182,9 +163,7 @@ final class Collector
         $fetch  = $this->get();
         $result = [];
 
-        $instances = [
-            'textmagic' => $this->text_magic
-        ];
+        $instances = [];
 
         foreach ($fetch as $notif) {
             if (isset($notif->key)) {

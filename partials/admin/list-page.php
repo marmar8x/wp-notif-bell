@@ -20,12 +20,12 @@ $_notif_list = new NotifList;
 <div class="wpnb-ad-box">
     <div class="wpnb-ad-header">
         <h3 class="wpnb-ad-header-title">
-            🔔 WP Notif Bell
-            <span class="wpnb-ad-header-tab rnd org">List</span>
+            🔔 <?php _e('WP Notif Bell', 'wp-notif-bell'); ?>
+            <span class="wpnb-ad-header-tab rnd org"><?php _e('List', 'wp-notif-bell'); ?></span>
         </h3>
 
         <p class="wpnb-ad-header-text">
-            List of all notifications
+            <?php _e('List of all notifications', 'wp-notif-bell'); ?>
         </p>
     </div>
 

@@ -29,4 +29,22 @@ class Date
         $wp_date = new DateTime('now', wp_timezone());
         return $wp_date->format($format);
     }
+
+    /**
+     * convert date to i18n
+     * 
+     * @since   0.9.0
+     * @param   string   $time
+     * @return  string   $format
+     */
+    public static function to_i18n(string $time, string $format = 'Y-m-d H:i:s'): string
+    {
+        $time = strtotime($time);
+
+        if (!is_int($time)) {
+            return '';
+        }
+
+        return date_i18n($format, $time);
+    }
 }

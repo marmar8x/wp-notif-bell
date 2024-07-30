@@ -2,10 +2,10 @@
 
 namespace Irmmr\WpNotifBell\Notif\Assist;
 
-use Irmmr\WpNotifBell\Notif\Instance\Data as InstanceData;
-
 // If this file is called directly, abort.
 defined('WPINC') || die;
+
+use Irmmr\WpNotifBell\Notif\Instance\Data as InstanceData;
 
 /**
  * Class Data

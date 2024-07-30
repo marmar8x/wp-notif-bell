@@ -14,6 +14,7 @@ use Irmmr\WpNotifBell\Helpers\Notif;
 use Irmmr\WpNotifBell\Traits\Result;
 use Irmmr\WpNotifBell\Module\Query\Updater as Query;
 use Irmmr\WpNotifBell\Notif\Assist\Data as AssistData;
+use Irmmr\WpNotifBell\Notif\Assist\Formatter;
 use Irmmr\WpNotifBell\Notif\Assist\Tags;
 use Irmmr\WpNotifBell\Notif\Instance\Receiver;
 use Irmmr\WpNotifBell\Notif\Module\Database;
@@ -413,6 +414,9 @@ final class Updater
 
         // set updated date | NotifTrait
         $setter['updated_at'] = $this->get_current_date();
+
+        // format and clean data
+        $setter = Formatter::encode($setter);
 
         // set values
         $this->update()

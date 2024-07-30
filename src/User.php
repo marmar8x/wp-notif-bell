@@ -144,6 +144,10 @@ class User
     {
         $old_list = self::get_seen_list($user_id);
 
+        if (in_array($notif_id, $old_list)) {
+            return true;
+        }
+
         $old_list[] = $notif_id;
 
         $value = implode(self::SEEN_SEPARATOR, $old_list);
