@@ -15,8 +15,13 @@ defined('WPINC') || die;
  */
 trait ResultTrait
 {
-    // @since 0.9.0
-    protected const DEFAULT_RESULT = [
+    /**
+     * default results
+     * 
+     * @since   0.9.0
+     * @var     array
+     */
+    protected array $default_result = [
         'status' => 'none',
         'errors' => [],
         'data'   => []
@@ -28,7 +33,11 @@ trait ResultTrait
      * @since   0.9.0
      * @var     array
      */
-    protected array $result = self::DEFAULT_RESULT;
+    protected array $result = [
+        'status' => 'none',
+        'errors' => [],
+        'data'   => []
+    ];
 
     /**
      * set sender resault to check by others
@@ -56,7 +65,7 @@ trait ResultTrait
      */
     protected function reset_result(): void
     {
-        $this->result = self::DEFAULT_RESULT;
+        $this->result = $this->default_result;
     }
 
     /**

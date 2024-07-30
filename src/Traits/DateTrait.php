@@ -15,9 +15,6 @@ use Irmmr\WpNotifBell\Helpers\Date;
  */
 trait DateTrait
 {
-    // @since 0.9.0
-    public const DATE_FORMAT = 'Y-m-d H:i:s';
-    
     /**
      * get current date by format
      * 
@@ -26,6 +23,6 @@ trait DateTrait
      */
     private function get_current_date(): string
     {
-        return Date::by_format(self::DATE_FORMAT);
+        return Date::by_format('Y-m-d H:i:s');
     }
 }
