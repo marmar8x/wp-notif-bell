@@ -6,7 +6,6 @@ namespace Irmmr\WpNotifBell;
 defined('WPINC') || die;
 
 use Irmmr\WpNotifBell\Helpers\Option;
-use Exception;
 
 /**
  * Class Db

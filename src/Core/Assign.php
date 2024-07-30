@@ -2,11 +2,11 @@
 
 namespace Irmmr\WpNotifBell\Core;
 
-use Irmmr\WpNotifBell\Container;
-use Irmmr\WpNotifBell\Settings;
-
 // If this file is called directly, abort.
 defined('WPINC') || die;
+
+use Irmmr\WpNotifBell\Container;
+use Irmmr\WpNotifBell\Settings;
 
 /**
  * Class Assign

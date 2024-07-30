@@ -8,7 +8,6 @@ defined('WPINC') || die;
 use Irmmr\WpNotifBell\Db;
 use Irmmr\WpNotifBell\Error\Err;
 use Irmmr\WpNotifBell\Error\Stack;
-use Irmmr\WpNotifBell\Module\TextMagic;
 use Irmmr\WpNotifBell\Notif\Instance\Notification;
 use Irmmr\WpNotifBell\Notif\Instance\Receiver;
 use Irmmr\WpNotifBell\Notif\Module\Database;

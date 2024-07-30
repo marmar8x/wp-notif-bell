@@ -5,13 +5,11 @@ namespace Irmmr\WpNotifBell\Notif;
 // If this file is called directly, abort.
 defined('WPINC') || die;
 
-use Irmmr\WpNotifBell\Container;
 use Irmmr\WpNotifBell\Db;
 use Irmmr\WpNotifBell\Error\Err;
 use Irmmr\WpNotifBell\Error\Stack;
 use Irmmr\WpNotifBell\Helpers\Data;
 use Irmmr\WpNotifBell\Helpers\Notif;
-use Irmmr\WpNotifBell\Traits\Result;
 use Irmmr\WpNotifBell\Module\Query\Updater as Query;
 use Irmmr\WpNotifBell\Notif\Assist\Data as AssistData;
 use Irmmr\WpNotifBell\Notif\Assist\Formatter;

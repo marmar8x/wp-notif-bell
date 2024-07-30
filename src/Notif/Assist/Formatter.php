@@ -2,10 +2,10 @@
 
 namespace Irmmr\WpNotifBell\Notif\Assist;
 
-use stdClass;
-
 // If this file is called directly, abort.
 defined('WPINC') || die;
+
+use stdClass;
 
 /**
  * Class Formatter

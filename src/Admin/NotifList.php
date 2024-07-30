@@ -6,7 +6,6 @@ namespace Irmmr\WpNotifBell\Admin;
 defined('WPINC') || die;
 
 use Irmmr\WpNotifBell\Helpers\Date;
-use Irmmr\WpNotifBell\Helpers\Option;
 use Irmmr\WpNotifBell\Notif\Assist\Tags;
 use Irmmr\WpNotifBell\Notif\Collector;
 use Irmmr\WpNotifBell\Notif\Remover;

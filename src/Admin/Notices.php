@@ -2,10 +2,10 @@
 
 namespace Irmmr\WpNotifBell\Admin;
 
-use Irmmr\WpNotifBell\Admin\Utils\Notice;
-
 // If this file is called directly, abort.
 defined('WPINC') || die;
+
+use Irmmr\WpNotifBell\Admin\Utils\Notice;
 
 /**
  * Class Notices
