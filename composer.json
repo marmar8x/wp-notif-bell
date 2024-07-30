@@ -19,6 +19,7 @@
         }
     ],
     "require": {
-        "nilportugues/sql-query-builder": "^1.8"
+        "nilportugues/sql-query-builder": "^1.8",
+        "erusev/parsedown": "^1.7"
     }
 }
