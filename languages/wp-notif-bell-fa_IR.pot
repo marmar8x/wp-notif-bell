@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-07-30T10:55:39+00:00\n"
+"POT-Creation-Date: 2024-07-27T23:26:46+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: wp-notif-bell\n"
@@ -48,7 +48,6 @@ msgstr ""
 #: partials/admin/list-page.php:23
 #: partials/admin/main-page.php:17
 #: partials/admin/send-page.php:96
-#: partials/admin/settings-page.php:20
 msgid "WP Notif Bell"
 msgstr ""
 
@@ -66,40 +65,11 @@ msgstr ""
 msgid "User notification bell for wordpress"
 msgstr ""
 
-#: partials/admin/main-page.php:27
-msgid "This plugin is designed for implementing the notification section of WordPress. The purpose of this plugin is to create a suitable platform for designing the display section of user-specific notifications for each user."
-msgstr ""
-
-#: partials/admin/main-page.php:29
-msgid "This plugin does not automatically place a bell or notification display area in the user section, and you cannot use it simply by installing the plugin without initial implementation."
-msgstr ""
-
-#: partials/admin/main-page.php:31
-msgid "This plugin can make the task of displaying notifications very easy for you. You just need to use a bit of HTML and CSS along with the helper functions of the plugin to execute everything."
-msgstr ""
-
-#: partials/admin/main-page.php:36
-msgid "The plugin consists of 4 main sections: `sender`, `collector`, `updater`, and `remover`."
-msgstr ""
-
-#: partials/admin/main-page.php:37
-msgid "These sections essentially play the roles of `Insert`, `Select`, `Update`, and `Delete` for the database."
-msgstr ""
-
-#: partials/admin/main-page.php:38
-msgid "All four main sections of the plugin have been designed and implemented with support for %s, and you can easily use this library as well."
-msgstr ""
-
-#: partials/admin/main-page.php:42
-msgid "For more information and how to use it, be sure to check the GitHub page of the plugin:"
-msgstr ""
-
 #: partials/admin/send-page.php:27
 msgid "recommanded"
 msgstr ""
 
 #: partials/admin/send-page.php:97
-#: src/Admin/NotifList.php:269
 msgid "Edit"
 msgstr ""
 
@@ -154,8 +124,6 @@ msgid "Notification send date"
 msgstr ""
 
 #: partials/admin/send-page.php:168
-#: src/Admin/Assets.php:191
-#: src/Admin/Assets.php:192
 msgid "Empty: Auto fill"
 msgstr ""
 
@@ -171,146 +139,92 @@ msgstr ""
 msgid "Notif text ..."
 msgstr ""
 
-#: partials/admin/send-page.php:240
-msgid "You can use text magic to insert dynamic and variable text. Text magic is entered in the form of an open and closed bracket []. You can use registered variables or user-provided information."
-msgstr ""
-
-#: partials/admin/send-page.php:243
-msgid "get a variable data"
-msgstr ""
-
-#: partials/admin/send-page.php:246
-msgid "get user data from %s"
-msgstr ""
-
-#: partials/admin/send-page.php:249
-msgid "get user meta value"
-msgstr ""
-
-#: partials/admin/send-page.php:252
-msgid "get an option"
-msgstr ""
-
-#: partials/admin/send-page.php:255
-msgid "get date"
-msgstr ""
-
-#: partials/admin/send-page.php:258
-msgid "get i18n date"
-msgstr ""
-
-#: partials/admin/send-page.php:261
-msgid "get data value from `Notif Data`"
-msgstr ""
-
-#: partials/admin/send-page.php:266
+#: partials/admin/send-page.php:242
 msgid "Preview"
 msgstr ""
 
-#: partials/admin/send-page.php:266
-msgid "renew every 5 seconds"
-msgstr ""
-
-#: partials/admin/send-page.php:277
+#: partials/admin/send-page.php:253
 msgid "Receivers"
 msgstr ""
 
-#: partials/admin/send-page.php:281
+#: partials/admin/send-page.php:257
 msgid "List of notification recipients"
 msgstr ""
 
-#: partials/admin/send-page.php:287
-msgid "Defaults"
-msgstr ""
-
-#: partials/admin/send-page.php:288
+#: partials/admin/send-page.php:264
 msgid "The user's ID (exa: 3724) [int]"
 msgstr ""
 
-#: partials/admin/send-page.php:288
+#: partials/admin/send-page.php:264
 msgid "User ID (User unique ID)"
 msgstr ""
 
-#: partials/admin/send-page.php:289
+#: partials/admin/send-page.php:265
 msgid "The user's Login (exa: nova) [str]"
 msgstr ""
 
-#: partials/admin/send-page.php:289
+#: partials/admin/send-page.php:265
 msgid "User Name (User Login)"
 msgstr ""
 
-#: partials/admin/send-page.php:290
+#: partials/admin/send-page.php:266
 msgid "The user's Mail (exa: h@my.com) [e-mail]"
 msgstr ""
 
-#: partials/admin/send-page.php:290
+#: partials/admin/send-page.php:266
 msgid "User Mail (Email address)"
 msgstr ""
 
-#: partials/admin/send-page.php:291
+#: partials/admin/send-page.php:267
 msgid "The user's Role [wp-role]"
 msgstr ""
 
-#: partials/admin/send-page.php:291
+#: partials/admin/send-page.php:267
 msgid "User Role (Roles and Capabilities)"
 msgstr ""
 
-#: partials/admin/send-page.php:292
+#: partials/admin/send-page.php:268
 msgid "The command name (exa: all) [str]"
 msgstr ""
 
-#: partials/admin/send-page.php:292
+#: partials/admin/send-page.php:268
 msgid "Command (An order for groups)"
 msgstr ""
 
-#: partials/admin/send-page.php:296
+#: partials/admin/send-page.php:272
 msgid "Also"
 msgstr ""
 
-#: partials/admin/send-page.php:302
+#: partials/admin/send-page.php:278
 msgid "Easy access"
 msgstr ""
 
-#: partials/admin/send-page.php:307
+#: partials/admin/send-page.php:283
 msgid "An arbitrary value ..."
 msgstr ""
 
-#: partials/admin/send-page.php:307
-msgid "Custom"
-msgstr ""
-
-#: partials/admin/send-page.php:310
+#: partials/admin/send-page.php:286
 msgid "Custom name (Double click to return)"
 msgstr ""
 
-#: partials/admin/send-page.php:329
+#: partials/admin/send-page.php:305
 msgid "Add"
 msgstr ""
 
-#: partials/admin/send-page.php:337
+#: partials/admin/send-page.php:313
 msgid "No recipient!"
 msgstr ""
 
-#: partials/admin/send-page.php:340
+#: partials/admin/send-page.php:316
 msgid "Use \"Add\" button to add some"
 msgstr ""
 
-#: partials/admin/send-page.php:353
+#: partials/admin/send-page.php:329
 msgid "Edit notification"
 msgstr ""
 
-#: partials/admin/send-page.php:353
+#: partials/admin/send-page.php:329
 msgid "Send notification"
-msgstr ""
-
-#: partials/admin/settings-page.php:21
-#: src/Admin/Menu.php:66
-#: src/Admin/Menu.php:67
-msgid "Settings"
-msgstr ""
-
-#: partials/admin/settings-page.php:25
-msgid "Plugin settings"
 msgstr ""
 
 #: src/Admin/Ajax.php:48
@@ -341,116 +255,116 @@ msgstr ""
 msgid "No Notif were found with the entered key."
 msgstr ""
 
-#: src/Admin/Assets.php:161
+#: src/Admin/Assets.php:156
 msgid "The reseiver has no name!"
 msgstr ""
 
-#: src/Admin/Assets.php:162
+#: src/Admin/Assets.php:157
 msgid "Receiver name is unvalid! Use (a-zA-Z0-9) and \"-\" for enter receiver name."
 msgstr ""
 
-#: src/Admin/Assets.php:163
+#: src/Admin/Assets.php:158
 msgid "Please fill the data field first."
 msgstr ""
 
-#: src/Admin/Assets.php:164
-#: src/Admin/Assets.php:165
+#: src/Admin/Assets.php:159
+#: src/Admin/Assets.php:160
 msgid "The receiver is duplicate!"
 msgstr ""
 
-#: src/Admin/Assets.php:166
+#: src/Admin/Assets.php:161
 msgid "Incorrect"
 msgstr ""
 
-#: src/Admin/Assets.php:167
+#: src/Admin/Assets.php:162
 msgid "Notif Text ..."
 msgstr ""
 
-#: src/Admin/Assets.php:168
+#: src/Admin/Assets.php:163
 msgid "Markdown here ..."
 msgstr ""
 
-#: src/Admin/Assets.php:169
+#: src/Admin/Assets.php:164
 msgid "HTML here ..."
 msgstr ""
 
-#: src/Admin/Assets.php:170
+#: src/Admin/Assets.php:165
 msgid "Please wait until the notif is sent."
 msgstr ""
 
-#: src/Admin/Assets.php:171
+#: src/Admin/Assets.php:166
 msgid "Notif sender is required!"
 msgstr ""
 
-#: src/Admin/Assets.php:172
+#: src/Admin/Assets.php:167
 msgid "Notif title is required!"
 msgstr ""
 
-#: src/Admin/Assets.php:173
+#: src/Admin/Assets.php:168
 msgid "Can not send notif without content!"
 msgstr ""
 
-#: src/Admin/Assets.php:174
+#: src/Admin/Assets.php:169
 msgid "Please select notif content format!"
 msgstr ""
 
-#: src/Admin/Assets.php:175
+#: src/Admin/Assets.php:170
 msgid "You can not send notif without any receiver."
 msgstr ""
 
-#: src/Admin/Assets.php:176
+#: src/Admin/Assets.php:171
 msgid "Notif date must entered as yyyy-mm-dd hh:ii:ss or just leave it blank for auto fill."
 msgstr ""
 
-#: src/Admin/Assets.php:177
+#: src/Admin/Assets.php:172
 msgid "Please fix the following error(s):"
 msgstr ""
 
-#: src/Admin/Assets.php:178
+#: src/Admin/Assets.php:173
 msgid "Sending notification ..."
 msgstr ""
 
-#: src/Admin/Assets.php:179
+#: src/Admin/Assets.php:174
 msgid "Updating notification ..."
 msgstr ""
 
-#: src/Admin/Assets.php:180
+#: src/Admin/Assets.php:175
 msgid "Result: The notification was updated."
 msgstr ""
 
-#: src/Admin/Assets.php:181
+#: src/Admin/Assets.php:176
 msgid "Result: An error occurred while updating."
 msgstr ""
 
-#: src/Admin/Assets.php:182
+#: src/Admin/Assets.php:177
 msgid "Result: The notification was sent."
 msgstr ""
 
-#: src/Admin/Assets.php:183
+#: src/Admin/Assets.php:178
 msgid "Result: An error occurred while sending."
 msgstr ""
 
-#: src/Admin/Assets.php:185
+#: src/Admin/Assets.php:180
 msgid "Error code:"
 msgstr ""
 
-#: src/Admin/Assets.php:186
+#: src/Admin/Assets.php:181
 msgid "Error msg:"
 msgstr ""
 
-#: src/Admin/Assets.php:187
+#: src/Admin/Assets.php:182
 msgid "Errors"
 msgstr ""
 
-#: src/Admin/Assets.php:188
+#: src/Admin/Assets.php:183
 msgid "Data"
 msgstr ""
 
-#: src/Admin/Assets.php:189
+#: src/Admin/Assets.php:184
 msgid "Sender/Updater result:"
 msgstr ""
 
-#: src/Admin/Assets.php:190
+#: src/Admin/Assets.php:185
 msgid "Edit notif"
 msgstr ""
 
@@ -460,6 +374,11 @@ msgstr ""
 
 #: src/Admin/Master.php:49
 msgid "Send to Subscribers"
+msgstr ""
+
+#: src/Admin/Menu.php:66
+#: src/Admin/Menu.php:67
+msgid "Settings"
 msgstr ""
 
 #: src/Admin/Notices.php:31
@@ -478,43 +397,43 @@ msgstr ""
 msgid "The security nonce is invalid! Please refresh the page."
 msgstr ""
 
-#: src/Admin/NotifList.php:132
+#: src/Admin/NotifList.php:130
 msgid "Title"
 msgstr ""
 
-#: src/Admin/NotifList.php:133
+#: src/Admin/NotifList.php:131
 msgid "Sender"
 msgstr ""
 
-#: src/Admin/NotifList.php:134
+#: src/Admin/NotifList.php:132
 msgid "Tags"
 msgstr ""
 
-#: src/Admin/NotifList.php:135
+#: src/Admin/NotifList.php:133
 msgid "Recievers"
 msgstr ""
 
-#: src/Admin/NotifList.php:136
+#: src/Admin/NotifList.php:134
 msgid "Date"
 msgstr ""
 
-#: src/Admin/NotifList.php:153
+#: src/Admin/NotifList.php:151
 msgid "Delete"
 msgstr ""
 
-#: src/Admin/NotifList.php:323
-msgid "Created at"
-msgstr ""
-
-#: src/Admin/NotifList.php:330
+#: src/Admin/NotifList.php:322
 msgid "Modified at"
 msgstr ""
 
-#: src/Admin/NotifList.php:346
+#: src/Admin/NotifList.php:325
+msgid "Created at"
+msgstr ""
+
+#: src/Admin/NotifList.php:342
 msgid "%d more"
 msgstr ""
 
-#: src/Admin/NotifList.php:389
+#: src/Admin/NotifList.php:385
 msgid "Search"
 msgstr ""
 
