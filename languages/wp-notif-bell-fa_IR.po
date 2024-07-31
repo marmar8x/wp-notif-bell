@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Notif Bell 0.9.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-notif-bell\n"
-"POT-Creation-Date: 2024-07-30T10:55:39+00:00\n"
-"PO-Revision-Date: 2024-07-30 14:28+0330\n"
+"POT-Creation-Date: 2024-07-31T20:05:00+00:00\n"
+"PO-Revision-Date: 2024-07-31 23:36+0330\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fa_IR\n"
@@ -49,6 +49,7 @@ msgstr "ذخیره تنظیمات"
 
 #: partials/admin/list-page.php:23 partials/admin/main-page.php:17
 #: partials/admin/send-page.php:96 partials/admin/settings-page.php:20
+#: partials/admin/tools-page.php:60
 msgid "WP Notif Bell"
 msgstr "WP Notif Bell"
 
@@ -130,7 +131,7 @@ msgstr ""
 msgid "recommanded"
 msgstr "پیشنهادی"
 
-#: partials/admin/send-page.php:97 src/Admin/NotifList.php:269
+#: partials/admin/send-page.php:97 src/Admin/NotifList.php:268
 msgid "Edit"
 msgstr "ویرایش"
 
@@ -307,7 +308,7 @@ msgstr "دسترسی آسان"
 
 #: partials/admin/send-page.php:307
 msgid "An arbitrary value ..."
-msgstr "یک مقدار دلخواه"
+msgstr "یک مقدار دلخواه ..."
 
 #: partials/admin/send-page.php:307
 msgid "Custom"
@@ -345,6 +346,58 @@ msgstr "تنظیمات"
 #: partials/admin/settings-page.php:25
 msgid "Plugin settings"
 msgstr "تنظیمات افزونه"
+
+#: partials/admin/tools-page.php:35
+msgid "Database Updater"
+msgstr "بروزرسان پایگاه داده"
+
+#: partials/admin/tools-page.php:48
+msgid "The database has been successfully updated."
+msgstr "پایگاه داده با موفقیت به‌روزرسانی شده است."
+
+#: partials/admin/tools-page.php:51
+msgid "The submitted request is not valid."
+msgstr "تاریخ ارسال به صورت نادرست وارد شده."
+
+#: partials/admin/tools-page.php:61 src/Admin/Menu.php:75 src/Admin/Menu.php:76
+msgid "Tools"
+msgstr "ابزار ها"
+
+#: partials/admin/tools-page.php:65
+msgid "Tools needed"
+msgstr "ابزار های مورد نیاز"
+
+#: partials/admin/tools-page.php:83
+msgid ""
+"This tool helps you keep the tables and information related to this plugin up "
+"to date."
+msgstr ""
+"این ابزار به شما کمک می‌کند تا جداول و اطلاعات مربوط به این افزونه را به‌روز "
+"نگه دارید."
+
+#: partials/admin/tools-page.php:85
+msgid "Last version"
+msgstr "آخرین نسخه"
+
+#: partials/admin/tools-page.php:86
+msgid "Your version"
+msgstr "نسخه شما"
+
+#: partials/admin/tools-page.php:89
+msgid "The database is up to date."
+msgstr "پایگاه داده به روز است."
+
+#: partials/admin/tools-page.php:91
+msgid "The database needs to be updated."
+msgstr "پایگاه داده نیاز به به‌روزرسانی دارد."
+
+#: partials/admin/tools-page.php:92
+msgid "Update"
+msgstr "بروزرسانی"
+
+#: partials/admin/tools-page.php:97
+msgid "The desired tab does not exist."
+msgstr "فرمت وارد شده تعریف نشده است."
 
 #: src/Admin/Ajax.php:48
 msgid "The data sent is incomplete."
@@ -392,7 +445,7 @@ msgstr "لطفا ابتدا فیلد مقدار را پر کنید."
 
 #: src/Admin/Assets.php:164 src/Admin/Assets.php:165
 msgid "The receiver is duplicate!"
-msgstr "دریافت کننده تکراری است."
+msgstr "دریافت کننده تکراری است!"
 
 #: src/Admin/Assets.php:166
 msgid "Incorrect"
@@ -408,7 +461,7 @@ msgstr "مقدار Markdown ..."
 
 #: src/Admin/Assets.php:169
 msgid "HTML here ..."
-msgstr "مقدار HTML"
+msgstr "مقدار HTML ..."
 
 #: src/Admin/Assets.php:170
 msgid "Please wait until the notif is sent."
@@ -428,7 +481,7 @@ msgstr "نمی توان نوتیف را بدون محتوا ارسال کرد!"
 
 #: src/Admin/Assets.php:174
 msgid "Please select notif content format!"
-msgstr "لطفا فرمت محتوا را تعیین کنید."
+msgstr "لطفا فرمت محتوا را تعیین کنید!"
 
 #: src/Admin/Assets.php:175
 msgid "You can not send notif without any receiver."
@@ -515,45 +568,45 @@ msgstr "لطفاً حداقل 1 اعلان برای انجام اقدامات ا
 
 #: src/Admin/Notices.php:55
 msgid "The security nonce is invalid! Please refresh the page."
-msgstr "nonce امنیتی نامعتبر است! لطفا صفحه را رفرش کنید"
+msgstr "nonce امنیتی نامعتبر است! لطفا صفحه را رفرش کنید."
 
-#: src/Admin/NotifList.php:132
+#: src/Admin/NotifList.php:131
 msgid "Title"
 msgstr "عنوان"
 
-#: src/Admin/NotifList.php:133
+#: src/Admin/NotifList.php:132
 msgid "Sender"
 msgstr "ارسال کننده"
 
-#: src/Admin/NotifList.php:134
+#: src/Admin/NotifList.php:133
 msgid "Tags"
 msgstr "تگ ها"
 
-#: src/Admin/NotifList.php:135
+#: src/Admin/NotifList.php:134
 msgid "Recievers"
 msgstr "دریافت کنندگان"
 
-#: src/Admin/NotifList.php:136
+#: src/Admin/NotifList.php:135
 msgid "Date"
 msgstr "تاریخ"
 
-#: src/Admin/NotifList.php:153
+#: src/Admin/NotifList.php:152
 msgid "Delete"
 msgstr "حذف"
 
-#: src/Admin/NotifList.php:323
+#: src/Admin/NotifList.php:322
 msgid "Created at"
 msgstr "ایجاد در"
 
-#: src/Admin/NotifList.php:330
+#: src/Admin/NotifList.php:329
 msgid "Modified at"
 msgstr "ویرایش در"
 
-#: src/Admin/NotifList.php:346
+#: src/Admin/NotifList.php:345
 msgid "%d more"
 msgstr "%d دیگر"
 
-#: src/Admin/NotifList.php:389
+#: src/Admin/NotifList.php:388
 msgid "Search"
 msgstr "جست و جو"
 
@@ -577,15 +630,19 @@ msgstr "ادمین"
 msgid "UI"
 msgstr "رابط کاربری"
 
-#: src/Admin/Settings.php:142
+#: src/Admin/Settings.php:54
+msgid "Manage"
+msgstr "مدیریت"
+
+#: src/Admin/Settings.php:143
 msgid "Settings saved."
 msgstr "تنظیمات ذخیره شد."
 
-#: src/Admin/Settings.php:144
+#: src/Admin/Settings.php:145
 msgid "No changes were saved."
 msgstr "هیچ تغییری رخ نداد."
 
-#: src/Admin/Settings.php:177
+#: src/Admin/Settings.php:178
 msgid "The wpnb token is invalid."
 msgstr "توکن نامعتبر است."
 
@@ -617,19 +674,27 @@ msgstr ""
 msgid "Markdown"
 msgstr ""
 
-#: src/Settings.php:55
+#: src/Settings.php:56
 msgid "Enable"
 msgstr "فعالسازی"
 
-#: src/Settings.php:59 src/Settings.php:96
+#: src/Settings.php:60 src/Settings.php:109
 msgid "Disable"
 msgstr "غیرفعالسازی"
 
-#: src/Settings.php:69
+#: src/Settings.php:68
+msgid "Yes"
+msgstr "بله"
+
+#: src/Settings.php:72
+msgid "No"
+msgstr "خیر"
+
+#: src/Settings.php:82
 msgid "Enable LightMode"
 msgstr "فعالسازی مد سریع"
 
-#: src/Settings.php:70
+#: src/Settings.php:83
 msgid ""
 "Running light mode can reduce the process of the administrator side. Without "
 "enabling lightmode, no setting will work."
@@ -637,22 +702,22 @@ msgstr ""
 "اجرای حالت سریع می تواند روند سمت مدیر را کاهش دهد. بدون فعال کردن حالت سریع، "
 "هیچ تنظیمی کار نخواهد کرد."
 
-#: src/Settings.php:77
+#: src/Settings.php:90
 msgid "Hide Notices"
 msgstr "مخفی کردن اعلامیه ها"
 
-#: src/Settings.php:78
+#: src/Settings.php:91
 msgid ""
 "Hiding notices helps the system not do any processing to display notices."
 msgstr ""
 "پنهان کردن اعلامیه ها به سیستم کمک می کند تا هیچ پردازشی برای نمایش اعلان ها "
 "انجام ندهد."
 
-#: src/Settings.php:89
+#: src/Settings.php:102
 msgid "Debug level"
 msgstr "سطح اشکال یابی"
 
-#: src/Settings.php:90
+#: src/Settings.php:103
 msgid ""
 "You can select the plugin debug level. Active or Disable or syncing with "
 "wordpress debug?"
@@ -660,76 +725,88 @@ msgstr ""
 "می توانید سطح اشکال زدایی افزونه را انتخاب کنید. فعال یا غیرفعال یا همگام "
 "سازی با اشکال زدایی وردپرس؟"
 
-#: src/Settings.php:100
+#: src/Settings.php:113
 msgid "Active"
 msgstr "فعال"
 
-#: src/Settings.php:104
+#: src/Settings.php:117
 msgid "Sync"
 msgstr "همگام سازی"
 
-#: src/Settings.php:117
+#: src/Settings.php:130
 msgid "Text editor"
 msgstr "ادیتور متن"
 
-#: src/Settings.php:118
+#: src/Settings.php:131
 msgid "Select the text editor that plugin must use in send page and other."
 msgstr ""
 "ویرایشگر متنی را که افزونه باید در صفحه ارسال و سایر موارد استفاده کند، "
 "انتخاب کنید."
 
-#: src/Settings.php:124
+#: src/Settings.php:137
 msgid "Audo detect (by format)"
 msgstr "خودکار (بر اساس فرمت)"
 
-#: src/Settings.php:128
+#: src/Settings.php:141
 msgid "Simple textarea"
 msgstr "ناحیه متنی ساده"
 
-#: src/Settings.php:134
+#: src/Settings.php:147
 msgid "Visual text editor"
 msgstr "ویرایشگر متن بصری"
 
-#: src/Settings.php:135
+#: src/Settings.php:148
 msgid "Which visual text editor do you want to use to edit html?"
 msgstr "از کدام ویرایشگر متن بصری می خواهید برای ویرایش html استفاده کنید؟"
 
-#: src/Settings.php:141
+#: src/Settings.php:154
 msgid "Wordpress editor"
 msgstr "ادیتور وردپرس"
 
-#: src/Settings.php:145
+#: src/Settings.php:158
 msgid "Quill editor"
 msgstr "ادیتور Quill"
 
-#: src/Settings.php:151
+#: src/Settings.php:164
 msgid "Editor base"
 msgstr "پایه ویرایشگر"
 
-#: src/Settings.php:152
+#: src/Settings.php:165
 msgid "Should the usable editor be visual or code?"
 msgstr "ویرایشگر قابل استفاده باید بصری باشد یا کد؟"
 
-#: src/Settings.php:158
+#: src/Settings.php:171
 msgid "Visual"
 msgstr "بصری"
 
-#: src/Settings.php:162
+#: src/Settings.php:175
 msgid "Code"
 msgstr "کد"
 
-#: src/Settings.php:168
+#: src/Settings.php:181
 msgid "Quill editor theme"
 msgstr "تم ادیتور Quill"
 
-#: src/Settings.php:169
+#: src/Settings.php:182
 msgid "Select quill editor theme for ui view."
 msgstr "تم ویرایشگر quill را برای نمای رابط کاربری انتخاب کنید."
 
-#: src/Settings.php:175
+#: src/Settings.php:188
 msgid "Snow"
 msgstr ""
 
-#: src/Settings.php:179
+#: src/Settings.php:192
 msgid "Bubble"
 msgstr ""
+
+#: src/Settings.php:202
+msgid "Delete data with Uninstall"
+msgstr "پاک کردن داده ها با حذف نصب"
+
+#: src/Settings.php:203
+msgid ""
+"Remove all plugin data when uninstalling the plugin on the WordPress plugins "
+"page?"
+msgstr ""
+"آیا می‌خواهید هنگام حذف افزونه از صفحه افزونه‌های وردپرس، تمام داده‌های افزونه "
+"را حذف کنید؟"
