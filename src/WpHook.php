@@ -51,7 +51,7 @@ final class WpHook
         $this->create_db_tables();
 
         // save latest db version
-        Db::set_version(Db::LATEST_VERSION);
+        Db::update_tables();
 
         // run Cache preload
         Logger::preload();
@@ -90,7 +90,7 @@ final class WpHook
     {
         Logger::add("Starting deactivation process");
 
-        $this->remove_db_tables();
+        // nothing to do
 
         Logger::add('Plugin deactivated');
     }
@@ -121,20 +121,5 @@ final class WpHook
         Db::create_tables();
 
         Logger::add("Database tables created");
-    }
-
-    /**
-     * remove database tables
-     * 
-     * @since   0.9.0
-     * @return  void
-     */
-    private function remove_db_tables(): void
-    {
-        Logger::add("Start removing database tables");
-
-        Db::remove_tables();
-
-        Logger::add("Database tables removed");
     }
 }

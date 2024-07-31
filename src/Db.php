@@ -35,6 +35,7 @@ class Db
 
     /**
      * database tables
+     * 
      * @since   0.9.0
      * @var     array
      */
@@ -63,16 +64,17 @@ class Db
 
     /**
      * database table updates
+     * 
      * @since   0.9.0
      * @var     array
      */
     private static array $updates = [
-        [
-            'version'   => ['0.8.0', '=='],
-            'query'     => [
-                "DROP TABLE `%n:notifs%` IF EXISTS;"
-            ]
-        ]
+        // [
+        //     'version'   => ['==', '1.0'],
+        //     'query'     => [
+        //         "ALTER TABLE `%n:notifs%` ADD `uid` varchar(22) NOT NULL COMMENT 'merged ID';"
+        //     ]
+        // ]
     ];
 
     /**
@@ -241,5 +243,58 @@ class Db
     public static function is_last_version(): bool
     {
         return version_compare(self::LATEST_VERSION, self::get_version(), '==');
+    }
+
+    /**
+     * update process for updating db tables.
+     * + run after create tables
+     * 
+     * @since   0.9.0
+     * @return  void
+     */
+    public static function update_tables(): void
+    {
+        Logger::add("Start updating database tables.");
+
+        if (self::is_last_version()) {
+            Logger::add("The database is up to date.");
+
+            return;
+        }
+
+        global $wpdb;
+
+        $charset_collate = $wpdb->get_charset_collate();
+        $prefix          = $wpdb->prefix;
+        $version         = self::get_version();
+
+        foreach (self::$updates as $update) {
+            [$operator, $ver] = $update['version'];
+            $query            = implode(PHP_EOL, $update['query']);
+
+            $query            = self::render_query($query, [
+                'prefix' => $prefix,
+                'cc'     => $charset_collate
+            ]);
+
+            if (version_compare($version, $ver, $operator)) {
+                Logger::add("Update via the inserted query for version {$operator}{$ver}.");
+
+                $result = $wpdb->query($query);
+
+                if ($result === false) {
+                    Logger::add("Update failed.", Logger::N_MAIN, Logger::LEVEL_ERROR, [
+                        'error' => $wpdb->last_error
+                    ]);
+                } else {
+                    Logger::add("Successfully updated.");
+                }
+            }
+        }
+
+        // set latest version after update
+        self::set_version(self::LATEST_VERSION);
+
+        Logger::add("The database update process is complete.");
     }
 }
