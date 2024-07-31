@@ -51,6 +51,7 @@ class Settings
             'tab_debug'      => __('Debug', 'wp-notif-bell'),
             'sec_admin'      => __('Admin', 'wp-notif-bell'),
             'tab_ui'         => __('UI', 'wp-notif-bell'),
+            'tab_manage'     => __('Manage', 'wp-notif-bell'),
         ];
     }
 

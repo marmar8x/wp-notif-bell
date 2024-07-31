@@ -33,6 +33,7 @@ class Settings
         'admin.ui.visual_text_editor'   => 'wp',
         'admin.ui.editor_base'          => 'visual',
         'admin.ui.quill_theme'          => 'snow',
+        'admin.manage.rm_data'          => 'yes',
     ];
 
     /**
@@ -57,6 +58,18 @@ class Settings
             [
                 'value'     => 'disable',
                 '_value'    => __('Disable', 'wp-notif-bell')
+            ],
+        ];
+
+        // ready options for yes or no
+        $options_yesno = [
+            [
+                'value'     => 'yes',
+                '_value'    => __('Yes', 'wp-notif-bell')
+            ],
+            [
+                'value'     => 'no',
+                '_value'    => __('No', 'wp-notif-bell')
             ],
         ];
 
@@ -180,6 +193,18 @@ class Settings
                         'value'     => 'bubble'
                     ],
                 ]
+            ],
+        ];
+
+        // add manage section to admin
+        $settings['admin']['manage'] = [
+            [
+                '_title'        => __('Delete data with Uninstall', 'wp-notif-bell'),
+                '_text'         => __('Remove all plugin data when uninstalling the plugin on the WordPress plugins page?', 'wp-notif-bell'),
+                '_type'         => 'select',
+                'id'            => 'rm_data',
+                'required'      => 'true',
+                '_options'      => $options_yesno
             ],
         ];
 
