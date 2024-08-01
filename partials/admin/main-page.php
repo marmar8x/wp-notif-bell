@@ -40,6 +40,6 @@ defined('WPINC') || die;
     </div>
     <p>
         <?php _e('For more information and how to use it, be sure to check the GitHub page of the plugin:', 'wp-notif-bell'); ?>
-        <a href="https://github.com/irmmr/wp-notif-bell">https://github.com/irmmr/wp-notif-bell</a>
+        <a href="https://github.com/marmar8x/wp-notif-bell">https://github.com/marmar8x/wp-notif-bell</a>
     </p>
 </div>
