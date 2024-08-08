@@ -78,7 +78,13 @@ class Pagination
         if ($page <= 0) {
             $page = 1;
         }
-        
+
+        $count = $this->get_pages_count();
+
+        if ($page > $count) {
+            $page = $count;
+        }
+
         $this->page = $page;
 
         return $this;
@@ -114,5 +120,69 @@ class Pagination
             ->limit($offset, $this->per_page);
 
         return $this;
+    }
+
+    /**
+     * get all pages for using in pagination nav
+     * !! The output of this function is in the same format, but the way it works will be improved.
+     * 
+     * @since   0.9.0
+     * @param   array   $options
+     *  - ceil   => int
+     *  - btns   => bool
+     *  - pages  => bool
+     * @return  array
+     *  - type   => string  page|dot|prev-btn|next-btn
+     */
+    public function get_pages_list(array $options = [
+        'ceil'  => 2,
+        'btns'  => true
+    ]): array
+    {
+        $count  = $this->get_pages_count();
+        $active = $this->page;
+        $pages  = [];
+
+        // get options: ceil    int, 0 for disable
+        $ceil = intval($options['ceil'] ?? 3);
+
+        // hidden pages with ceil
+        $hidden_pages = [];
+
+        // apply ceil on pages
+        if (0 !== $ceil) {
+            for ($i = $count - $ceil; $i > 1; $i --) {
+                if (abs($active - $i - 1) > ($ceil - 1)) {
+                    $hidden_pages[] = $i + 1;
+                }
+            }
+        }
+
+        // render every page
+        for ($p = 1; $p <= $count; $p ++) {
+            if (in_array($p, $hidden_pages)) {
+                // do not duplicate dots
+                if (!in_array($p - 1, $hidden_pages)) {
+                    $pages[] = [ 'type' => 'dot' ];
+                }
+            } else {
+                $pages[] = ['type'  => 'page', 'page' => $p];
+            }
+        }
+
+        // check options: btns  =>  bool
+        if (boolval($options['btns'])) {
+            // add prev btn
+            if ($active > 1) {
+                array_unshift($pages, [ 'type' => 'prev-btn', 'page' => $active - 1 ]);
+            }
+
+            // add next btn
+            if ($active < $count) {
+                $pages[] = [ 'type' => 'next-btn', 'page' => $active + 1 ];
+            }
+        }
+
+        return $pages;
     }
 }
