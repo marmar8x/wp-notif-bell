@@ -42,7 +42,16 @@ const IRM_WPNB_LOGS_PATH    = IRM_WPNB_STORAGE_PATH . DIRECTORY_SEPARATOR . 'log
 function wpnb_safe_require(string ...$path)
 {
     $path = implode(DIRECTORY_SEPARATOR, $path);
-    $path = str_replace(['/', '\\\\'], '\\', $path);
+
+    if (DIRECTORY_SEPARATOR === '/') {
+        $from = ['\\', '//'];
+        $to   = '/';
+    } else {
+        $from = ['/', '\\\\'];
+        $to   = '\\';
+    }
+
+    $path = str_replace($from, $to, $path);
 
     if (file_exists($path) && is_readable($path)) {
         return require $path;

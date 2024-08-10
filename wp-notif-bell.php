@@ -30,6 +30,13 @@ defined('WPINC') || die;
 // require main config file
 $wpnb_config_file = require plugin_dir_path(__FILE__) . 'wpnb-config.php';
 
+// check if autolaod is imported
+if (is_null($wpnb_config_file['autoload'])) {
+    error_log('WPNB: Failed to load `autoload`.');
+
+    return;
+}
+
 // register an activation hook that fires when plugin acticated
 register_activation_hook(__FILE__, function () {
     (new \Irmmr\WpNotifBell\WpHook)->activate();
