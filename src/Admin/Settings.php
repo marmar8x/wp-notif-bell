@@ -52,6 +52,8 @@ class Settings
             'sec_admin'      => __('Admin', 'wp-notif-bell'),
             'tab_ui'         => __('UI', 'wp-notif-bell'),
             'tab_manage'     => __('Manage', 'wp-notif-bell'),
+            'sec_api'        => __('Api', 'wp-notif-bell'),
+            'tab_ajax'       => __('Ajax', 'wp-notif-bell'),
         ];
     }
 

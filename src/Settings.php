@@ -27,13 +27,16 @@ class Settings
         'load.lightmode.status'         => 'disable',
         'load.lightmode.hide_notices'   => 'enable',
         // Debug
-        'load.debug.level'  => 'sync',
+        'load.debug.level'              => 'sync',
         // Admin
         'admin.ui.text_editor'          => 'auto',
         'admin.ui.visual_text_editor'   => 'wp',
         'admin.ui.editor_base'          => 'visual',
         'admin.ui.quill_theme'          => 'snow',
         'admin.manage.rm_data'          => 'yes',
+        // Api
+        'api.ajax.status'               => 'enable',
+        'api.ajax.add_seen_list'        => 'enable'
     ];
 
     /**
@@ -205,6 +208,29 @@ class Settings
                 'id'            => 'rm_data',
                 'required'      => 'true',
                 '_options'      => $options_yesno
+            ],
+        ];
+
+        // add api section
+        $settings['api'] = [];
+
+        // add ajax api fields
+        $settings['api']['ajax'] = [
+            [
+                '_title'        => __('Service status', 'wp-notif-bell'),
+                '_text'         => __('Do you want the Ajax service of the plugin to be enabled?', 'wp-notif-bell'),
+                '_type'         => 'select',
+                'id'            => 'status',
+                'required'      => 'true',
+                '_options'      => $options_enable
+            ],
+            [
+                '_title'        => __('Ajax: Add seen list', 'wp-notif-bell'),
+                '_text'         => __('An Ajax specifically for adding notification IDs as seen for the user through an Ajax request.', 'wp-notif-bell'),
+                '_type'         => 'select',
+                'id'            => 'add_seen_list',
+                'required'      => 'true',
+                '_options'      => $options_enable
             ],
         ];
 
