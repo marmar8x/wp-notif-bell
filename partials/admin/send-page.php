@@ -134,7 +134,7 @@ $_editor_base = wpnb_get_setting('admin.ui.editor_base', 'visual');
                             <span class="wpnb-dashicon wpnb-txt-primary dashicons dashicons-admin-users"></span>
                             <?php _e('Notification sender', 'wp-notif-bell'); ?> <small>[a-z0-9-]</small> <i class="wpnb-txt-danger">*</i>
                         </label>
-                        <input value="<?php echo !empty($_get_field_data('sender')) ? $_get_field_data('sender') : 'manual-' . get_current_user_id(); ?>" class="wpnb-input-txt" type="text" id="wpnb_send_sender" />
+                        <input value="<?php echo !empty($_get_field_data('sender')) ? $_get_field_data('sender') : 'manual-' . get_current_user_id(); ?>" class="wpnb-input-txt" type="text" id="wpnb_send_sender" style="direction: ltr;" />
                     </div>
 
                     <div class="wpnb-input-row">
@@ -143,7 +143,7 @@ $_editor_base = wpnb_get_setting('admin.ui.editor_base', 'visual');
                             <?php _e('Notification tags', 'wp-notif-bell'); ?>
                             <small>[a-z0-9-]</small> <small class="wpnb-dt-tags-count wpnb-txt-danger">[<?php _e('Optional', 'wp-notif-bell'); ?>]</small>
                         </label>
-                        <input value="<?php echo $_get_field_data('tags'); ?>" class="wpnb-input-txt" type="text" id="wpnb_send_tags" placeholder="<?php _e('Separate tags with commas (,)', 'wp-notif-bell'); ?>" />
+                        <input value="<?php echo $_get_field_data('tags'); ?>" class="wpnb-input-txt" type="text" id="wpnb_send_tags" placeholder="<?php _e('Separate tags with commas (,)', 'wp-notif-bell'); ?>" style="direction: ltr;" />
                     </div>
                 </div>
 
@@ -167,7 +167,7 @@ $_editor_base = wpnb_get_setting('admin.ui.editor_base', 'visual');
                             <span class="wpnb-dashicon wpnb-txt-primary dashicons dashicons-admin-users"></span>
                             <?php _e('Notification send date', 'wp-notif-bell'); ?> <small>(yyyy-mm-dd HH:ii:ss)</small> <small class="wpnb-dt-date-st wpnb-txt-danger"><?php _e('Empty: Auto fill', 'wp-notif-bell'); ?></small>
                         </label>
-                        <input value="<?php echo $_get_field_data('sent_at'); ?>" class="wpnb-input-txt" type="text" id="wpnb_send_date" placeholder="Example: <?php echo Date::by_format('Y-m-d H:i:s'); ?> (<?php _e('Leave it blank for current time', 'wp-notif-bell'); ?>)" />
+                        <input value="<?php echo $_get_field_data('sent_at'); ?>" class="wpnb-input-txt" type="text" id="wpnb_send_date" placeholder="Example: <?php echo Date::by_format('Y-m-d H:i:s'); ?> (<?php _e('Leave it blank for current time', 'wp-notif-bell'); ?>)" style="direction: ltr;" />
                     </div>
                 </div>
 
