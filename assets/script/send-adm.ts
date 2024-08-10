@@ -728,6 +728,11 @@ const resetAllFields = () => {
     $(ids.notif_text_type).val( $(ids.notif_text_type).find("option:first").val() );
 
     $(ids.res_area).find(cls.res_loop).remove();
+
+
+
+    saveTextStatic('');
+    syncEditors();
 }
 
 // code mirror: markdown editor
