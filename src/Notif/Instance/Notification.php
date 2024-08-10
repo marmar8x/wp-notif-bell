@@ -24,6 +24,12 @@ class Notification
 {
     /**
      * @since   0.9.0
+     * @var     int
+     */
+    public int $id;
+
+    /**
+     * @since   0.9.0
      * @var     string
      */
     public string $key;
@@ -165,6 +171,7 @@ class Notification
         $this->format       = $fetch->format ?? 'pure-text';
 
         // get every notif data from db fetch
+        $this->id           = intval($fetch->id ?? 0);
         $this->key          = $fetch->key ?? '';
         $this->sender       = $fetch->sender ?? '';
         $this->title        = $fetch->title ?? '';
