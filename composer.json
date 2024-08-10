@@ -9,7 +9,8 @@
         },
         "files": [
             "include/settings.php",
-            "include/notification.php"
+            "include/notification.php",
+            "include/user.php"
         ]
     },
     "authors": [
