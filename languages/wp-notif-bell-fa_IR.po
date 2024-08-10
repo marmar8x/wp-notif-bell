@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Notif Bell 0.9.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-notif-bell\n"
-"POT-Creation-Date: 2024-07-31T20:05:00+00:00\n"
-"PO-Revision-Date: 2024-07-31 23:36+0330\n"
+"POT-Creation-Date: 2024-08-08T20:27:00+00:00\n"
+"PO-Revision-Date: 2024-08-09 00:01+0330\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fa_IR\n"
@@ -23,24 +23,27 @@ msgstr "زنگ اعلان"
 
 #. Plugin URI of the plugin
 #: E:\xampp\htdocs\wordpress\wp-content\plugins\wp-notif-bell\wp-notif-bell.php
-msgid "#"
+msgid "https://github.com/marmar8x/wp-notif-bell"
 msgstr ""
 
 #. Description of the plugin
 #: E:\xampp\htdocs\wordpress\wp-content\plugins\wp-notif-bell\wp-notif-bell.php
+#, fuzzy
+#| msgid ""
+#| "This plugin contains some features to create a notification bell for theme "
+#| "and site."
 msgid ""
-"This plugin contains some features to create a notification bell for theme "
-"and site."
+"This plugin implements the user notification section for a WordPress website."
 msgstr "این افزونه دارای ویژگی هایی برای ایجاد زنگ اعلان برای تم و سایت است."
 
 #. Author of the plugin
 #: E:\xampp\htdocs\wordpress\wp-content\plugins\wp-notif-bell\wp-notif-bell.php
-msgid "Irmmr"
+msgid "MarMar8x"
 msgstr ""
 
 #. Author URI of the plugin
 #: E:\xampp\htdocs\wordpress\wp-content\plugins\wp-notif-bell\wp-notif-bell.php
-msgid "https://t.me/irmmr"
+msgid "https://github.com/marmar8x"
 msgstr ""
 
 #: include/admin/settings.php:304
@@ -92,8 +95,8 @@ msgid ""
 "the plugin to execute everything."
 msgstr ""
 "این افزونه می‌تواند کار نمایش اعلان‌ها را برای شما بسیار آسان کند. شما فقط نیاز "
-"دارید کمی HTML و CSS به همراه توابع کمکی این افزونه استفاده کنید تا همه چیز "
-"را اجرا کنید."
+"دارید کمی HTML و CSS به همراه توابع کمکی این افزونه استفاده کنید تا همه چیز را "
+"اجرا کنید."
 
 #: partials/admin/main-page.php:36
 msgid ""
@@ -105,8 +108,8 @@ msgstr ""
 
 #: partials/admin/main-page.php:37
 msgid ""
-"These sections essentially play the roles of `Insert`, `Select`, `Update`, "
-"and `Delete` for the database."
+"These sections essentially play the roles of `Insert`, `Select`, `Update`, and "
+"`Delete` for the database."
 msgstr ""
 "این بخش‌ها اساساً نقش‌های `Insert`، `Select`، `Update` و `Delete` را برای پایگاه "
 "داده ایفا می‌کنند."
@@ -116,16 +119,15 @@ msgid ""
 "All four main sections of the plugin have been designed and implemented with "
 "support for %s, and you can easily use this library as well."
 msgstr ""
-"تمام چهار بخش اصلی این پلاگین با پشتیبانی از %s طراحی و پیاده‌سازی شده‌اند و "
-"شما می‌توانید به راحتی از این کتابخانه نیز استفاده کنید."
+"تمام چهار بخش اصلی این پلاگین با پشتیبانی از %s طراحی و پیاده‌سازی شده‌اند و شما "
+"می‌توانید به راحتی از این کتابخانه نیز استفاده کنید."
 
 #: partials/admin/main-page.php:42
 msgid ""
 "For more information and how to use it, be sure to check the GitHub page of "
 "the plugin:"
 msgstr ""
-"برای اطلاعات بیشتر و نحوه استفاده از آن، حتماً صفحه گیت‌هاب پلاگین را بررسی "
-"کنید:"
+"برای اطلاعات بیشتر و نحوه استفاده از آن، حتماً صفحه گیت‌هاب پلاگین را بررسی کنید:"
 
 #: partials/admin/send-page.php:27
 msgid "recommanded"
@@ -207,8 +209,8 @@ msgid ""
 "variables or user-provided information."
 msgstr ""
 "شما می‌توانید از متن جادوئی برای وارد کردن متن‌های پویا و متغیر استفاده کنید. "
-"متن جادوئی به صورت یک براکت باز و بسته [] وارد می‌شود. شما می‌توانید از "
-"متغیرهای ثبت شده یا اطلاعات ارائه شده توسط کاربر استفاده کنید."
+"متن جادوئی به صورت یک براکت باز و بسته [] وارد می‌شود. شما می‌توانید از متغیرهای "
+"ثبت شده یا اطلاعات ارائه شده توسط کاربر استفاده کنید."
 
 #: partials/admin/send-page.php:243
 msgid "get a variable data"
@@ -372,8 +374,8 @@ msgid ""
 "This tool helps you keep the tables and information related to this plugin up "
 "to date."
 msgstr ""
-"این ابزار به شما کمک می‌کند تا جداول و اطلاعات مربوط به این افزونه را به‌روز "
-"نگه دارید."
+"این ابزار به شما کمک می‌کند تا جداول و اطلاعات مربوط به این افزونه را به‌روز نگه "
+"دارید."
 
 #: partials/admin/tools-page.php:85
 msgid "Last version"
@@ -424,7 +426,7 @@ msgstr "فرمت وارد شده تعریف نشده است."
 msgid "Unknown error"
 msgstr "خطای نامشخص"
 
-#: src/Admin/Ajax.php:244
+#: src/Admin/Ajax.php:246
 msgid "No Notif were found with the entered key."
 msgstr "هیچ نوتیفی با کلید وارد شده پیدا نشد."
 
@@ -489,8 +491,8 @@ msgstr "شما نمی توانید نوتیف را بدون هیچ دریافت 
 
 #: src/Admin/Assets.php:176
 msgid ""
-"Notif date must entered as yyyy-mm-dd hh:ii:ss or just leave it blank for "
-"auto fill."
+"Notif date must entered as yyyy-mm-dd hh:ii:ss or just leave it blank for auto "
+"fill."
 msgstr ""
 "تاریخ ارسال باید درست وارد شود. برای پر کردن خودکار به صورت خالی رها کنید."
 
@@ -634,15 +636,23 @@ msgstr "رابط کاربری"
 msgid "Manage"
 msgstr "مدیریت"
 
-#: src/Admin/Settings.php:143
+#: src/Admin/Settings.php:55
+msgid "Api"
+msgstr ""
+
+#: src/Admin/Settings.php:56
+msgid "Ajax"
+msgstr "ایجکس"
+
+#: src/Admin/Settings.php:145
 msgid "Settings saved."
 msgstr "تنظیمات ذخیره شد."
 
-#: src/Admin/Settings.php:145
+#: src/Admin/Settings.php:147
 msgid "No changes were saved."
 msgstr "هیچ تغییری رخ نداد."
 
-#: src/Admin/Settings.php:178
+#: src/Admin/Settings.php:180
 msgid "The wpnb token is invalid."
 msgstr "توکن نامعتبر است."
 
@@ -674,27 +684,27 @@ msgstr ""
 msgid "Markdown"
 msgstr ""
 
-#: src/Settings.php:56
+#: src/Settings.php:59
 msgid "Enable"
 msgstr "فعالسازی"
 
-#: src/Settings.php:60 src/Settings.php:109
+#: src/Settings.php:63 src/Settings.php:112
 msgid "Disable"
 msgstr "غیرفعالسازی"
 
-#: src/Settings.php:68
+#: src/Settings.php:71
 msgid "Yes"
 msgstr "بله"
 
-#: src/Settings.php:72
+#: src/Settings.php:75
 msgid "No"
 msgstr "خیر"
 
-#: src/Settings.php:82
+#: src/Settings.php:85
 msgid "Enable LightMode"
 msgstr "فعالسازی مد سریع"
 
-#: src/Settings.php:83
+#: src/Settings.php:86
 msgid ""
 "Running light mode can reduce the process of the administrator side. Without "
 "enabling lightmode, no setting will work."
@@ -702,111 +712,129 @@ msgstr ""
 "اجرای حالت سریع می تواند روند سمت مدیر را کاهش دهد. بدون فعال کردن حالت سریع، "
 "هیچ تنظیمی کار نخواهد کرد."
 
-#: src/Settings.php:90
+#: src/Settings.php:93
 msgid "Hide Notices"
 msgstr "مخفی کردن اعلامیه ها"
 
-#: src/Settings.php:91
-msgid ""
-"Hiding notices helps the system not do any processing to display notices."
+#: src/Settings.php:94
+msgid "Hiding notices helps the system not do any processing to display notices."
 msgstr ""
 "پنهان کردن اعلامیه ها به سیستم کمک می کند تا هیچ پردازشی برای نمایش اعلان ها "
 "انجام ندهد."
 
-#: src/Settings.php:102
+#: src/Settings.php:105
 msgid "Debug level"
 msgstr "سطح اشکال یابی"
 
-#: src/Settings.php:103
+#: src/Settings.php:106
 msgid ""
 "You can select the plugin debug level. Active or Disable or syncing with "
 "wordpress debug?"
 msgstr ""
-"می توانید سطح اشکال زدایی افزونه را انتخاب کنید. فعال یا غیرفعال یا همگام "
-"سازی با اشکال زدایی وردپرس؟"
+"می توانید سطح اشکال زدایی افزونه را انتخاب کنید. فعال یا غیرفعال یا همگام سازی "
+"با اشکال زدایی وردپرس؟"
 
-#: src/Settings.php:113
+#: src/Settings.php:116
 msgid "Active"
 msgstr "فعال"
 
-#: src/Settings.php:117
+#: src/Settings.php:120
 msgid "Sync"
 msgstr "همگام سازی"
 
-#: src/Settings.php:130
+#: src/Settings.php:133
 msgid "Text editor"
 msgstr "ادیتور متن"
 
-#: src/Settings.php:131
+#: src/Settings.php:134
 msgid "Select the text editor that plugin must use in send page and other."
 msgstr ""
-"ویرایشگر متنی را که افزونه باید در صفحه ارسال و سایر موارد استفاده کند، "
-"انتخاب کنید."
+"ویرایشگر متنی را که افزونه باید در صفحه ارسال و سایر موارد استفاده کند، انتخاب "
+"کنید."
 
-#: src/Settings.php:137
+#: src/Settings.php:140
 msgid "Audo detect (by format)"
 msgstr "خودکار (بر اساس فرمت)"
 
-#: src/Settings.php:141
+#: src/Settings.php:144
 msgid "Simple textarea"
 msgstr "ناحیه متنی ساده"
 
-#: src/Settings.php:147
+#: src/Settings.php:150
 msgid "Visual text editor"
 msgstr "ویرایشگر متن بصری"
 
-#: src/Settings.php:148
+#: src/Settings.php:151
 msgid "Which visual text editor do you want to use to edit html?"
 msgstr "از کدام ویرایشگر متن بصری می خواهید برای ویرایش html استفاده کنید؟"
 
-#: src/Settings.php:154
+#: src/Settings.php:157
 msgid "Wordpress editor"
 msgstr "ادیتور وردپرس"
 
-#: src/Settings.php:158
+#: src/Settings.php:161
 msgid "Quill editor"
 msgstr "ادیتور Quill"
 
-#: src/Settings.php:164
+#: src/Settings.php:167
 msgid "Editor base"
 msgstr "پایه ویرایشگر"
 
-#: src/Settings.php:165
+#: src/Settings.php:168
 msgid "Should the usable editor be visual or code?"
 msgstr "ویرایشگر قابل استفاده باید بصری باشد یا کد؟"
 
-#: src/Settings.php:171
+#: src/Settings.php:174
 msgid "Visual"
 msgstr "بصری"
 
-#: src/Settings.php:175
+#: src/Settings.php:178
 msgid "Code"
 msgstr "کد"
 
-#: src/Settings.php:181
+#: src/Settings.php:184
 msgid "Quill editor theme"
 msgstr "تم ادیتور Quill"
 
-#: src/Settings.php:182
+#: src/Settings.php:185
 msgid "Select quill editor theme for ui view."
 msgstr "تم ویرایشگر quill را برای نمای رابط کاربری انتخاب کنید."
 
-#: src/Settings.php:188
+#: src/Settings.php:191
 msgid "Snow"
 msgstr ""
 
-#: src/Settings.php:192
+#: src/Settings.php:195
 msgid "Bubble"
 msgstr ""
 
-#: src/Settings.php:202
+#: src/Settings.php:205
 msgid "Delete data with Uninstall"
 msgstr "پاک کردن داده ها با حذف نصب"
 
-#: src/Settings.php:203
+#: src/Settings.php:206
 msgid ""
 "Remove all plugin data when uninstalling the plugin on the WordPress plugins "
 "page?"
 msgstr ""
-"آیا می‌خواهید هنگام حذف افزونه از صفحه افزونه‌های وردپرس، تمام داده‌های افزونه "
-"را حذف کنید؟"
+"آیا می‌خواهید هنگام حذف افزونه از صفحه افزونه‌های وردپرس، تمام داده‌های افزونه را "
+"حذف کنید؟"
+
+#: src/Settings.php:220
+msgid "Service status"
+msgstr "وضعیت سرویس"
+
+#: src/Settings.php:221
+msgid "Do you want the Ajax service of the plugin to be enabled?"
+msgstr "آیا می خواهید بخش ایجکس برای افزونه فعال شود؟"
+
+#: src/Settings.php:228
+msgid "Ajax: Add seen list"
+msgstr "ایجکس: اضافه به لیست مشاهده"
+
+#: src/Settings.php:229
+msgid ""
+"An Ajax specifically for adding notification IDs as seen for the user through "
+"an Ajax request."
+msgstr ""
+"یک درخواست ایجکس برای اضافه کردن شناسه نوتیف ها به لیست مشاهده شده های کاربر."
