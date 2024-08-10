@@ -169,7 +169,7 @@ class Ajax
                 'msg'   => $this->get_error_msg($error)
             ]);
 
-            return;
+            exit;
         }
 
         // create a notif sender
@@ -205,6 +205,8 @@ class Ajax
 
         // show the sender result
         wp_send_json_success($nb_sender->get_result_esc());
+
+        exit;
     }
 
 
@@ -233,7 +235,7 @@ class Ajax
                 'msg'   => $this->get_error_msg($error)
             ]);
 
-            return;
+            exit;
         }
 
         // check if notif exists for updating (std)
@@ -244,7 +246,7 @@ class Ajax
                     'msg'   => __('No Notif were found with the entered key.', 'wp-notif-bell')
                 ]);
     
-                return;
+                exit;
             }
         }
 
@@ -283,5 +285,7 @@ class Ajax
 
         // show the sender result
         wp_send_json_success($nb_updater->get_result_esc());
+
+        exit;
     }
 }
