@@ -5,7 +5,8 @@ namespace Irmmr\WpNotifBell\Notif\Module;
 // If this file is called directly, abort.
 defined('WPINC') || die;
 
-use Irmmr\WpNotifBell\Module\QuerySelector;
+use Irmmr\WpNotifBell\Db;
+use Irmmr\WpNotifBell\Module\Query\Selector as QuerySelector;
 use Irmmr\WpNotifBell\Notif\Collector;
 
 /**
@@ -26,7 +27,7 @@ class Observer
     // the meta_key name for `usermeta` where we store
     // seen notif ids
     // @since 0.9.0
-    protected const META_KEY = 'wpnb_list_seen';
+    protected const META_KEY = 'wpnb_seen_list';
 
     /**
      * collector, main notif collector
@@ -105,10 +106,13 @@ class Observer
         global $wpdb;
 
         // get database prefix
-        $db_prefix  = $wpdb->prefix;
+        //$db_prefix  = $wpdb->prefix;
 
         // get `usermeta` table name
-        $user_meta_table = $db_prefix . 'usermeta';
+        $user_meta_table = $wpdb->usermeta;
+
+        // get notifs table name
+        $notifs_table = Db::get_name('notifs', $wpdb->prefix);
 
         // create new mysql query
         $meta_query = new QuerySelector($user_meta_table);
@@ -120,7 +124,7 @@ class Observer
             ->where()
                 ->equals('meta_key', self::META_KEY)
                 ->equals('user_id', $this->user->ID)
-                ->asLiteral('find_in_set(wp_nb_notifs.id,wp_usermeta.meta_value)')
+                ->asLiteral("find_in_set({$notifs_table}.id,{$user_meta_table}.meta_value)")
                 ->end();
         
         // create final query with prepared values
