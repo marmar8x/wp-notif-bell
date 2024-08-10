@@ -7,6 +7,7 @@ defined('WPINC') || die;
 
 use Irmmr\WpNotifBell\Admin\Master;
 use Irmmr\WpNotifBell\Core\Access;
+use Irmmr\WpNotifBell\Core\Api;
 use Irmmr\WpNotifBell\Core\Assign;
 use Irmmr\WpNotifBell\Core\Notif;
 
@@ -31,6 +32,7 @@ final class Processor
         new Assign;
         new Access;
         new Notif;
+        new Api;
     }
 
     /**
