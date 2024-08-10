@@ -116,6 +116,10 @@ class Pagination
     {
         $offset = ($this->page - 1) * $this->per_page;
 
+        if ($offset < 0) {
+            $offset = 0;
+        }
+
         $this->collector->select()
             ->limit($offset, $this->per_page);
 
