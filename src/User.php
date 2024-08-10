@@ -5,7 +5,7 @@ namespace Irmmr\WpNotifBell;
 // If this file is called directly, abort.
 defined('WPINC') || die;
 
-use Irmmr\WpNotifBell\Module\QuerySelector;
+use Irmmr\WpNotifBell\Module\Query\Selector as QuerySelector;
 use Irmmr\WpNotifBell\Notif\Module\Database;
 
 /**
@@ -70,7 +70,7 @@ class User
     }
 
     /**
-     * get user name by user id
+     * get user ide
      * 
      * @since   0.9.0
      * @param   int|WP_User $user
@@ -119,7 +119,7 @@ class User
      * 
      * @since   0.9.0
      * @param   int $user_id
-     * @return  array
+     * @return  array<number>
      */
     public static function get_seen_list(int $user_id): array
     {
@@ -129,7 +129,15 @@ class User
             return [];
         }
 
-        return explode(self::SEEN_SEPARATOR, $list);
+        $fetch = explode(self::SEEN_SEPARATOR, $list);
+
+        $fetch = array_map(function ($i) {
+            return intval($i);
+        }, $fetch);
+
+        return array_filter($fetch, function ($i) {
+            return $i !== 0;
+        });
     }
 
     /**
