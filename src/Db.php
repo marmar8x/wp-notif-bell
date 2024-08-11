@@ -132,7 +132,7 @@ class Db
      * @param   string  $name
      * @return  string
      */
-    public static function table_name(string $name): string
+    public static function get_table_name(string $name): string
     {
         if (!array_key_exists($name, self::TABLES_NAME)) {
             return '';

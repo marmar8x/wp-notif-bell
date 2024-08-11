@@ -91,7 +91,7 @@ final class Updater
      */
     public function __construct()
     {
-        $this->table_name   = Db::table_name('notifs');
+        $this->table_name   = Db::get_table_name('notifs');
 
         $this->query        = new Query($this->table_name);
         $this->errors       = new Stack;

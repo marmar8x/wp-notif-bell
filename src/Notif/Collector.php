@@ -81,7 +81,7 @@ final class Collector
      */
     public function __construct()
     {
-        $this->table_name   = Db::table_name('notifs');
+        $this->table_name   = Db::get_table_name('notifs');
 
         $this->errors       = new Stack;
         $this->pagination   = new Pagination($this);
