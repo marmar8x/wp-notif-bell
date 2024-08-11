@@ -51,9 +51,9 @@ class Assets
         wp_enqueue_style('irm_lib_centum', IRM_WP_NOTIF_BELL_URL . 'assets/lib/centum/centum.min.css', false, '1.0.4');
 
         if ($is_rtl) {
-            wp_enqueue_style('wpnb_core_rtl', IRM_WP_NOTIF_BELL_URL . 'assets/dist/css/admin.rtl.css?refID=932fegfre1', false, IRM_WP_NOTIF_BELL_VER);
+            wp_enqueue_style('wpnb_core_rtl', IRM_WP_NOTIF_BELL_URL . 'assets/dist/css/admin.rtl.css?refID=9g854e1', false, IRM_WP_NOTIF_BELL_VER);
         } else {
-            wp_enqueue_style('wpnb_core_ltr', IRM_WP_NOTIF_BELL_URL . 'assets/dist/css/admin.css?refID=98hge21', false, IRM_WP_NOTIF_BELL_VER);
+            wp_enqueue_style('wpnb_core_ltr', IRM_WP_NOTIF_BELL_URL . 'assets/dist/css/admin.css?refID=98fr42311', false, IRM_WP_NOTIF_BELL_VER);
         }
 
         $current_screen = get_current_screen();
