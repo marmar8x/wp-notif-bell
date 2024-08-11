@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Notif Bell 0.9.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-notif-bell\n"
-"POT-Creation-Date: 2024-08-08T20:27:00+00:00\n"
-"PO-Revision-Date: 2024-08-09 00:01+0330\n"
+"POT-Creation-Date: 2024-08-11T21:51:58+00:00\n"
+"PO-Revision-Date: 2024-08-12 01:22+0330\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fa_IR\n"
@@ -28,10 +28,6 @@ msgstr ""
 
 #. Description of the plugin
 #: E:\xampp\htdocs\wordpress\wp-content\plugins\wp-notif-bell\wp-notif-bell.php
-#, fuzzy
-#| msgid ""
-#| "This plugin contains some features to create a notification bell for theme "
-#| "and site."
 msgid ""
 "This plugin implements the user notification section for a WordPress website."
 msgstr "این افزونه دارای ویژگی هایی برای ایجاد زنگ اعلان برای تم و سایت است."
@@ -393,7 +389,7 @@ msgstr "پایگاه داده به روز است."
 msgid "The database needs to be updated."
 msgstr "پایگاه داده نیاز به به‌روزرسانی دارد."
 
-#: partials/admin/tools-page.php:92
+#: partials/admin/tools-page.php:92 src/Admin/Notices.php:81
 msgid "Update"
 msgstr "بروزرسانی"
 
@@ -556,21 +552,29 @@ msgstr "ارسال به تمامی کاربران"
 msgid "Send to Subscribers"
 msgstr "ارسال به تمامی مشترکان"
 
-#: src/Admin/Notices.php:31
+#: src/Admin/Notices.php:32
 msgid "All notifications you selected have been successfully removed."
 msgstr "همه اعلان‌هایی که انتخاب کردید با موفقیت حذف شدند."
 
-#: src/Admin/Notices.php:39
+#: src/Admin/Notices.php:40
 msgid "Your request could not be processed."
 msgstr "درخواست شما قابل پردازش نیست."
 
-#: src/Admin/Notices.php:47
+#: src/Admin/Notices.php:48
 msgid "Please select at least 1 notif to take actions."
 msgstr "لطفاً حداقل 1 اعلان برای انجام اقدامات انتخاب کنید."
 
-#: src/Admin/Notices.php:55
+#: src/Admin/Notices.php:56
 msgid "The security nonce is invalid! Please refresh the page."
 msgstr "nonce امنیتی نامعتبر است! لطفا صفحه را رفرش کنید."
+
+#: src/Admin/Notices.php:80
+msgid ""
+"The plugin database is outdated and needs to be updated. Please update the "
+"database now by going to the tools section."
+msgstr ""
+"دیتابیس افزونه بروز نیست و نیاز به بروزرسانی دارد. لطفا همین حالا با ورود به "
+"بخش ابزار ها دیتابیس را بروز کنید."
 
 #: src/Admin/NotifList.php:131
 msgid "Title"

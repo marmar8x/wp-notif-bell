@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-08-08T20:27:00+00:00\n"
+"POT-Creation-Date: 2024-08-11T21:51:58+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: wp-notif-bell\n"
@@ -357,6 +357,7 @@ msgid "The database needs to be updated."
 msgstr ""
 
 #: partials/admin/tools-page.php:92
+#: src/Admin/Notices.php:81
 msgid "Update"
 msgstr ""
 
@@ -513,20 +514,24 @@ msgstr ""
 msgid "Send to Subscribers"
 msgstr ""
 
-#: src/Admin/Notices.php:31
+#: src/Admin/Notices.php:32
 msgid "All notifications you selected have been successfully removed."
 msgstr ""
 
-#: src/Admin/Notices.php:39
+#: src/Admin/Notices.php:40
 msgid "Your request could not be processed."
 msgstr ""
 
-#: src/Admin/Notices.php:47
+#: src/Admin/Notices.php:48
 msgid "Please select at least 1 notif to take actions."
 msgstr ""
 
-#: src/Admin/Notices.php:55
+#: src/Admin/Notices.php:56
 msgid "The security nonce is invalid! Please refresh the page."
+msgstr ""
+
+#: src/Admin/Notices.php:80
+msgid "The plugin database is outdated and needs to be updated. Please update the database now by going to the tools section."
 msgstr ""
 
 #: src/Admin/NotifList.php:131
