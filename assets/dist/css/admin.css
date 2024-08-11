@@ -700,6 +700,10 @@ p.wpnb-txt-block.mx {
   border: 2px #ccc dashed;
 }
 
+.wpnb-btn-adm {
+  margin: 0 10px !important;
+}
+
 .wpnb-dashicon {
   line-height: 0.8rem !important;
 }
