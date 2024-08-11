@@ -6,6 +6,7 @@ namespace Irmmr\WpNotifBell\Admin;
 defined('WPINC') || die;
 
 use Irmmr\WpNotifBell\Admin\Utils\Notice;
+use Irmmr\WpNotifBell\Db;
 
 /**
  * Class Notices
@@ -67,6 +68,23 @@ class Notices
     }
 
     /**
+     * add all auto notices
+     * 
+     * @since   0.9.0
+     * @return  void
+     */
+    protected function add_auto_notices(): void
+    {
+        // check plugin database version
+        if (!Db::is_last_version()) {
+            $message = __('The plugin database is outdated and needs to be updated. Please update the database now by going to the tools section.', 'wp-notif-bell');
+            $message .= sprintf('<a class="button wpnb-btn-adm" href="%s">%s</a>', menu_page_url('wpnb-tools', false), __('Update', 'wp-notif-bell'));
+
+            Notice::print($message, Notice::ERROR, false);
+        }
+    }
+
+    /**
      * class constructor
      * 
      * @since    0.9.0
@@ -94,5 +112,6 @@ class Notices
         }
 
         // auto notices
+        $this->add_auto_notices();
     }
 }
