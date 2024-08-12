@@ -235,7 +235,7 @@ $_editor_base = wpnb_get_setting('admin.ui.editor_base', 'visual');
                             </div>
                         </div>
 
-                        <div class="cell:50">
+                        <div class="cell:100 cell-sm:50">
                             <h4>Text Magic</h4>
                             <?php _e('You can use text magic to insert dynamic and variable text. Text magic is entered in the form of an open and closed bracket []. You can use registered variables or user-provided information.', 'wp-notif-bell'); ?>
                             <ul>
@@ -262,7 +262,7 @@ $_editor_base = wpnb_get_setting('admin.ui.editor_base', 'visual');
                                 </li>
                             </ul>
                         </div>
-                        <div class="cell:50">
+                        <div class="cell:100 cell-sm:50">
                             <h4><?php _e('Preview', 'wp-notif-bell'); ?> <small>(<?php _e('renew every 5 seconds', 'wp-notif-bell'); ?>)</small></h4>
                             <iframe class="wpnb-preview-fr" id="wpnb_preview_frame"></iframe>
                         </div>
@@ -271,7 +271,7 @@ $_editor_base = wpnb_get_setting('admin.ui.editor_base', 'visual');
 
                 <div class="cell:100 wpnb-res-block">
                     <div class="tier content:center items:center">
-                        <div class="cell:30">
+                        <div class="cell:100 cell-sm:30">
                             <h3 class="wpnb-top-title">
                                 <span class="wpnb-dashicon wpnb-txt-primary dashicons dashicons-buddicons-pm"></span>
                                 <?php _e('Receivers', 'wp-notif-bell'); ?>
@@ -281,7 +281,7 @@ $_editor_base = wpnb_get_setting('admin.ui.editor_base', 'visual');
                             <span><?php _e('List of notification recipients', 'wp-notif-bell'); ?></span>
                         </div>
 
-                        <div class="cell:30">
+                        <div class="cell:100 cell-sm:30">
                             <div class="wpnb-input-row">
                                 <select id="wpnb_send_res_form_name_slc" class="wpnb-input-slc">
                                     <optgroup label="<?php _e('Defaults', 'wp-notif-bell'); ?>">
@@ -311,7 +311,7 @@ $_editor_base = wpnb_get_setting('admin.ui.editor_base', 'visual');
                             </div>
                         </div>
 
-                        <div class="cell:30">
+                        <div class="cell:100 cell-sm:30">
                             <div class="wpnb-input-row">
                                 <input class="wpnb-input-txt" type="text" id="wpnb_send_res_form_data" />
 
@@ -324,7 +324,7 @@ $_editor_base = wpnb_get_setting('admin.ui.editor_base', 'visual');
                             </div>
                         </div>
 
-                        <div class="cell:10">
+                        <div class="cell:100 cell-sm:10">
                             <button class="button button-primary" id="wpnb_res_add_btn">
                             <?php _e('Add', 'wp-notif-bell'); ?>
                             </button>
