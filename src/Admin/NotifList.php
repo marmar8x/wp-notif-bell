@@ -96,6 +96,16 @@ class NotifList extends \WP_List_Table
             $order = 'DESC';
         }
 
+        // for prevent db error: Unknown column 'wp_nb_notifs.X' in 'order clause'
+        $valid_orders = [
+            'id', 'key', 'title', 'content', 'tags', 'format',
+            'sent_at', 'created_at', 'updated_at'
+        ];
+
+        if (!in_array($orderby, $valid_orders)) {
+            $orderby = 'sent_at';
+        }
+        
         $collector->select()
             ->orderBy($orderby, $order);
 
