@@ -173,6 +173,19 @@ final class Collector
         return $result;
     }
 
+    /**
+     * fetch only 1 notif [the first one]
+     * 
+     * @since   0.9.0
+     * @return  Notification|null
+     */
+    public function fetch_one(): ?Notification
+    {
+        $fetch = $this->fetch();
+
+        return !empty($fetch) ? $fetch[0] : null;
+    }
+
     // handlers
 
     /**
