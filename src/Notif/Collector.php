@@ -192,6 +192,7 @@ final class Collector
 
     /**
      * create target query for mysql json column
+     * build target query for custom target using ->select()->where()
      * 
      * JSON_CONTAINS(`recipients`, \'%s\')
      * 
@@ -199,7 +200,7 @@ final class Collector
      * @param   Receiver    $receiver
      * @return  string
      */
-    protected function build_target_query(Receiver $receiver): string
+    public function get_target_query(Receiver $receiver): string
     {
         $json   = $receiver->get_json();
         
@@ -230,7 +231,7 @@ final class Collector
     {
         $this->select()
             ->where( $this->get_where_operator() )
-                ->asLiteral( $this->build_target_query($receiver) )
+                ->asLiteral( $this->get_target_query($receiver) )
                 ->end();
 
         return $this;
@@ -250,7 +251,7 @@ final class Collector
 
         foreach ($receivers as $receiver) {
             if ($receiver instanceof Receiver) {
-                $select->asLiteral( $this->build_target_query($receiver) );
+                $select->asLiteral( $this->get_target_query($receiver) );
             }
         }
 
@@ -309,7 +310,7 @@ final class Collector
             
             foreach ($user_identity as $id) {
                 $receiver = new Receiver($id['name'], $id['data']);
-                $targets[] = $this->build_target_query($receiver);
+                $targets[] = $this->get_target_query($receiver);
             }
         }
 
