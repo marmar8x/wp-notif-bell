@@ -15,6 +15,7 @@ use Irmmr\WpNotifBell\Notif\Module\Observer;
 use Irmmr\WpNotifBell\Notif\Module\Pagination;
 use Irmmr\WpNotifBell\Module\Query\Selector as Query;
 use Irmmr\WpNotifBell\Notif\Assist\Formatter;
+use Irmmr\WpNotifBell\Notif\Module\User as ModuleUser;
 use Irmmr\WpNotifBell\Traits\ConfigTrait;
 use Irmmr\WpNotifBell\User;
 use NilPortugues\Sql\QueryBuilder\Manipulation\Select;
@@ -91,7 +92,8 @@ final class Collector
         // default configs
         $this->configs_default = $this->configs = [
             // TextMagic: render all tags and variables for a live text
-            'use_textmagic' => true
+            'use_textmagic'  => true,
+            'where_operator' => 'AND'
         ];
     }
 
@@ -189,6 +191,33 @@ final class Collector
     // handlers
 
     /**
+     * create target query for mysql json column
+     * 
+     * JSON_CONTAINS(`recipients`, \'%s\')
+     * 
+     * @since   0.9.0
+     * @param   Receiver    $receiver
+     * @return  string
+     */
+    protected function build_target_query(Receiver $receiver): string
+    {
+        $json   = $receiver->get_json();
+        
+        return sprintf('JSON_CONTAINS(`recipients`, \'%s\')', $json);
+    }
+
+    /**
+     * get where operator
+     * 
+     * @since   0.9.0
+     * @return  string
+     */
+    protected function get_where_operator(): string
+    {
+        return $this->get_config('where_operator', 'AND');
+    }
+
+    /**
      * target with any receiver.
      * 
      * JSON_CONTAINS(`recipients`, \'%s\')
@@ -199,12 +228,9 @@ final class Collector
      */
     public function target(Receiver $receiver): self
     {
-        $json   = $receiver->get_json();
-        $where  = sprintf('JSON_CONTAINS(`recipients`, \'%s\')', $json);
-
         $this->select()
-            ->where()
-                ->asLiteral($where)
+            ->where( $this->get_where_operator() )
+                ->asLiteral( $this->build_target_query($receiver) )
                 ->end();
 
         return $this;
@@ -219,14 +245,12 @@ final class Collector
      */
     public function targets(array $receivers): self
     {
-        $select = $this->select()->where()->subWhere('OR');
+        $select = $this->select()->where( $this->get_where_operator() )
+            ->subWhere('OR');
 
         foreach ($receivers as $receiver) {
             if ($receiver instanceof Receiver) {
-                $json   = $receiver->get_json();
-                $where  = sprintf('JSON_CONTAINS(`recipients`, \'%s\')', $json);
-
-                $select->asLiteral($where);
+                $select->asLiteral( $this->build_target_query($receiver) );
             }
         }
 
@@ -264,6 +288,51 @@ final class Collector
     }
 
     /**
+     * target multiple users for collector
+     * 
+     * @since   0.9.0
+     * @param   array<int|WP_User> $users
+     * @return  self
+     */
+    public function target_by_users(array $users): self
+    {
+        $targets = [];
+
+        foreach ($users as $user) {
+            $user_identity = User::get_identity($user);
+
+            if (empty($user_identity)) {
+                $this->errors->add( Err::_('user_target', 'can\'t find this user.', ['user' => $user]) );
+    
+                continue;
+            }
+            
+            foreach ($user_identity as $id) {
+                $receiver = new Receiver($id['name'], $id['data']);
+                $targets[] = $this->build_target_query($receiver);
+            }
+        }
+
+        // remove duplicate targets
+        $targets = array_unique($targets);
+
+        if (empty($targets)) {
+            return $this;
+        }
+
+        $select = $this->select()->where( $this->get_where_operator() )
+            ->subWhere('OR');
+
+        foreach ($targets as $target) {
+            $select->asLiteral($target);
+        }
+
+        $select->end();
+
+        return $this;
+    }
+
+    /**
      * target with notif unique key
      * 
      * @since   0.9.0
@@ -273,7 +342,7 @@ final class Collector
     public function target_by_key(string $key): self
     {
         $this->select()
-            ->where()
+            ->where( $this->get_where_operator() )
                 ->equals('key', $key)
                 ->end();
 
@@ -329,6 +398,20 @@ final class Collector
     public function observer(\WP_User $user): Observer
     {
         return new Observer($user, $this);
+    }
+
+    // user
+
+    /**
+     * start user module
+     * 
+     * @since   0.9.0
+     * @param   \WP_User    $user
+     * @return  ModuleUser
+     */
+    public function user(\WP_User $user): ModuleUser
+    {
+        return new ModuleUser($user, $this);
     }
 
     // count
