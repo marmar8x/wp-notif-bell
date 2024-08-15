@@ -285,7 +285,7 @@ class TextMagic
         // `user:key` for main user data access from WP_User
         $text = self::register_callback('/\[user:([^"><]*?)\]/im', $text, function ($match) use ($user) {
             $key    = str_replace('-', '_', $match[1] ?? '');
-            $value  = $user->__isset($key) ? $user->__get($key) : '';
+            $value  = isset($user->$key) ? $user->$key : '';
 
             return is_string($value) ? $value : '';
         });
