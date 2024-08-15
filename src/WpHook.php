@@ -34,9 +34,11 @@ final class WpHook
         $php_version  = PHP_VERSION;
         $required_php = IRM_WP_NOTIF_BELL_PHP;
 
+        // check php version
         if (version_compare($php_version, $required_php, '<')) {
-            wp_die("You need PHP version {$required_php} to use this plugin. You are currently using {$php_version}");
-            return;
+            $msg = sprintf('This plugin requires at least PHP version %s to run. Your PHP version: %s', $required_php, $php_version);
+
+            die($msg);
         }
 
         // before, creating required folders to prevent errors
