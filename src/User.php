@@ -5,6 +5,7 @@ namespace Irmmr\WpNotifBell;
 // If this file is called directly, abort.
 defined('WPINC') || die;
 
+use Irmmr\WpNotifBell\Interfaces\UserInterface;
 use Irmmr\WpNotifBell\Module\Query\Selector as QuerySelector;
 use Irmmr\WpNotifBell\Notif\Module\Database;
 
@@ -15,15 +16,8 @@ use Irmmr\WpNotifBell\Notif\Module\Database;
  * @since    0.9.0
  * @package  Irmmr\WpNotifBell
  */
-class User
+class User implements UserInterface
 {
-    // seen list meta key name
-    // @since 0.9.0
-    protected const SEEN_META_KEY = 'wpnb_seen_list';
-
-    // @since 0.9.0
-    protected const SEEN_SEPARATOR = ','; 
-
     /**
      * get user data by user id
      * 

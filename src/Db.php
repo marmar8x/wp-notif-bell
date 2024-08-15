@@ -6,6 +6,7 @@ namespace Irmmr\WpNotifBell;
 defined('WPINC') || die;
 
 use Irmmr\WpNotifBell\Helpers\Option;
+use Irmmr\WpNotifBell\Interfaces\DbInterface;
 
 /**
  * Class Db
@@ -15,24 +16,8 @@ use Irmmr\WpNotifBell\Helpers\Option;
  * @since    0.9.0
  * @package  Irmmr\WpNotifBell
  */
-class Db
+class Db implements DbInterface
 {
-    // acronym of notification-bell
-    // @since 0.9.0
-    public const PREFIX = 'nb_';
-
-    // list of all table names
-    // @since 0.9.0
-    public const TABLES_NAME = [
-        // include all notifications
-        // @since 0.9.0
-        'notifs' => 'notifs'
-    ];
-
-    // latest version of database
-    // @since 0.9.0
-    public const LATEST_VERSION = '1.0';
-
     /**
      * database tables
      * 
