@@ -5,6 +5,7 @@ namespace Irmmr\WpNotifBell\Admin;
 // If this file is called directly, abort.
 defined('WPINC') || die;
 
+use Irmmr\WpNotifBell\Interfaces\CapInterface;
 use Irmmr\WpNotifBell\Partial;
 
 /**
@@ -14,7 +15,7 @@ use Irmmr\WpNotifBell\Partial;
  * @since    0.9.0
  * @package  Irmmr\WpNotifBell\Admin
  */
-class Menu
+class Menu implements CapInterface
 {
     /**
      * class constructor
@@ -24,6 +25,25 @@ class Menu
     public function __construct()
     {
         add_action('admin_menu', [$this, 'register']);
+        add_action('admin_bar_menu', [$this, 'register_bar']);
+    }
+
+    /**
+     * [main] register all menus in admin bar
+     * 
+     * @since    0.9.0
+     * @return   void
+     */
+    public function register_bar(\WP_Admin_Bar $wp_admin_bar): void
+    {
+        if (current_user_can(self::CAPS['send'])) {
+            $wp_admin_bar->add_node([
+                'id'        => 'wpnb_notif',
+                'title'     => __('Notif', 'wp-notif-bell'),
+                'href'      => menu_page_url('wpnb-send', false),
+                'parent'    => 'new-content'
+            ]);
+        }
     }
 
     /**
