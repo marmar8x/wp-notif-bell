@@ -133,7 +133,7 @@ const hasReceiver = (name: string, data: string): boolean => {
     const receivers: NotifReceiver[] = getReceivers();
 
     for (const r of receivers) {
-        if (r.name === name && r.data === data) {
+        if (r.name == name && r.data == data) {
             return true;
         }
     }
