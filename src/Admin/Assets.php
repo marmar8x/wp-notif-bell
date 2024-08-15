@@ -130,7 +130,7 @@ class Assets
             wp_enqueue_script('wpnb_lib_marked', IRM_WP_NOTIF_BELL_URL . 'assets/lib/marked/marked.min.js?refID=f123754263', [], '13.0.2', true);
 
             // send script
-            wp_enqueue_script('wpnb_send_scr', IRM_WP_NOTIF_BELL_URL . 'assets/dist/js/send-adm.js?refID=fafw23g3', ['jquery'], IRM_WP_NOTIF_BELL_VER, true);
+            wp_enqueue_script('wpnb_send_scr', IRM_WP_NOTIF_BELL_URL . 'assets/dist/js/send-adm.js?refID=faf453g3', ['jquery'], IRM_WP_NOTIF_BELL_VER, true);
 
             // main wpnb object
             wp_localize_script('wpnb_send_scr', 'wpnb_data_obj', [
@@ -181,6 +181,7 @@ class Assets
             'msg.update-f'        => __('Result: An error occurred while updating.', 'wp-notif-bell'),
             'res.sent'            => __('Result: The notification was sent.', 'wp-notif-bell'),
             'msg.send-f'          => __('Result: An error occurred while sending.', 'wp-notif-bell'),
+            'err.res-name-dup'    => __('The recipient is a duplicate.', 'wp-notif-bell'),
 
             'err.code'            => __('Error code:', 'wp-notif-bell'),
             'err.msg'             => __('Error msg:', 'wp-notif-bell'),
