@@ -9,15 +9,15 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-08-15T08:58:12+00:00\n"
+"POT-Creation-Date: 2024-08-15T09:32:40+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: wp-notif-bell\n"
 
 #. Plugin Name of the plugin
 #: E:\xampp\htdocs\wordpress\wp-content\plugins\wp-notif-bell\wp-notif-bell.php
-#: src/Admin/Menu.php:38
-#: src/Admin/Menu.php:39
+#: src/Admin/Menu.php:58
+#: src/Admin/Menu.php:59
 msgid "Notif Bell"
 msgstr ""
 
@@ -54,8 +54,8 @@ msgid "WP Notif Bell"
 msgstr ""
 
 #: partials/admin/list-page.php:24
-#: src/Admin/Menu.php:57
-#: src/Admin/Menu.php:58
+#: src/Admin/Menu.php:77
+#: src/Admin/Menu.php:78
 msgid "List"
 msgstr ""
 
@@ -105,8 +105,8 @@ msgid "Edit"
 msgstr ""
 
 #: partials/admin/send-page.php:97
-#: src/Admin/Menu.php:48
-#: src/Admin/Menu.php:49
+#: src/Admin/Menu.php:68
+#: src/Admin/Menu.php:69
 msgid "Send"
 msgstr ""
 
@@ -155,8 +155,8 @@ msgid "Notification send date"
 msgstr ""
 
 #: partials/admin/send-page.php:168
-#: src/Admin/Assets.php:191
 #: src/Admin/Assets.php:192
+#: src/Admin/Assets.php:193
 msgid "Empty: Auto fill"
 msgstr ""
 
@@ -305,8 +305,8 @@ msgid "Send notification"
 msgstr ""
 
 #: partials/admin/settings-page.php:21
-#: src/Admin/Menu.php:66
-#: src/Admin/Menu.php:67
+#: src/Admin/Menu.php:86
+#: src/Admin/Menu.php:87
 msgid "Settings"
 msgstr ""
 
@@ -327,8 +327,8 @@ msgid "The submitted request is not valid."
 msgstr ""
 
 #: partials/admin/tools-page.php:61
-#: src/Admin/Menu.php:75
-#: src/Admin/Menu.php:76
+#: src/Admin/Menu.php:95
+#: src/Admin/Menu.php:96
 msgid "Tools"
 msgstr ""
 
@@ -482,27 +482,31 @@ msgstr ""
 msgid "Result: An error occurred while sending."
 msgstr ""
 
-#: src/Admin/Assets.php:185
-msgid "Error code:"
+#: src/Admin/Assets.php:184
+msgid "The recipient is a duplicate."
 msgstr ""
 
 #: src/Admin/Assets.php:186
-msgid "Error msg:"
+msgid "Error code:"
 msgstr ""
 
 #: src/Admin/Assets.php:187
-msgid "Errors"
+msgid "Error msg:"
 msgstr ""
 
 #: src/Admin/Assets.php:188
-msgid "Data"
+msgid "Errors"
 msgstr ""
 
 #: src/Admin/Assets.php:189
-msgid "Sender/Updater result:"
+msgid "Data"
 msgstr ""
 
 #: src/Admin/Assets.php:190
+msgid "Sender/Updater result:"
+msgstr ""
+
+#: src/Admin/Assets.php:191
 msgid "Edit notif"
 msgstr ""
 
@@ -512,6 +516,10 @@ msgstr ""
 
 #: src/Admin/Master.php:49
 msgid "Send to Subscribers"
+msgstr ""
+
+#: src/Admin/Menu.php:42
+msgid "Notif"
 msgstr ""
 
 #: src/Admin/Notices.php:32
