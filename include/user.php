@@ -64,3 +64,18 @@ function wpnb_user_add_seen(int $notif_id, int $user_id): bool
 {
     return User::add_seen_list($notif_id, $user_id);
 }
+
+/**
+ * get all user unseen notifs count
+ * 
+ * @since   0.9.0
+ * @param   \WP_User $user
+ * @return  int
+ */
+function wpnb_user_get_unseen_count(\WP_User $user): int
+{
+    $unseen_col = wpnb_collector()->target_by_user($user);
+    $unseen_col->observer($user)->filter('unseen')->apply();
+    
+    return $unseen_col->get_count();
+}

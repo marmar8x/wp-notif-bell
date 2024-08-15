@@ -59,12 +59,13 @@ class User
             $column = 'sent_at';
         }
 
+        // format: Y-m-d H:i:s
         $registered = $this->user->user_registered;
 
         $this->collector
             ->select()
                 ->where()
-                    ->greaterThan($column, $registered)
+                    ->greaterThanOrEqual($column, $registered)
                     ->end();
         
         return $this;
