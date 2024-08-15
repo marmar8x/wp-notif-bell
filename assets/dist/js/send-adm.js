@@ -81,7 +81,7 @@
     var hasReceiver = function (name, data) {
         var receivers = getReceivers();
         for (var r of receivers) {
-            if (r.name === name && r.data === data) {
+            if (r.name == name && r.data == data) {
                 return true;
             }
         }
