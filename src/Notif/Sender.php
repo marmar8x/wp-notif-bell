@@ -282,7 +282,7 @@ final class Sender
      * @since   0.9.0
      * @return  string
      */
-    public function get_tags_txt(): string
+    protected function get_tags_txt(): string
     {
         if (empty($this->tags)) {
             return '';
@@ -418,7 +418,7 @@ final class Sender
      * @since   0.9.0
      * @return  string
      */
-    public function get_recipients(): string
+    protected function get_recipients(): string
     {
         $fetch = [];
 
