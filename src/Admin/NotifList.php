@@ -352,6 +352,7 @@ class NotifList extends \WP_List_Table
             } elseif ($tag_count > 3) {
                 $fetch = implode(', ', $tag_slice);
                 $fetch .= '<br /> +';
+                /* translators: %d: tags count */
                 $fetch .= sprintf( __('%d more', 'wp-notif-bell'), $tag_count - 3 );
             }
         } elseif ($column_name === 'title') {

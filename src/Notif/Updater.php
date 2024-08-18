@@ -342,7 +342,7 @@ final class Updater
             }
         }
 
-        $this->setter['recipients'] = json_encode($fetch);
+        $this->setter['recipients'] = wp_json_encode($fetch);
 
         return $this;
     }

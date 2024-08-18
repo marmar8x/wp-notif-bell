@@ -52,7 +52,7 @@ class Notice
         $wpnb = __('WP Notif Bell:', 'wp-notif-bell');
 
         // change classes to string
-        $classList = implode(' ', $classes);
+        $classList = esc_attr(implode(' ', $classes));
 
         return "<div class=\"{$classList}\">
             <p><b>{$wpnb}</b> {$subject} {$message}</p>

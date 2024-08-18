@@ -17,12 +17,12 @@ $_section = $_GET['section'] ?? '';
 <div class="wpnb-ad-box">
     <div class="wpnb-ad-header">
         <h3 class="wpnb-ad-header-title">
-            🔔 <?php _e('WP Notif Bell', 'wp-notif-bell'); ?>
-            <span class="wpnb-ad-header-tab rnd org"><?php _e('Settings', 'wp-notif-bell'); ?></span>
+            🔔 <?php esc_html_e('WP Notif Bell', 'wp-notif-bell'); ?>
+            <span class="wpnb-ad-header-tab rnd org"><?php esc_html_e('Settings', 'wp-notif-bell'); ?></span>
         </h3>
 
         <p class="wpnb-ad-header-text">
-            <?php _e('Plugin settings', 'wp-notif-bell'); ?>
+            <?php esc_html_e('Plugin settings', 'wp-notif-bell'); ?>
         </p>
     </div>
 

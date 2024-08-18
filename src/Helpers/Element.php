@@ -62,10 +62,9 @@ class Element
         $arg_element = '';
 
         $args_fetch = [];
-
         foreach ($args as $n => $v) {
             if (substr($n, 0, 1) !== '_') {
-                $args_fetch[] = "{$n}=\"{$v}\"";
+                $args_fetch[] = $n . '="' . esc_attr($v) . '"';
             }
         }
 

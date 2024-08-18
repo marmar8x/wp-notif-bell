@@ -1,6 +1,6 @@
-=== WP Notif Bell ===
+=== Notif Bell ===
 Contributors: marmar8x
-Tags: notification, notification bell, notif bell, plugin
+Tags: notification, notification bell, notif bell, plugin, wordpress
 Requires at least: 5.0
 Tested up to: 6.6
 Stable tag: 0.9.0

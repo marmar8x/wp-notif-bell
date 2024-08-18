@@ -129,7 +129,7 @@ class Logger
      */
     private static function encode_data(array $data): string
     {
-        return empty($data) ? '' : json_encode($data);
+        return empty($data) ? '' : wp_json_encode($data);
     }
 
     /**

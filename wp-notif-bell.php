@@ -12,7 +12,7 @@
  * @package           Irmmr\WPNotifBell
  *
  * @wordpress-plugin
- * Plugin Name:       Notif Bell
+ * Plugin Name:       WP Notif Bell
  * Plugin URI:        https://github.com/marmar8x/wp-notif-bell
  * Description:       This plugin implements the user notification bell for a WordPress website.
  * Version:           0.9.0

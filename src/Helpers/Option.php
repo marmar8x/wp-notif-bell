@@ -32,7 +32,7 @@ class Option
      */
     public static function add(string $option, $value = '', ?bool $autoload = null): bool
     {
-        return add_option($option, $value, $autoload);
+        return add_option($option, $value, '', $autoload);
     }
 
     /**

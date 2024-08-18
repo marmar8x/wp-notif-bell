@@ -133,7 +133,7 @@ function wpnb_do_settings_fields(string $section, string $tab): void
     // get current settings (auto)
     $settings = Settings::get_all();
 
-    echo '<input type="hidden" name="section" value="' . $section . '">';
+    echo '<input type="hidden" name="section" value="' . esc_attr($section) . '">';
 
 	foreach ((array) $wpnb_settings_fields[$section][$tab] as $field) {
         $id = preg_replace('/_/', '.', $field['id'] ?? '', 2);
@@ -141,7 +141,7 @@ function wpnb_do_settings_fields(string $section, string $tab): void
         echo '<div class="wpnb-settings-field tier justify:center content:center items:center">';
 
         echo '<div class="cell:20 wpnb-settings-title">';
-        echo '<h4>'. $field['title'] .'</h4>';
+        echo '<h4>'. esc_html($field['title']) .'</h4>';
         echo '</div>';
 
         echo '<div class="cell:50 wpnb-settings-input">';
@@ -257,7 +257,7 @@ function wpnb_render_settings(string $active_section = ''): void
     foreach ((array) $wpnb_settings_sections as $section) {
         $active_section_cls = $section['id'] === $active_section ? ' nav-tab-active' : '';
         $section_url = add_query_arg('section', $section['id']);
-        echo '<a href="' . $section_url . '" class="nav-tab'. $active_section_cls .'">' . $section['title'] . '</a>';
+        echo '<a href="' . esc_url($section_url) . '" class="nav-tab'. esc_attr($active_section_cls) .'">' . esc_html($section['title']) . '</a>';
     }
 
     echo '</h2>';
@@ -276,7 +276,7 @@ function wpnb_render_settings(string $active_section = ''): void
     $data_section = $wpnb_settings_tabs[$section_id];
     $action_url   = add_query_arg('section', $section_id, menu_page_url('wpnb-settings', false));
 
-    echo '<form class="pack:no-gutters wpnb-mx-0" id="wpnb_settings_form_'. $section_id .'" style="max-width: unset !important;" method="POST" action="' . $action_url . '">';
+    echo '<form class="pack:no-gutters wpnb-mx-0" id="wpnb_settings_form_'. esc_attr($section_id) .'" style="max-width: unset !important;" method="POST" action="' . esc_url($action_url) . '">';
     echo '<div class="tier justify:center content:center wpnb-mx-0">';
     echo '<div id="wpnb-settings-tabs" class="wpnb-tabs cell:100">';
 
@@ -286,7 +286,7 @@ function wpnb_render_settings(string $active_section = ''): void
     foreach ($data_section as $tab => $tab_data) {
         $tab_active_cls = $active_tab === $tab ? ' nav-tab-active' : '';
 
-        echo '<button type="button" class="nav-tab'. $tab_active_cls .'" data-wpnb-tab-set="'. $tab .'">'. $tab_data['title'] .'</button>';
+        echo '<button type="button" class="nav-tab'. esc_attr($tab_active_cls) .'" data-wpnb-tab-set="'. esc_attr($tab) .'">'. esc_html($tab_data['title']) .'</button>';
     }
 
     echo '</h2>';
@@ -296,7 +296,7 @@ function wpnb_render_settings(string $active_section = ''): void
     foreach ($data_section as $tab => $tab_data) {
         $tab_active_arg = $active_tab === $tab ? ' data-wpnb-tab-active' : '';
 
-        echo '<div class="tab-content cel:100 wpnb-mx-0" data-wpnb-tab="'. $tab .'"'. $tab_active_arg .'>';
+        echo '<div class="tab-content cel:100 wpnb-mx-0" data-wpnb-tab="'. esc_attr($tab) .'"'. esc_attr($tab_active_arg) .'>';
         wpnb_do_settings_fields($section_id, $tab);
         echo '</div>';
     }

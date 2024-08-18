@@ -89,7 +89,7 @@ class Receiver
      */
     public function get_json(): string
     {
-        return json_encode($this->get());
+        return wp_json_encode($this->get());
     }
 
     /**

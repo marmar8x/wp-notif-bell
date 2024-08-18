@@ -265,6 +265,7 @@ class Db implements DbInterface
             if (version_compare($version, $ver, $operator)) {
                 Logger::add("Update via the inserted query for version {$operator}{$ver}.");
 
+                // ignone: prepared
                 $result = $wpdb->query($query);
 
                 if ($result === false) {

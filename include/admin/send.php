@@ -33,7 +33,7 @@ function wpnb_render_eza_list(): void
             ...$data['args'] ?? []
         ];
 
-        echo Element::create('option', $data['value'] ?? '', $args);
+        echo Element::create('option', esc_html($data['value'] ?? ''), $args);
     }
 }
 
@@ -61,6 +61,6 @@ function wpnb_render_rec_list(): void
             ...$data['args']
         ];
 
-        echo Element::create('option', $data['title'] ?? '', $args);
+        echo Element::create('option', esc_html($data['title'] ?? ''), $args);
     }
 }

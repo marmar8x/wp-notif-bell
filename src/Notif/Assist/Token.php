@@ -32,7 +32,7 @@ class Token
      */
     public static function create(array $data): string
     {
-        $data_string = json_encode($data);
+        $data_string = wp_json_encode($data);
         $hash        = self::$hash;
 
         return hash('sha256', "data:{$data_string};hash:{$hash};");

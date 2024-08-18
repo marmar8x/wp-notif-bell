@@ -426,7 +426,7 @@ final class Sender
             $fetch[] = $receiver->get();
         }
 
-        return json_encode($fetch);
+        return wp_json_encode($fetch);
     }
 
     /**
