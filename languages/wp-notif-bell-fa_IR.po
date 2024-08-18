@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Notif Bell 0.9.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-notif-bell\n"
-"POT-Creation-Date: 2024-08-15T09:32:40+00:00\n"
-"PO-Revision-Date: 2024-08-15 13:03+0330\n"
+"POT-Creation-Date: 2024-08-18T21:53:13+00:00\n"
+"PO-Revision-Date: 2024-08-19 01:24+0330\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fa_IR\n"
@@ -17,9 +17,11 @@ msgstr ""
 
 #. Plugin Name of the plugin
 #: E:\xampp\htdocs\wordpress\wp-content\plugins\wp-notif-bell\wp-notif-bell.php
-#: src/Admin/Menu.php:58 src/Admin/Menu.php:59
-msgid "Notif Bell"
-msgstr "زنگ اعلان"
+#: partials/admin/list-page.php:23 partials/admin/main-page.php:17
+#: partials/admin/send-page.php:95 partials/admin/settings-page.php:20
+#: partials/admin/tools-page.php:60
+msgid "WP Notif Bell"
+msgstr "زنگ اعلان وردپرس"
 
 #. Plugin URI of the plugin
 #: E:\xampp\htdocs\wordpress\wp-content\plugins\wp-notif-bell\wp-notif-bell.php
@@ -45,12 +47,6 @@ msgstr ""
 #: include/admin/settings.php:304
 msgid "Save settings"
 msgstr "ذخیره تنظیمات"
-
-#: partials/admin/list-page.php:23 partials/admin/main-page.php:17
-#: partials/admin/send-page.php:96 partials/admin/settings-page.php:20
-#: partials/admin/tools-page.php:60
-msgid "WP Notif Bell"
-msgstr "WP Notif Bell"
 
 #: partials/admin/list-page.php:24 src/Admin/Menu.php:77 src/Admin/Menu.php:78
 msgid "List"
@@ -110,7 +106,8 @@ msgstr ""
 "این بخش‌ها اساساً نقش‌های `Insert`، `Select`، `Update` و `Delete` را برای پایگاه "
 "داده ایفا می‌کنند."
 
-#: partials/admin/main-page.php:38
+#. translators: %s: page link
+#: partials/admin/main-page.php:39
 msgid ""
 "All four main sections of the plugin have been designed and implemented with "
 "support for %s, and you can easily use this library as well."
@@ -118,7 +115,7 @@ msgstr ""
 "تمام چهار بخش اصلی این پلاگین با پشتیبانی از %s طراحی و پیاده‌سازی شده‌اند و شما "
 "می‌توانید به راحتی از این کتابخانه نیز استفاده کنید."
 
-#: partials/admin/main-page.php:42
+#: partials/admin/main-page.php:43
 msgid ""
 "For more information and how to use it, be sure to check the GitHub page of "
 "the plugin:"
@@ -129,76 +126,76 @@ msgstr ""
 msgid "recommanded"
 msgstr "پیشنهادی"
 
-#: partials/admin/send-page.php:97 src/Admin/NotifList.php:278
+#: partials/admin/send-page.php:96 src/Admin/NotifList.php:278
 msgid "Edit"
 msgstr "ویرایش"
 
-#: partials/admin/send-page.php:97 src/Admin/Menu.php:68 src/Admin/Menu.php:69
+#: partials/admin/send-page.php:96 src/Admin/Menu.php:68 src/Admin/Menu.php:69
 msgid "Send"
 msgstr "ارسال"
 
-#: partials/admin/send-page.php:101
+#: partials/admin/send-page.php:100
 msgid "Editing notification"
 msgstr "در حال ویرایش نوتیف"
 
-#: partials/admin/send-page.php:101
+#: partials/admin/send-page.php:100
 msgid "Sending notification"
 msgstr "در حال ارسال نوتیف"
 
-#: partials/admin/send-page.php:113
+#: partials/admin/send-page.php:112
 msgid "There is no notification with the key you entered."
 msgstr "هیچ نوتیفی با کلید وارد شده شما وجود ندارد."
 
-#: partials/admin/send-page.php:114
+#: partials/admin/send-page.php:113
 msgid "Back to list"
 msgstr "بازگشت به لیست"
 
-#: partials/admin/send-page.php:124
+#: partials/admin/send-page.php:123
 msgid "Notification title"
 msgstr "عنوان نوتیف"
 
-#: partials/admin/send-page.php:135
+#: partials/admin/send-page.php:134
 msgid "Notification sender"
 msgstr "ارسال کننده نوتیف"
 
-#: partials/admin/send-page.php:143
+#: partials/admin/send-page.php:142
 msgid "Notification tags"
 msgstr "تگ های نوتیف"
 
-#: partials/admin/send-page.php:144
+#: partials/admin/send-page.php:143
 msgid "Optional"
 msgstr "اختیاری"
 
-#: partials/admin/send-page.php:146
+#: partials/admin/send-page.php:145
 msgid "Separate tags with commas (,)"
 msgstr "تگ ها را با کاما از هم جدا کنید (,)"
 
-#: partials/admin/send-page.php:154
+#: partials/admin/send-page.php:153
 msgid "Text format"
 msgstr "فرمت محتوا"
 
-#: partials/admin/send-page.php:168
+#: partials/admin/send-page.php:167
 msgid "Notification send date"
 msgstr "تاریخ ارسال نوتیف"
 
-#: partials/admin/send-page.php:168 src/Admin/Assets.php:192
+#: partials/admin/send-page.php:167 src/Admin/Assets.php:192
 #: src/Admin/Assets.php:193
 msgid "Empty: Auto fill"
 msgstr "خالی: خودکار"
 
-#: partials/admin/send-page.php:170
+#: partials/admin/send-page.php:169
 msgid "Leave it blank for current time"
 msgstr "برای تاریخ فعلی خالی بگزارید"
 
-#: partials/admin/send-page.php:180
+#: partials/admin/send-page.php:179
 msgid "Notification text"
 msgstr "محتوای نوتیف"
 
-#: partials/admin/send-page.php:233
+#: partials/admin/send-page.php:232
 msgid "Notif text ..."
 msgstr "محتوای نوتیف ..."
 
-#: partials/admin/send-page.php:240
+#: partials/admin/send-page.php:239
 msgid ""
 "You can use text magic to insert dynamic and variable text. Text magic is "
 "entered in the form of an open and closed bracket []. You can use registered "
@@ -208,131 +205,132 @@ msgstr ""
 "متن جادوئی به صورت یک براکت باز و بسته [] وارد می‌شود. شما می‌توانید از متغیرهای "
 "ثبت شده یا اطلاعات ارائه شده توسط کاربر استفاده کنید."
 
-#: partials/admin/send-page.php:243
+#: partials/admin/send-page.php:242
 msgid "get a variable data"
 msgstr "نمایش مقدار یک متغیر تعریف شده"
 
-#: partials/admin/send-page.php:246
+#. translators: %s: class name
+#: partials/admin/send-page.php:245
 msgid "get user data from %s"
 msgstr "دریافت اطلاعات کاربر از %s"
 
-#: partials/admin/send-page.php:249
+#: partials/admin/send-page.php:248
 msgid "get user meta value"
 msgstr "نمایش اطلاعات از لیست متای کاربر وارد شده"
 
-#: partials/admin/send-page.php:252
+#: partials/admin/send-page.php:251
 msgid "get an option"
 msgstr "دریافت از لیست مقادیر ذخیره شده (option)"
 
-#: partials/admin/send-page.php:255
+#: partials/admin/send-page.php:254
 msgid "get date"
 msgstr "نمایش تاریخ و ساعت"
 
-#: partials/admin/send-page.php:258
+#: partials/admin/send-page.php:257
 msgid "get i18n date"
 msgstr "نمایش تاریخ و ساعت محلی دریافت شده"
 
-#: partials/admin/send-page.php:261
+#: partials/admin/send-page.php:260
 msgid "get data value from `Notif Data`"
 msgstr "دریافت مقدار از دیتای خود نوتیف"
 
-#: partials/admin/send-page.php:266
+#: partials/admin/send-page.php:265
 msgid "Preview"
 msgstr "پیشنمایش"
 
-#: partials/admin/send-page.php:266
+#: partials/admin/send-page.php:265
 msgid "renew every 5 seconds"
 msgstr "بروزرسانی در هر 5 ثانیه"
 
-#: partials/admin/send-page.php:277
+#: partials/admin/send-page.php:276
 msgid "Receivers"
 msgstr "دریافت کنندگان"
 
-#: partials/admin/send-page.php:281
+#: partials/admin/send-page.php:280
 msgid "List of notification recipients"
 msgstr "لیست دریافت کنندگان نوتیف"
 
-#: partials/admin/send-page.php:287
+#: partials/admin/send-page.php:286
 msgid "Defaults"
 msgstr "پیشفرض ها"
 
-#: partials/admin/send-page.php:288
+#: partials/admin/send-page.php:287
 msgid "The user's ID (exa: 3724) [int]"
 msgstr "آیدی کاربر (نمونه: 3724) (عددی)"
 
-#: partials/admin/send-page.php:288
+#: partials/admin/send-page.php:287
 msgid "User ID (User unique ID)"
 msgstr "آیدی کاربر"
 
-#: partials/admin/send-page.php:289
+#: partials/admin/send-page.php:288
 msgid "The user's Login (exa: nova) [str]"
 msgstr "نام کاربری کاربر (نمونه: nova) (رشته)"
 
-#: partials/admin/send-page.php:289
+#: partials/admin/send-page.php:288
 msgid "User Name (User Login)"
 msgstr "نام کاربری"
 
-#: partials/admin/send-page.php:290
+#: partials/admin/send-page.php:289
 msgid "The user's Mail (exa: h@my.com) [e-mail]"
 msgstr "ایمیل کاربر (مثال: h@my.com) (ایمیل)"
 
-#: partials/admin/send-page.php:290
+#: partials/admin/send-page.php:289
 msgid "User Mail (Email address)"
 msgstr "ایمیل کاربر"
 
-#: partials/admin/send-page.php:291
+#: partials/admin/send-page.php:290
 msgid "The user's Role [wp-role]"
 msgstr "نقش کاربر (نقش های کاربری وردپرس)"
 
-#: partials/admin/send-page.php:291
+#: partials/admin/send-page.php:290
 msgid "User Role (Roles and Capabilities)"
 msgstr "نقش کاربر (بخش نقش های کاربری وردپرس)"
 
-#: partials/admin/send-page.php:292
+#: partials/admin/send-page.php:291
 msgid "The command name (exa: all) [str]"
 msgstr "دستور (نمونه: all) (رشته)"
 
-#: partials/admin/send-page.php:292
+#: partials/admin/send-page.php:291
 msgid "Command (An order for groups)"
 msgstr "دستور (یک دستور همگانی)"
 
-#: partials/admin/send-page.php:296
+#: partials/admin/send-page.php:295
 msgid "Also"
 msgstr "همچنین"
 
-#: partials/admin/send-page.php:302
+#: partials/admin/send-page.php:301
 msgid "Easy access"
 msgstr "دسترسی آسان"
 
-#: partials/admin/send-page.php:307
+#: partials/admin/send-page.php:306
 msgid "An arbitrary value ..."
 msgstr "یک مقدار دلخواه ..."
 
-#: partials/admin/send-page.php:307
+#: partials/admin/send-page.php:306
 msgid "Custom"
 msgstr "سفارشی"
 
-#: partials/admin/send-page.php:310
+#: partials/admin/send-page.php:309
 msgid "Custom name (Double click to return)"
 msgstr "نام دلخواه (دابل کلیک برای بازگشت)"
 
-#: partials/admin/send-page.php:329
+#: partials/admin/send-page.php:328
 msgid "Add"
 msgstr "اضافه"
 
-#: partials/admin/send-page.php:337
+#: partials/admin/send-page.php:336
 msgid "No recipient!"
 msgstr "بدون دریافت کننده!"
 
-#: partials/admin/send-page.php:340
+#: partials/admin/send-page.php:339
 msgid "Use \"Add\" button to add some"
 msgstr "از دکمه \"اضافه\" برای افزودن دریافت کننده استفاده کنید"
 
-#: partials/admin/send-page.php:353
+#: partials/admin/send-page.php:352
 msgid "Edit notification"
 msgstr "ویرایش نوتیف"
 
-#: partials/admin/send-page.php:353
+#: partials/admin/send-page.php:352
 msgid "Send notification"
 msgstr "ارسال نوتیف"
 
@@ -560,6 +558,10 @@ msgstr "ارسال به تمامی مشترکان"
 msgid "Notif"
 msgstr "نوتیف"
 
+#: src/Admin/Menu.php:58 src/Admin/Menu.php:59
+msgid "Notif Bell"
+msgstr "زنگ اعلان"
+
 #: src/Admin/Notices.php:32
 msgid "All notifications you selected have been successfully removed."
 msgstr "همه اعلان‌هایی که انتخاب کردید با موفقیت حذف شدند."
@@ -616,11 +618,12 @@ msgstr "ایجاد در"
 msgid "Modified at"
 msgstr "ویرایش در"
 
-#: src/Admin/NotifList.php:355
+#. translators: %d: tags count
+#: src/Admin/NotifList.php:356
 msgid "%d more"
 msgstr "%d دیگر"
 
-#: src/Admin/NotifList.php:398
+#: src/Admin/NotifList.php:399
 msgid "Search"
 msgstr "جست و جو"
 
@@ -696,27 +699,27 @@ msgstr ""
 msgid "Markdown"
 msgstr ""
 
-#: src/Settings.php:59
+#: src/Settings.php:37
 msgid "Enable"
 msgstr "فعالسازی"
 
-#: src/Settings.php:63 src/Settings.php:112
+#: src/Settings.php:41 src/Settings.php:90
 msgid "Disable"
 msgstr "غیرفعالسازی"
 
-#: src/Settings.php:71
+#: src/Settings.php:49
 msgid "Yes"
 msgstr "بله"
 
-#: src/Settings.php:75
+#: src/Settings.php:53
 msgid "No"
 msgstr "خیر"
 
-#: src/Settings.php:85
+#: src/Settings.php:63
 msgid "Enable LightMode"
 msgstr "فعالسازی مد سریع"
 
-#: src/Settings.php:86
+#: src/Settings.php:64
 msgid ""
 "Running light mode can reduce the process of the administrator side. Without "
 "enabling lightmode, no setting will work."
@@ -724,21 +727,21 @@ msgstr ""
 "اجرای حالت سریع می تواند روند سمت مدیر را کاهش دهد. بدون فعال کردن حالت سریع، "
 "هیچ تنظیمی کار نخواهد کرد."
 
-#: src/Settings.php:93
+#: src/Settings.php:71
 msgid "Hide Notices"
 msgstr "مخفی کردن اعلامیه ها"
 
-#: src/Settings.php:94
+#: src/Settings.php:72
 msgid "Hiding notices helps the system not do any processing to display notices."
 msgstr ""
 "پنهان کردن اعلامیه ها به سیستم کمک می کند تا هیچ پردازشی برای نمایش اعلان ها "
 "انجام ندهد."
 
-#: src/Settings.php:105
+#: src/Settings.php:83
 msgid "Debug level"
 msgstr "سطح اشکال یابی"
 
-#: src/Settings.php:106
+#: src/Settings.php:84
 msgid ""
 "You can select the plugin debug level. Active or Disable or syncing with "
 "wordpress debug?"
@@ -746,85 +749,85 @@ msgstr ""
 "می توانید سطح اشکال زدایی افزونه را انتخاب کنید. فعال یا غیرفعال یا همگام سازی "
 "با اشکال زدایی وردپرس؟"
 
-#: src/Settings.php:116
+#: src/Settings.php:94
 msgid "Active"
 msgstr "فعال"
 
-#: src/Settings.php:120
+#: src/Settings.php:98
 msgid "Sync"
 msgstr "همگام سازی"
 
-#: src/Settings.php:133
+#: src/Settings.php:111
 msgid "Text editor"
 msgstr "ادیتور متن"
 
-#: src/Settings.php:134
+#: src/Settings.php:112
 msgid "Select the text editor that plugin must use in send page and other."
 msgstr ""
 "ویرایشگر متنی را که افزونه باید در صفحه ارسال و سایر موارد استفاده کند، انتخاب "
 "کنید."
 
-#: src/Settings.php:140
+#: src/Settings.php:118
 msgid "Audo detect (by format)"
 msgstr "خودکار (بر اساس فرمت)"
 
-#: src/Settings.php:144
+#: src/Settings.php:122
 msgid "Simple textarea"
 msgstr "ناحیه متنی ساده"
 
-#: src/Settings.php:150
+#: src/Settings.php:128
 msgid "Visual text editor"
 msgstr "ویرایشگر متن بصری"
 
-#: src/Settings.php:151
+#: src/Settings.php:129
 msgid "Which visual text editor do you want to use to edit html?"
 msgstr "از کدام ویرایشگر متن بصری می خواهید برای ویرایش html استفاده کنید؟"
 
-#: src/Settings.php:157
+#: src/Settings.php:135
 msgid "Wordpress editor"
 msgstr "ادیتور وردپرس"
 
-#: src/Settings.php:161
+#: src/Settings.php:139
 msgid "Quill editor"
 msgstr "ادیتور Quill"
 
-#: src/Settings.php:167
+#: src/Settings.php:145
 msgid "Editor base"
 msgstr "پایه ویرایشگر"
 
-#: src/Settings.php:168
+#: src/Settings.php:146
 msgid "Should the usable editor be visual or code?"
 msgstr "ویرایشگر قابل استفاده باید بصری باشد یا کد؟"
 
-#: src/Settings.php:174
+#: src/Settings.php:152
 msgid "Visual"
 msgstr "بصری"
 
-#: src/Settings.php:178
+#: src/Settings.php:156
 msgid "Code"
 msgstr "کد"
 
-#: src/Settings.php:184
+#: src/Settings.php:162
 msgid "Quill editor theme"
 msgstr "تم ادیتور Quill"
 
-#: src/Settings.php:185
+#: src/Settings.php:163
 msgid "Select quill editor theme for ui view."
 msgstr "تم ویرایشگر quill را برای نمای رابط کاربری انتخاب کنید."
 
-#: src/Settings.php:191
+#: src/Settings.php:169
 msgid "Snow"
 msgstr ""
 
-#: src/Settings.php:195
+#: src/Settings.php:173
 msgid "Bubble"
 msgstr ""
 
-#: src/Settings.php:205
+#: src/Settings.php:183
 msgid "Delete data with Uninstall"
 msgstr "پاک کردن داده ها با حذف نصب"
 
-#: src/Settings.php:206
+#: src/Settings.php:184
 msgid ""
 "Remove all plugin data when uninstalling the plugin on the WordPress plugins "
 "page?"
@@ -832,19 +835,19 @@ msgstr ""
 "آیا می‌خواهید هنگام حذف افزونه از صفحه افزونه‌های وردپرس، تمام داده‌های افزونه را "
 "حذف کنید؟"
 
-#: src/Settings.php:220
+#: src/Settings.php:198
 msgid "Service status"
 msgstr "وضعیت سرویس"
 
-#: src/Settings.php:221
+#: src/Settings.php:199
 msgid "Do you want the Ajax service of the plugin to be enabled?"
 msgstr "آیا می خواهید بخش ایجکس برای افزونه فعال شود؟"
 
-#: src/Settings.php:228
+#: src/Settings.php:206
 msgid "Ajax: Add seen list"
 msgstr "ایجکس: اضافه به لیست مشاهده"
 
-#: src/Settings.php:229
+#: src/Settings.php:207
 msgid ""
 "An Ajax specifically for adding notification IDs as seen for the user through "
 "an Ajax request."

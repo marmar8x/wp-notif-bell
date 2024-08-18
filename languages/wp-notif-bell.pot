@@ -2,23 +2,26 @@
 # This file is distributed under the GPL-2.0+.
 msgid ""
 msgstr ""
-"Project-Id-Version: Notif Bell 0.9.0\n"
+"Project-Id-Version: WP Notif Bell 0.9.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-notif-bell\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-08-15T09:32:40+00:00\n"
+"POT-Creation-Date: 2024-08-18T21:53:13+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: wp-notif-bell\n"
 
 #. Plugin Name of the plugin
 #: E:\xampp\htdocs\wordpress\wp-content\plugins\wp-notif-bell\wp-notif-bell.php
-#: src/Admin/Menu.php:58
-#: src/Admin/Menu.php:59
-msgid "Notif Bell"
+#: partials/admin/list-page.php:23
+#: partials/admin/main-page.php:17
+#: partials/admin/send-page.php:95
+#: partials/admin/settings-page.php:20
+#: partials/admin/tools-page.php:60
+msgid "WP Notif Bell"
 msgstr ""
 
 #. Plugin URI of the plugin
@@ -43,14 +46,6 @@ msgstr ""
 
 #: include/admin/settings.php:304
 msgid "Save settings"
-msgstr ""
-
-#: partials/admin/list-page.php:23
-#: partials/admin/main-page.php:17
-#: partials/admin/send-page.php:96
-#: partials/admin/settings-page.php:20
-#: partials/admin/tools-page.php:60
-msgid "WP Notif Bell"
 msgstr ""
 
 #: partials/admin/list-page.php:24
@@ -87,11 +82,12 @@ msgstr ""
 msgid "These sections essentially play the roles of `Insert`, `Select`, `Update`, and `Delete` for the database."
 msgstr ""
 
-#: partials/admin/main-page.php:38
+#. translators: %s: page link
+#: partials/admin/main-page.php:39
 msgid "All four main sections of the plugin have been designed and implemented with support for %s, and you can easily use this library as well."
 msgstr ""
 
-#: partials/admin/main-page.php:42
+#: partials/admin/main-page.php:43
 msgid "For more information and how to use it, be sure to check the GitHub page of the plugin:"
 msgstr ""
 
@@ -99,208 +95,209 @@ msgstr ""
 msgid "recommanded"
 msgstr ""
 
-#: partials/admin/send-page.php:97
+#: partials/admin/send-page.php:96
 #: src/Admin/NotifList.php:278
 msgid "Edit"
 msgstr ""
 
-#: partials/admin/send-page.php:97
+#: partials/admin/send-page.php:96
 #: src/Admin/Menu.php:68
 #: src/Admin/Menu.php:69
 msgid "Send"
 msgstr ""
 
-#: partials/admin/send-page.php:101
+#: partials/admin/send-page.php:100
 msgid "Editing notification"
 msgstr ""
 
-#: partials/admin/send-page.php:101
+#: partials/admin/send-page.php:100
 msgid "Sending notification"
 msgstr ""
 
-#: partials/admin/send-page.php:113
+#: partials/admin/send-page.php:112
 msgid "There is no notification with the key you entered."
 msgstr ""
 
-#: partials/admin/send-page.php:114
+#: partials/admin/send-page.php:113
 msgid "Back to list"
 msgstr ""
 
-#: partials/admin/send-page.php:124
+#: partials/admin/send-page.php:123
 msgid "Notification title"
 msgstr ""
 
-#: partials/admin/send-page.php:135
+#: partials/admin/send-page.php:134
 msgid "Notification sender"
 msgstr ""
 
-#: partials/admin/send-page.php:143
+#: partials/admin/send-page.php:142
 msgid "Notification tags"
 msgstr ""
 
-#: partials/admin/send-page.php:144
+#: partials/admin/send-page.php:143
 msgid "Optional"
 msgstr ""
 
-#: partials/admin/send-page.php:146
+#: partials/admin/send-page.php:145
 msgid "Separate tags with commas (,)"
 msgstr ""
 
-#: partials/admin/send-page.php:154
+#: partials/admin/send-page.php:153
 msgid "Text format"
 msgstr ""
 
-#: partials/admin/send-page.php:168
+#: partials/admin/send-page.php:167
 msgid "Notification send date"
 msgstr ""
 
-#: partials/admin/send-page.php:168
+#: partials/admin/send-page.php:167
 #: src/Admin/Assets.php:192
 #: src/Admin/Assets.php:193
 msgid "Empty: Auto fill"
 msgstr ""
 
-#: partials/admin/send-page.php:170
+#: partials/admin/send-page.php:169
 msgid "Leave it blank for current time"
 msgstr ""
 
-#: partials/admin/send-page.php:180
+#: partials/admin/send-page.php:179
 msgid "Notification text"
 msgstr ""
 
-#: partials/admin/send-page.php:233
+#: partials/admin/send-page.php:232
 msgid "Notif text ..."
 msgstr ""
 
-#: partials/admin/send-page.php:240
+#: partials/admin/send-page.php:239
 msgid "You can use text magic to insert dynamic and variable text. Text magic is entered in the form of an open and closed bracket []. You can use registered variables or user-provided information."
 msgstr ""
 
-#: partials/admin/send-page.php:243
+#: partials/admin/send-page.php:242
 msgid "get a variable data"
 msgstr ""
 
-#: partials/admin/send-page.php:246
+#. translators: %s: class name
+#: partials/admin/send-page.php:245
 msgid "get user data from %s"
 msgstr ""
 
-#: partials/admin/send-page.php:249
+#: partials/admin/send-page.php:248
 msgid "get user meta value"
 msgstr ""
 
-#: partials/admin/send-page.php:252
+#: partials/admin/send-page.php:251
 msgid "get an option"
 msgstr ""
 
-#: partials/admin/send-page.php:255
+#: partials/admin/send-page.php:254
 msgid "get date"
 msgstr ""
 
-#: partials/admin/send-page.php:258
+#: partials/admin/send-page.php:257
 msgid "get i18n date"
 msgstr ""
 
-#: partials/admin/send-page.php:261
+#: partials/admin/send-page.php:260
 msgid "get data value from `Notif Data`"
 msgstr ""
 
-#: partials/admin/send-page.php:266
+#: partials/admin/send-page.php:265
 msgid "Preview"
 msgstr ""
 
-#: partials/admin/send-page.php:266
+#: partials/admin/send-page.php:265
 msgid "renew every 5 seconds"
 msgstr ""
 
-#: partials/admin/send-page.php:277
+#: partials/admin/send-page.php:276
 msgid "Receivers"
 msgstr ""
 
-#: partials/admin/send-page.php:281
+#: partials/admin/send-page.php:280
 msgid "List of notification recipients"
 msgstr ""
 
-#: partials/admin/send-page.php:287
+#: partials/admin/send-page.php:286
 msgid "Defaults"
 msgstr ""
 
-#: partials/admin/send-page.php:288
+#: partials/admin/send-page.php:287
 msgid "The user's ID (exa: 3724) [int]"
 msgstr ""
 
-#: partials/admin/send-page.php:288
+#: partials/admin/send-page.php:287
 msgid "User ID (User unique ID)"
 msgstr ""
 
-#: partials/admin/send-page.php:289
+#: partials/admin/send-page.php:288
 msgid "The user's Login (exa: nova) [str]"
 msgstr ""
 
-#: partials/admin/send-page.php:289
+#: partials/admin/send-page.php:288
 msgid "User Name (User Login)"
 msgstr ""
 
-#: partials/admin/send-page.php:290
+#: partials/admin/send-page.php:289
 msgid "The user's Mail (exa: h@my.com) [e-mail]"
 msgstr ""
 
-#: partials/admin/send-page.php:290
+#: partials/admin/send-page.php:289
 msgid "User Mail (Email address)"
 msgstr ""
 
-#: partials/admin/send-page.php:291
+#: partials/admin/send-page.php:290
 msgid "The user's Role [wp-role]"
 msgstr ""
 
-#: partials/admin/send-page.php:291
+#: partials/admin/send-page.php:290
 msgid "User Role (Roles and Capabilities)"
 msgstr ""
 
-#: partials/admin/send-page.php:292
+#: partials/admin/send-page.php:291
 msgid "The command name (exa: all) [str]"
 msgstr ""
 
-#: partials/admin/send-page.php:292
+#: partials/admin/send-page.php:291
 msgid "Command (An order for groups)"
 msgstr ""
 
-#: partials/admin/send-page.php:296
+#: partials/admin/send-page.php:295
 msgid "Also"
 msgstr ""
 
-#: partials/admin/send-page.php:302
+#: partials/admin/send-page.php:301
 msgid "Easy access"
 msgstr ""
 
-#: partials/admin/send-page.php:307
+#: partials/admin/send-page.php:306
 msgid "An arbitrary value ..."
 msgstr ""
 
-#: partials/admin/send-page.php:307
+#: partials/admin/send-page.php:306
 msgid "Custom"
 msgstr ""
 
-#: partials/admin/send-page.php:310
+#: partials/admin/send-page.php:309
 msgid "Custom name (Double click to return)"
 msgstr ""
 
-#: partials/admin/send-page.php:329
+#: partials/admin/send-page.php:328
 msgid "Add"
 msgstr ""
 
-#: partials/admin/send-page.php:337
+#: partials/admin/send-page.php:336
 msgid "No recipient!"
 msgstr ""
 
-#: partials/admin/send-page.php:340
+#: partials/admin/send-page.php:339
 msgid "Use \"Add\" button to add some"
 msgstr ""
 
-#: partials/admin/send-page.php:353
+#: partials/admin/send-page.php:352
 msgid "Edit notification"
 msgstr ""
 
-#: partials/admin/send-page.php:353
+#: partials/admin/send-page.php:352
 msgid "Send notification"
 msgstr ""
 
@@ -522,6 +519,11 @@ msgstr ""
 msgid "Notif"
 msgstr ""
 
+#: src/Admin/Menu.php:58
+#: src/Admin/Menu.php:59
+msgid "Notif Bell"
+msgstr ""
+
 #: src/Admin/Notices.php:32
 msgid "All notifications you selected have been successfully removed."
 msgstr ""
@@ -574,11 +576,12 @@ msgstr ""
 msgid "Modified at"
 msgstr ""
 
-#: src/Admin/NotifList.php:355
+#. translators: %d: tags count
+#: src/Admin/NotifList.php:356
 msgid "%d more"
 msgstr ""
 
-#: src/Admin/NotifList.php:398
+#: src/Admin/NotifList.php:399
 msgid "Search"
 msgstr ""
 
@@ -655,139 +658,139 @@ msgstr ""
 msgid "Markdown"
 msgstr ""
 
-#: src/Settings.php:59
+#: src/Settings.php:37
 msgid "Enable"
 msgstr ""
 
-#: src/Settings.php:63
-#: src/Settings.php:112
+#: src/Settings.php:41
+#: src/Settings.php:90
 msgid "Disable"
 msgstr ""
 
-#: src/Settings.php:71
+#: src/Settings.php:49
 msgid "Yes"
 msgstr ""
 
-#: src/Settings.php:75
+#: src/Settings.php:53
 msgid "No"
 msgstr ""
 
-#: src/Settings.php:85
+#: src/Settings.php:63
 msgid "Enable LightMode"
 msgstr ""
 
-#: src/Settings.php:86
+#: src/Settings.php:64
 msgid "Running light mode can reduce the process of the administrator side. Without enabling lightmode, no setting will work."
 msgstr ""
 
-#: src/Settings.php:93
+#: src/Settings.php:71
 msgid "Hide Notices"
 msgstr ""
 
-#: src/Settings.php:94
+#: src/Settings.php:72
 msgid "Hiding notices helps the system not do any processing to display notices."
 msgstr ""
 
-#: src/Settings.php:105
+#: src/Settings.php:83
 msgid "Debug level"
 msgstr ""
 
-#: src/Settings.php:106
+#: src/Settings.php:84
 msgid "You can select the plugin debug level. Active or Disable or syncing with wordpress debug?"
 msgstr ""
 
-#: src/Settings.php:116
+#: src/Settings.php:94
 msgid "Active"
 msgstr ""
 
-#: src/Settings.php:120
+#: src/Settings.php:98
 msgid "Sync"
 msgstr ""
 
-#: src/Settings.php:133
+#: src/Settings.php:111
 msgid "Text editor"
 msgstr ""
 
-#: src/Settings.php:134
+#: src/Settings.php:112
 msgid "Select the text editor that plugin must use in send page and other."
 msgstr ""
 
-#: src/Settings.php:140
+#: src/Settings.php:118
 msgid "Audo detect (by format)"
 msgstr ""
 
-#: src/Settings.php:144
+#: src/Settings.php:122
 msgid "Simple textarea"
 msgstr ""
 
-#: src/Settings.php:150
+#: src/Settings.php:128
 msgid "Visual text editor"
 msgstr ""
 
-#: src/Settings.php:151
+#: src/Settings.php:129
 msgid "Which visual text editor do you want to use to edit html?"
 msgstr ""
 
-#: src/Settings.php:157
+#: src/Settings.php:135
 msgid "Wordpress editor"
 msgstr ""
 
-#: src/Settings.php:161
+#: src/Settings.php:139
 msgid "Quill editor"
 msgstr ""
 
-#: src/Settings.php:167
+#: src/Settings.php:145
 msgid "Editor base"
 msgstr ""
 
-#: src/Settings.php:168
+#: src/Settings.php:146
 msgid "Should the usable editor be visual or code?"
 msgstr ""
 
-#: src/Settings.php:174
+#: src/Settings.php:152
 msgid "Visual"
 msgstr ""
 
-#: src/Settings.php:178
+#: src/Settings.php:156
 msgid "Code"
 msgstr ""
 
-#: src/Settings.php:184
+#: src/Settings.php:162
 msgid "Quill editor theme"
 msgstr ""
 
-#: src/Settings.php:185
+#: src/Settings.php:163
 msgid "Select quill editor theme for ui view."
 msgstr ""
 
-#: src/Settings.php:191
+#: src/Settings.php:169
 msgid "Snow"
 msgstr ""
 
-#: src/Settings.php:195
+#: src/Settings.php:173
 msgid "Bubble"
 msgstr ""
 
-#: src/Settings.php:205
+#: src/Settings.php:183
 msgid "Delete data with Uninstall"
 msgstr ""
 
-#: src/Settings.php:206
+#: src/Settings.php:184
 msgid "Remove all plugin data when uninstalling the plugin on the WordPress plugins page?"
 msgstr ""
 
-#: src/Settings.php:220
+#: src/Settings.php:198
 msgid "Service status"
 msgstr ""
 
-#: src/Settings.php:221
+#: src/Settings.php:199
 msgid "Do you want the Ajax service of the plugin to be enabled?"
 msgstr ""
 
-#: src/Settings.php:228
+#: src/Settings.php:206
 msgid "Ajax: Add seen list"
 msgstr ""
 
-#: src/Settings.php:229
+#: src/Settings.php:207
 msgid "An Ajax specifically for adding notification IDs as seen for the user through an Ajax request."
 msgstr ""
