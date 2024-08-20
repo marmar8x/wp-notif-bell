@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Notif Bell 0.9.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-notif-bell\n"
-"POT-Creation-Date: 2024-08-18T21:53:13+00:00\n"
-"PO-Revision-Date: 2024-08-19 01:24+0330\n"
+"POT-Creation-Date: 2024-08-20T20:35:54+00:00\n"
+"PO-Revision-Date: 2024-08-21 00:06+0330\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fa_IR\n"
@@ -17,11 +17,9 @@ msgstr ""
 
 #. Plugin Name of the plugin
 #: E:\xampp\htdocs\wordpress\wp-content\plugins\wp-notif-bell\wp-notif-bell.php
-#: partials/admin/list-page.php:23 partials/admin/main-page.php:17
-#: partials/admin/send-page.php:95 partials/admin/settings-page.php:20
-#: partials/admin/tools-page.php:60
-msgid "WP Notif Bell"
-msgstr "زنگ اعلان وردپرس"
+#: src/Admin/Menu.php:60 src/Admin/Menu.php:61
+msgid "Notif Bell"
+msgstr "زنگ اعلان"
 
 #. Plugin URI of the plugin
 #: E:\xampp\htdocs\wordpress\wp-content\plugins\wp-notif-bell\wp-notif-bell.php
@@ -48,7 +46,13 @@ msgstr ""
 msgid "Save settings"
 msgstr "ذخیره تنظیمات"
 
-#: partials/admin/list-page.php:24 src/Admin/Menu.php:77 src/Admin/Menu.php:78
+#: partials/admin/list-page.php:23 partials/admin/main-page.php:17
+#: partials/admin/send-page.php:95 partials/admin/settings-page.php:20
+#: partials/admin/tools-page.php:60
+msgid "WP Notif Bell"
+msgstr "زنگ اعلان وردپرس"
+
+#: partials/admin/list-page.php:24 src/Admin/Menu.php:79 src/Admin/Menu.php:80
 msgid "List"
 msgstr "لیست"
 
@@ -130,7 +134,7 @@ msgstr "پیشنهادی"
 msgid "Edit"
 msgstr "ویرایش"
 
-#: partials/admin/send-page.php:96 src/Admin/Menu.php:68 src/Admin/Menu.php:69
+#: partials/admin/send-page.php:96 src/Admin/Menu.php:70 src/Admin/Menu.php:71
 msgid "Send"
 msgstr "ارسال"
 
@@ -334,8 +338,8 @@ msgstr "ویرایش نوتیف"
 msgid "Send notification"
 msgstr "ارسال نوتیف"
 
-#: partials/admin/settings-page.php:21 src/Admin/Menu.php:86
-#: src/Admin/Menu.php:87
+#: partials/admin/settings-page.php:21 src/Admin/Menu.php:88
+#: src/Admin/Menu.php:89
 msgid "Settings"
 msgstr "تنظیمات"
 
@@ -355,7 +359,7 @@ msgstr "پایگاه داده با موفقیت به‌روزرسانی شده �
 msgid "The submitted request is not valid."
 msgstr "تاریخ ارسال به صورت نادرست وارد شده."
 
-#: partials/admin/tools-page.php:61 src/Admin/Menu.php:95 src/Admin/Menu.php:96
+#: partials/admin/tools-page.php:61 src/Admin/Menu.php:97 src/Admin/Menu.php:98
 msgid "Tools"
 msgstr "ابزار ها"
 
@@ -554,13 +558,9 @@ msgstr "ارسال به تمامی کاربران"
 msgid "Send to Subscribers"
 msgstr "ارسال به تمامی مشترکان"
 
-#: src/Admin/Menu.php:42
+#: src/Admin/Menu.php:44
 msgid "Notif"
 msgstr "نوتیف"
-
-#: src/Admin/Menu.php:58 src/Admin/Menu.php:59
-msgid "Notif Bell"
-msgstr "زنگ اعلان"
 
 #: src/Admin/Notices.php:32
 msgid "All notifications you selected have been successfully removed."
