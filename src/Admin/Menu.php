@@ -36,11 +36,13 @@ class Menu implements CapInterface
      */
     public function register_bar(\WP_Admin_Bar $wp_admin_bar): void
     {
+        $admin_url = get_admin_url();
+
         if (current_user_can(self::CAPS['send'])) {
             $wp_admin_bar->add_node([
                 'id'        => 'wpnb_notif',
                 'title'     => __('Notif', 'wp-notif-bell'),
-                'href'      => menu_page_url('wpnb-send', false),
+                'href'      => $admin_url . 'admin.php?page=wpnb-send',
                 'parent'    => 'new-content'
             ]);
         }
