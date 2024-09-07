@@ -123,6 +123,17 @@ final class Sender
     }
 
     /**
+     * get errors stack
+     * 
+     * @since   0.9.0
+     * @return  Stack
+     */
+    public function errors(): Stack
+    {
+        return $this->errors;
+    }
+
+    /**
      * check notif is sent
      * 
      * @since   0.9.0

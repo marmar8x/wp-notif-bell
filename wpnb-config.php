@@ -11,7 +11,9 @@
 defined('WPINC') || die;
 
 // if package loaded before, abort.
-defined('WP_NOTIF_BELL') && die;
+if (defined('WP_NOTIF_BELL')) {
+    return [ 'autoload' => 'before' ];
+}
 
 // define main constants
 // I add an "IRM_" as a prefix to avoid php errors due to
