@@ -61,10 +61,10 @@ class Notif
     {
         // init formats
         $formats = Container::$text_formats = [
-            'pure-text' => __('Pure Text', 'wp-notif-bell'), // default, required
-            'text'      => __('Text', 'wp-notif-bell'),
-            'html'      => __('HTML', 'wp-notif-bell'),
-            'markdown'  => __('Markdown', 'wp-notif-bell')
+            'pure-text' => __('Pure Text', 'notif-bell'), // default, required
+            'text'      => __('Text', 'notif-bell'),
+            'html'      => __('HTML', 'notif-bell'),
+            'markdown'  => __('Markdown', 'notif-bell')
         ];
 
         /**
@@ -77,7 +77,7 @@ class Notif
 
         // 'pure-text' can't be removed
         if (!in_array('pure-text', $formats)) {
-            $formats['pure-text'] = __('Pure Text', 'wp-notif-bell');
+            $formats['pure-text'] = __('Pure Text', 'notif-bell');
         }
 
         // set all vars as end

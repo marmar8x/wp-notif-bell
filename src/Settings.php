@@ -34,11 +34,11 @@ class Settings implements SettingInterface
         $options_enable = [
             [
                 'value'     => 'enable',
-                '_value'    => __('Enable', 'wp-notif-bell')
+                '_value'    => __('Enable', 'notif-bell')
             ],
             [
                 'value'     => 'disable',
-                '_value'    => __('Disable', 'wp-notif-bell')
+                '_value'    => __('Disable', 'notif-bell')
             ],
         ];
 
@@ -46,11 +46,11 @@ class Settings implements SettingInterface
         $options_yesno = [
             [
                 'value'     => 'yes',
-                '_value'    => __('Yes', 'wp-notif-bell')
+                '_value'    => __('Yes', 'notif-bell')
             ],
             [
                 'value'     => 'no',
-                '_value'    => __('No', 'wp-notif-bell')
+                '_value'    => __('No', 'notif-bell')
             ],
         ];
 
@@ -60,16 +60,16 @@ class Settings implements SettingInterface
         // add child tab setting lightmode
         $settings['load']['lightmode'] = [
             [
-                '_title'        => __('Enable LightMode', 'wp-notif-bell'),
-                '_text'         => __('Running light mode can reduce the process of the administrator side. Without enabling lightmode, no setting will work.', 'wp-notif-bell'),
+                '_title'        => __('Enable LightMode', 'notif-bell'),
+                '_text'         => __('Running light mode can reduce the process of the administrator side. Without enabling lightmode, no setting will work.', 'notif-bell'),
                 '_type'         => 'select',
                 'id'            => 'status',
                 'required'      => 'true',
                 '_options'      => $options_enable
             ],
             [
-                '_title'        => __('Hide Notices', 'wp-notif-bell'),
-                '_text'         => __('Hiding notices helps the system not do any processing to display notices.', 'wp-notif-bell'),
+                '_title'        => __('Hide Notices', 'notif-bell'),
+                '_text'         => __('Hiding notices helps the system not do any processing to display notices.', 'notif-bell'),
                 '_type'         => 'select',
                 'id'            => 'hide_notices',
                 'required'      => 'true',
@@ -80,22 +80,22 @@ class Settings implements SettingInterface
         // add debug settings
         $settings['load']['debug'] = [
             [
-                '_title'        => __('Debug level', 'wp-notif-bell'),
-                '_text'         => __('You can select the plugin debug level. Active or Disable or syncing with wordpress debug?', 'wp-notif-bell'),
+                '_title'        => __('Debug level', 'notif-bell'),
+                '_text'         => __('You can select the plugin debug level. Active or Disable or syncing with wordpress debug?', 'notif-bell'),
                 '_type'         => 'select',
                 'id'            => 'level',
                 'required'      => 'true',
                 '_options'      => [
                     [
-                        '_value'    => __('Disable', 'wp-notif-bell'),
+                        '_value'    => __('Disable', 'notif-bell'),
                         'value'     => 'disable'
                     ],
                     [
-                        '_value'    => __('Active', 'wp-notif-bell'),
+                        '_value'    => __('Active', 'notif-bell'),
                         'value'     => 'active'
                     ],
                     [
-                        '_value'    => __('Sync', 'wp-notif-bell'),
+                        '_value'    => __('Sync', 'notif-bell'),
                         'value'     => 'sync'
                     ],
                 ]
@@ -108,69 +108,69 @@ class Settings implements SettingInterface
         // add ui settings
         $settings['admin']['ui'] = [
             [
-                '_title'        => __('Text editor', 'wp-notif-bell'),
-                '_text'         => __('Select the text editor that plugin must use in send page and other.', 'wp-notif-bell'),
+                '_title'        => __('Text editor', 'notif-bell'),
+                '_text'         => __('Select the text editor that plugin must use in send page and other.', 'notif-bell'),
                 '_type'         => 'select',
                 'id'            => 'text_editor',
                 'required'      => 'true',
                 '_options'      => [
                     [
-                        '_value'    => __('Audo detect (by format)', 'wp-notif-bell'),
+                        '_value'    => __('Audo detect (by format)', 'notif-bell'),
                         'value'     => 'auto'
                     ],
                     [
-                        '_value'    => __('Simple textarea', 'wp-notif-bell'),
+                        '_value'    => __('Simple textarea', 'notif-bell'),
                         'value'     => 'simple'
                     ],
                 ]
             ],
             [
-                '_title'        => __('Visual text editor', 'wp-notif-bell'),
-                '_text'         => __('Which visual text editor do you want to use to edit html?', 'wp-notif-bell'),
+                '_title'        => __('Visual text editor', 'notif-bell'),
+                '_text'         => __('Which visual text editor do you want to use to edit html?', 'notif-bell'),
                 '_type'         => 'select',
                 'id'            => 'visual_text_editor',
                 'required'      => 'true',
                 '_options'      => [
                     [
-                        '_value'    => __('Wordpress editor', 'wp-notif-bell'),
+                        '_value'    => __('Wordpress editor', 'notif-bell'),
                         'value'     => 'wp'
                     ],
                     [
-                        '_value'    => __('Quill editor', 'wp-notif-bell'),
+                        '_value'    => __('Quill editor', 'notif-bell'),
                         'value'     => 'quill'
                     ],
                 ]
             ],
             [
-                '_title'        => __('Editor base', 'wp-notif-bell'),
-                '_text'         => __('Should the usable editor be visual or code?', 'wp-notif-bell'),
+                '_title'        => __('Editor base', 'notif-bell'),
+                '_text'         => __('Should the usable editor be visual or code?', 'notif-bell'),
                 '_type'         => 'select',
                 'id'            => 'editor_base',
                 'required'      => 'true',
                 '_options'      => [
                     [
-                        '_value'    => __('Visual', 'wp-notif-bell'),
+                        '_value'    => __('Visual', 'notif-bell'),
                         'value'     => 'visual'
                     ],
                     [
-                        '_value'    => __('Code', 'wp-notif-bell'),
+                        '_value'    => __('Code', 'notif-bell'),
                         'value'     => 'code'
                     ],
                 ]
             ],
             [
-                '_title'        => __('Quill editor theme', 'wp-notif-bell'),
-                '_text'         => __('Select quill editor theme for ui view.', 'wp-notif-bell') . '<br />' . '<a target="_blank" href="https://quilljs.com/docs/configuration#theme">https://quilljs.com/docs/configuration#theme</a>',
+                '_title'        => __('Quill editor theme', 'notif-bell'),
+                '_text'         => __('Select quill editor theme for ui view.', 'notif-bell') . '<br />' . '<a target="_blank" href="https://quilljs.com/docs/configuration#theme">https://quilljs.com/docs/configuration#theme</a>',
                 '_type'         => 'select',
                 'id'            => 'quill_theme',
                 'required'      => 'true',
                 '_options'      => [
                     [
-                        '_value'    => __('Snow', 'wp-notif-bell'),
+                        '_value'    => __('Snow', 'notif-bell'),
                         'value'     => 'snow'
                     ],
                     [
-                        '_value'    => __('Bubble', 'wp-notif-bell'),
+                        '_value'    => __('Bubble', 'notif-bell'),
                         'value'     => 'bubble'
                     ],
                 ]
@@ -180,8 +180,8 @@ class Settings implements SettingInterface
         // add manage section to admin
         $settings['admin']['manage'] = [
             [
-                '_title'        => __('Delete data with Uninstall', 'wp-notif-bell'),
-                '_text'         => __('Remove all plugin data when uninstalling the plugin on the WordPress plugins page?', 'wp-notif-bell'),
+                '_title'        => __('Delete data with Uninstall', 'notif-bell'),
+                '_text'         => __('Remove all plugin data when uninstalling the plugin on the WordPress plugins page?', 'notif-bell'),
                 '_type'         => 'select',
                 'id'            => 'rm_data',
                 'required'      => 'true',
@@ -195,16 +195,16 @@ class Settings implements SettingInterface
         // add ajax api fields
         $settings['api']['ajax'] = [
             [
-                '_title'        => __('Service status', 'wp-notif-bell'),
-                '_text'         => __('Do you want the Ajax service of the plugin to be enabled?', 'wp-notif-bell'),
+                '_title'        => __('Service status', 'notif-bell'),
+                '_text'         => __('Do you want the Ajax service of the plugin to be enabled?', 'notif-bell'),
                 '_type'         => 'select',
                 'id'            => 'status',
                 'required'      => 'true',
                 '_options'      => $options_enable
             ],
             [
-                '_title'        => __('Ajax: Add seen list', 'wp-notif-bell'),
-                '_text'         => __('An Ajax specifically for adding notification IDs as seen for the user through an Ajax request.', 'wp-notif-bell'),
+                '_title'        => __('Ajax: Add seen list', 'notif-bell'),
+                '_text'         => __('An Ajax specifically for adding notification IDs as seen for the user through an Ajax request.', 'notif-bell'),
                 '_type'         => 'select',
                 'id'            => 'add_seen_list',
                 'required'      => 'true',

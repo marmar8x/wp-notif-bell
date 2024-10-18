@@ -66,7 +66,7 @@ class NotifList extends \WP_List_Table
         $collector = $this->collector;
 
         // If no sort, default to user_login
-        $orderby = !empty($_GET['orderby']) ? $_GET['orderby'] : 'date';
+        $orderby = !empty($_GET['orderby']) ? sanitize_key($_GET['orderby']) : 'date';
 
         // date is sent_at!
         if ($orderby === 'date') {
@@ -74,7 +74,7 @@ class NotifList extends \WP_List_Table
         }
 
         // search fields
-        $search = isset($_REQUEST['s']) ? $_REQUEST['s'] : false;
+        $search = isset($_REQUEST['s']) ? sanitize_text_field($_REQUEST['s']) : false;
 
         // search in all fields
         if ($search) {
@@ -89,7 +89,7 @@ class NotifList extends \WP_List_Table
         }
 
         // If no order, default to asc
-        $order = !empty($_GET['order']) ? strtoupper($_GET['order']) : 'DESC';
+        $order = !empty($_GET['order']) ? strtoupper( sanitize_key($_GET['order']) ) : 'DESC';
 
         // check for invalid orders
         if (!in_array($order, ['ASC', 'DESC'])) {
@@ -138,11 +138,11 @@ class NotifList extends \WP_List_Table
     {
         $columns = [
             'cb'            => '<input type="checkbox" />',
-            'title'         => __('Title', 'wp-notif-bell'),
-            'sender'        => __('Sender', 'wp-notif-bell'),
-            'tags'          => __('Tags', 'wp-notif-bell'),
-            'recipients'    => __('Recievers', 'wp-notif-bell'),
-            'date'          => __('Date', 'wp-notif-bell')
+            'title'         => __('Title', 'notif-bell'),
+            'sender'        => __('Sender', 'notif-bell'),
+            'tags'          => __('Tags', 'notif-bell'),
+            'recipients'    => __('Recievers', 'notif-bell'),
+            'date'          => __('Date', 'notif-bell')
         ];
 
         return $columns;
@@ -159,7 +159,7 @@ class NotifList extends \WP_List_Table
 	public function get_bulk_actions(): array
     {
 		return [
-            'delete' => __('Delete', 'wp-notif-bell')
+            'delete' => __('Delete', 'notif-bell')
         ];
 	}
 
@@ -178,7 +178,7 @@ class NotifList extends \WP_List_Table
         }
 
         // In our file that handles the request, verify the nonce.
-        $nonce = esc_attr($_REQUEST['_wpnonce']);
+        $nonce = sanitize_text_field($_REQUEST['_wpnonce']);
         $action = 'bulk-' . $this->_args['plural'];
 
         if (!wp_verify_nonce($nonce, $action)) {
@@ -192,7 +192,7 @@ class NotifList extends \WP_List_Table
         $result = 'none';
 
         // get all selected notifications
-        $notifs = (array) ($_POST['keys'] ?? []);
+        $notifs = array_map('sanitize_key', (array) $_POST['keys']);
 
         if (empty($notifs)) {
             $result = 'list-bulk-uns';
@@ -275,7 +275,7 @@ class NotifList extends \WP_List_Table
         ], menu_page_url('wpnb-send', false));
 
         $actions = [
-            'edit' => sprintf('<a href="%s">' . __('Edit', 'wp-notif-bell') . '</a>', $edit_url)
+            'edit' => sprintf('<a href="%s">' . __('Edit', 'notif-bell') . '</a>', $edit_url)
         ];
     
         //Return the title contents
@@ -329,14 +329,14 @@ class NotifList extends \WP_List_Table
 
             if ($sent_date !== $create_date) {
                 $fetch .= '<b>';
-                $fetch .= '<br />' . __('Created at', 'wp-notif-bell') . '<br />';
+                $fetch .= '<br />' . __('Created at', 'notif-bell') . '<br />';
                 $fetch .= $create_date;
                 $fetch .= '</b>';
             }
 
             if ($create_date !== $update_date) {
                 $fetch .= '<b>';
-                $fetch .= '<br />' . __('Modified at', 'wp-notif-bell') . '<br />';
+                $fetch .= '<br />' . __('Modified at', 'notif-bell') . '<br />';
                 $fetch .= $update_date;
                 $fetch .= '</b>';
             }
@@ -353,7 +353,7 @@ class NotifList extends \WP_List_Table
                 $fetch = implode(', ', $tag_slice);
                 $fetch .= '<br /> +';
                 /* translators: %d: tags count */
-                $fetch .= sprintf( __('%d more', 'wp-notif-bell'), $tag_count - 3 );
+                $fetch .= sprintf( __('%d more', 'notif-bell'), $tag_count - 3 );
             }
         } elseif ($column_name === 'title') {
             $fetch = $item->title;
@@ -390,13 +390,10 @@ class NotifList extends \WP_List_Table
         $this->init();
         $this->prepare_items();
 
-        // echo simple css code
-        echo '<style>.tablenav .actions {margin-top: unset !important;} .wpnb-key-list-h {font-size: 0.7rem; background: none !important; border: 0 !important;}</style>';
-
         echo '<div class="wrap">';
 
         echo '<form method="POST">';
-        $this->search_box(__('Search', 'wp-notif-bell'), 'wpnb_list_search');
+        $this->search_box(__('Search', 'notif-bell'), 'wpnb_list_search');
         echo '</form>';
 
         echo '<form method="POST">';

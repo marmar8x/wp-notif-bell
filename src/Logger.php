@@ -42,7 +42,7 @@ class Logger
      * @since   0.9.0
      * @var     string
      */
-    protected static string $storage_path = IRM_WPNB_LOGS_PATH;
+    protected static string $storage_path = MM8X_WPNB_LOGS_PATH;
 
     /**
      * @since   0.9.0

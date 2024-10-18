@@ -24,10 +24,10 @@ final class Master
     public function includes(): void
     {
         // include/admin/settings.php
-        wpnb_safe_require(IRM_WP_NOTIF_BELL_PTH, 'include', 'admin', 'settings.php');
+        wpnb_safe_require(MM8X_WP_NOTIF_BELL_PTH, 'include', 'admin', 'settings.php');
 
         // include/admin/send.php
-        wpnb_safe_require(IRM_WP_NOTIF_BELL_PTH, 'include', 'admin', 'send.php');
+        wpnb_safe_require(MM8X_WP_NOTIF_BELL_PTH, 'include', 'admin', 'send.php');
     }
 
     /**
@@ -42,11 +42,11 @@ final class Master
         $eza_list = Statics::$eza_list = [
             'all-command' => [
                 'data'  => 'command:all',
-                'value' => __('Send to all users', 'wp-notif-bell')
+                'value' => __('Send to all users', 'notif-bell')
             ],
             'role-subs'   => [
                 'data'  => 'user-role:subscriber',
-                'value' => __('Send to Subscribers', 'wp-notif-bell')
+                'value' => __('Send to Subscribers', 'notif-bell')
             ]
         ];
 

@@ -41,7 +41,7 @@ class Menu implements CapInterface
         if (current_user_can(self::CAPS['send'])) {
             $wp_admin_bar->add_node([
                 'id'        => 'wpnb_notif',
-                'title'     => __('Notif', 'wp-notif-bell'),
+                'title'     => __('Notif', 'notif-bell'),
                 'href'      => $admin_url . 'admin.php?page=wpnb-send',
                 'parent'    => 'new-content'
             ]);
@@ -57,8 +57,8 @@ class Menu implements CapInterface
     public function register(): void
     {
         add_menu_page(
-            __('Notif Bell', 'wp-notif-bell'),
-            __('Notif Bell', 'wp-notif-bell'),
+            __('Notif Bell', 'notif-bell'),
+            __('Notif Bell', 'notif-bell'),
             'manage_options',
             'wpnb-main',
             [$this, 'main_content'],
@@ -67,8 +67,8 @@ class Menu implements CapInterface
 
         add_submenu_page(
             'wpnb-main',
-            __('Send', 'wp-notif-bell'),
-            __('Send', 'wp-notif-bell'),
+            __('Send', 'notif-bell'),
+            __('Send', 'notif-bell'),
             'wpnb_can_send',
             'wpnb-send',
             [$this, 'send_content']
@@ -76,8 +76,8 @@ class Menu implements CapInterface
 
         add_submenu_page(
             'wpnb-main',
-            __('List', 'wp-notif-bell'),
-            __('List', 'wp-notif-bell'),
+            __('List', 'notif-bell'),
+            __('List', 'notif-bell'),
             'manage_options',
             'wpnb-list',
             [$this, 'list_content']
@@ -85,8 +85,8 @@ class Menu implements CapInterface
 
         add_submenu_page(
             'wpnb-main',
-            __('Settings', 'wp-notif-bell'),
-            __('Settings', 'wp-notif-bell'),
+            __('Settings', 'notif-bell'),
+            __('Settings', 'notif-bell'),
             'manage_options',
             'wpnb-settings',
             [$this, 'settings_content']
@@ -94,8 +94,8 @@ class Menu implements CapInterface
 
         add_submenu_page(
             'wpnb-main',
-            __('Tools', 'wp-notif-bell'),
-            __('Tools', 'wp-notif-bell'),
+            __('Tools', 'notif-bell'),
+            __('Tools', 'notif-bell'),
             'manage_options',
             'wpnb-tools',
             [$this, 'tools_content']

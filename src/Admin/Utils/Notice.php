@@ -42,14 +42,14 @@ class Notice
 
         // get notif subject title
         $subjects = [
-            self::WARN      => __('Warning', 'wp-notif-bell'),
-            self::ERROR     => __('Error', 'wp-notif-bell')
+            self::WARN      => __('Warning', 'notif-bell'),
+            self::ERROR     => __('Error', 'notif-bell')
         ];
 
         $subject = $subjects[ $type ] ?? '';
         $subject = !empty($subject) ? "({$subject})" : '';
 
-        $wpnb = __('WP Notif Bell:', 'wp-notif-bell');
+        $wpnb = __('WP Notif Bell:', 'notif-bell');
 
         // change classes to string
         $classList = esc_attr(implode(' ', $classes));

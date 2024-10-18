@@ -18,9 +18,9 @@ final class WpHook
 {
     //@since 0.9.0
     private const REQUIRED_FOLDERS = [
-        IRM_WPNB_STORAGE_PATH,
-        IRM_WPNB_LOGS_PATH,
-        IRM_WPNB_CACHE_PATH
+        MM8X_WPNB_STORAGE_PATH,
+        MM8X_WPNB_LOGS_PATH,
+        MM8X_WPNB_CACHE_PATH
     ];
 
     /**
@@ -32,7 +32,7 @@ final class WpHook
     public function activate(): void
     {
         $php_version  = PHP_VERSION;
-        $required_php = IRM_WP_NOTIF_BELL_PHP;
+        $required_php = MM8X_WP_NOTIF_BELL_PHP;
 
         // check php version
         if (version_compare($php_version, $required_php, '<')) {

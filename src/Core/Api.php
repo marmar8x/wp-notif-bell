@@ -63,12 +63,13 @@ class Api
         }
 
         // check security nonce
-        if (!isset($body['token']) || !wp_verify_nonce($body['token'], 'wpnb_ajax_add_seen')) {
+        if (!isset($body['token']) || !wp_verify_nonce( sanitize_key($body['token']), 'wpnb_ajax_add_seen' )) {
             wp_send_json_error([ 'code' => 403 ], 403);
 
             exit;
         }
 
+        // sanitize data
         $notif_id = intval($body['notif_id'] ?? '');
 
         // check for notif_id data type and current user

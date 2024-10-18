@@ -58,7 +58,7 @@ final class Processor
      */
     public function init(): void
     {
-        I18n::load(IRM_WP_NOTIF_BELL_DIR . '/' . I18n::DIR);
+        I18n::load(MM8X_WP_NOTIF_BELL_DIR . '/' . I18n::DIR);
     }
 
     /**

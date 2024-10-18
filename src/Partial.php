@@ -30,7 +30,7 @@ class Partial
     public static function get_path(string $name, array $subs = []): string
     {
         $file = Data::join_path( array_merge($subs, [$name . '.php']) );
-        return Data::join_path([IRM_WP_NOTIF_BELL_PTH, self::DIR_NAME, $file]);
+        return Data::join_path([MM8X_WP_NOTIF_BELL_PTH, self::DIR_NAME, $file]);
     }
 
     /**

@@ -29,7 +29,7 @@ class Cache
      * @since   0.9.0
      * @var     string  $storage_path   
      */
-    private static string $storage_path = IRM_WPNB_CACHE_PATH;
+    private static string $storage_path = MM8X_WPNB_CACHE_PATH;
 
     /**
      * The files extension. like file.EXT

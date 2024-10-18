@@ -45,18 +45,18 @@ class Ajax
     private function get_error_msg(string $code): string
     {
         if (substr($code, 0, 10) === 'incomplete') {
-            return __('The data sent is incomplete.', 'wp-notif-bell');
+            return __('The data sent is incomplete.', 'notif-bell');
         } elseif ($code === 'invalid-receivers') {
-            return __('Recipients are either not entered or not entered correctly.', 'wp-notif-bell');
+            return __('Recipients are either not entered or not entered correctly.', 'notif-bell');
         } elseif ($code === 'invalid-tags') {
-            return __('The tags are not entered correctly.', 'wp-notif-bell');
+            return __('The tags are not entered correctly.', 'notif-bell');
         } elseif ($code === 'invalid-date') {
-            return __('The sending date entered is invalid.', 'wp-notif-bell');
+            return __('The sending date entered is invalid.', 'notif-bell');
         } elseif ($code === 'invalid-format') {
-            return __('The entered format is not defined.', 'wp-notif-bell');
+            return __('The entered format is not defined.', 'notif-bell');
         }
 
-        return __('Unknown error', 'wp-notif-bell');
+        return __('Unknown error', 'notif-bell');
     }
 
     /**
@@ -140,6 +140,13 @@ class Ajax
         $notif['receivers'] = array_filter($notif['receivers'], function ($r) {
             return isset($r['name']) && isset($r['data']);
         });
+
+        // sanitize the whole data
+        foreach ([ 'title', 'sender', 'format', 'date' ] as $key) {
+            if (isset($notif[ $key ])) {
+                $notif[ $key ] = sanitize_text_field($notif[ $key ]);
+            }
+        }
 
         return '';
     }
@@ -243,7 +250,7 @@ class Ajax
             if (!(new Collector)->target_by_key($request['key'])->has()) {
                 wp_send_json_error([
                     'error' => 'not-found',
-                    'msg'   => __('No Notif were found with the entered key.', 'wp-notif-bell')
+                    'msg'   => __('No Notif were found with the entered key.', 'notif-bell')
                 ]);
     
                 exit;

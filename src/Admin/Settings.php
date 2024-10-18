@@ -46,14 +46,14 @@ class Settings
     private function init_txt(): void
     {
         $this->txt = [
-            'sec_load'       => __('Load', 'wp-notif-bell'),
-            'tab_lightmode'  => __('Light Mode', 'wp-notif-bell'),
-            'tab_debug'      => __('Debug', 'wp-notif-bell'),
-            'sec_admin'      => __('Admin', 'wp-notif-bell'),
-            'tab_ui'         => __('UI', 'wp-notif-bell'),
-            'tab_manage'     => __('Manage', 'wp-notif-bell'),
-            'sec_api'        => __('Api', 'wp-notif-bell'),
-            'tab_ajax'       => __('Ajax', 'wp-notif-bell'),
+            'sec_load'       => __('Load', 'notif-bell'),
+            'tab_lightmode'  => __('Light Mode', 'notif-bell'),
+            'tab_debug'      => __('Debug', 'notif-bell'),
+            'sec_admin'      => __('Admin', 'notif-bell'),
+            'tab_ui'         => __('UI', 'notif-bell'),
+            'tab_manage'     => __('Manage', 'notif-bell'),
+            'sec_api'        => __('Api', 'notif-bell'),
+            'tab_ajax'       => __('Ajax', 'notif-bell'),
         ];
     }
 
@@ -116,7 +116,7 @@ class Settings
             return;
         }
 
-        $section        = $_POST['section'];
+        $section        = sanitize_key($_POST['section']);
         $section_slug   = $section . '_';
         $settings_def   = CoreSettings::DEF_SETTINGS;
 
@@ -127,6 +127,10 @@ class Settings
             if (substr($id, 0, strlen($section_slug)) !== $section_slug) {
                 continue;
             }
+
+            // sanitize data after checking
+            $id     = sanitize_key($id);
+            $value  = sanitize_text_field($value);
 
             // get setting real id
             $real_id = preg_replace('/_/', '.', $id, 2);
@@ -142,9 +146,9 @@ class Settings
         $save = CoreSettings::save($fetch);
 
         if ($save) {
-            $notice = Notice::render( __('Settings saved.', 'wp-notif-bell'), Notice::SUCCESS );
+            $notice = Notice::render( __('Settings saved.', 'notif-bell'), Notice::SUCCESS );
         } else {
-            $notice = Notice::render( __('No changes were saved.', 'wp-notif-bell'), Notice::INFO );
+            $notice = Notice::render( __('No changes were saved.', 'notif-bell'), Notice::INFO );
         }
 
         wpnb_add_settings_msg($notice);
@@ -177,7 +181,7 @@ class Settings
             add_settings_error(
                 self::PREFIX . '_setting_notice',
                 'invalid_token',
-                __('The wpnb token is invalid.', 'wp-notif-bell')
+                __('The wpnb token is invalid.', 'notif-bell')
             );
         }
 

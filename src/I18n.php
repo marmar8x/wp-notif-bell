@@ -27,6 +27,6 @@ class I18n
      */
     public static function load(string $domain_path): void
     {
-        load_plugin_textdomain(IRM_WP_NOTIF_BELL, false, $domain_path);
+        load_plugin_textdomain(MM8X_WP_NOTIF_BELL_DOM, false, $domain_path);
     }
 }
