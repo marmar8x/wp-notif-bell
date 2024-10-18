@@ -20,7 +20,7 @@
  * Author URI:        https://github.com/marmar8x
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       wp-notif-bell
+ * Text Domain:       notif-bell
  * Domain Path:       /languages
  */
 
@@ -54,7 +54,7 @@ register_deactivation_hook(__FILE__, function () {
  * @since   0.9.0
  * @private
  */
-function _run_irmmr_wp_notif_bell(): void
+function mm8x_run_wp_notif_bell(): void
 {
     $processor = new \Irmmr\WpNotifBell\Processor;
 
@@ -62,4 +62,4 @@ function _run_irmmr_wp_notif_bell(): void
     $processor->run();
 }
 
-add_action('plugins_loaded', '_run_irmmr_wp_notif_bell');
+add_action('plugins_loaded', 'mm8x_run_wp_notif_bell');

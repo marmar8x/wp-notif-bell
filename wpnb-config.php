@@ -11,28 +11,29 @@
 defined('WPINC') || die;
 
 // if package loaded before, abort.
-if (defined('WP_NOTIF_BELL')) {
+if (defined('MM8X_WP_NOTIF_BELL')) {
     return [ 'autoload' => 'before' ];
 }
 
 // define main constants
-// I add an "IRM_" as a prefix to avoid php errors due to
+// I add an "MM8X" as a prefix to avoid php errors due to
 // same constant names!
-const IRM_WP_NOTIF_BELL     = 'wp-notif-bell';
-const IRM_WP_NOTIF_BELL_VER = '0.9.0';
-const IRM_WP_NOTIF_BELL_PHP = '7.4';
+const MM8X_WP_NOTIF_BELL     = 'wp-notif-bell';
+const MM8X_WP_NOTIF_BELL_VER = '0.9.0';
+const MM8X_WP_NOTIF_BELL_PHP = '7.4';
+const MM8X_WP_NOTIF_BELL_DOM = 'notif-bell';
 
 // plugin dir path
 // the plugin url path
-define('IRM_WP_NOTIF_BELL_DIR', dirname( plugin_basename(__FILE__) ));
-define('IRM_WP_NOTIF_BELL_PTH', plugin_dir_path(__FILE__));
-define('IRM_WP_NOTIF_BELL_URL', plugin_dir_url(__FILE__));
+define('MM8X_WP_NOTIF_BELL_DIR', dirname( plugin_basename(__FILE__) ));
+define('MM8X_WP_NOTIF_BELL_PTH', plugin_dir_path(__FILE__));
+define('MM8X_WP_NOTIF_BELL_URL', plugin_dir_url(__FILE__));
 
 // plugin helpers directions
-const IRM_WPNB_WP_CONTENT   = ABSPATH . DIRECTORY_SEPARATOR . 'wp-content';
-const IRM_WPNB_STORAGE_PATH = IRM_WPNB_WP_CONTENT . DIRECTORY_SEPARATOR . 'wpnb';
-const IRM_WPNB_CACHE_PATH   = IRM_WPNB_STORAGE_PATH . DIRECTORY_SEPARATOR . 'cache';
-const IRM_WPNB_LOGS_PATH    = IRM_WPNB_STORAGE_PATH . DIRECTORY_SEPARATOR . 'logs';
+const MM8X_WPNB_WP_CONTENT   = ABSPATH . DIRECTORY_SEPARATOR . 'wp-content';
+const MM8X_WPNB_STORAGE_PATH = MM8X_WPNB_WP_CONTENT . DIRECTORY_SEPARATOR . 'wpnb';
+const MM8X_WPNB_CACHE_PATH   = MM8X_WPNB_STORAGE_PATH . DIRECTORY_SEPARATOR . 'cache';
+const MM8X_WPNB_LOGS_PATH    = MM8X_WPNB_STORAGE_PATH . DIRECTORY_SEPARATOR . 'logs';
 
 /**
  * Safe require for plugin
@@ -66,7 +67,7 @@ function wpnb_safe_require(string ...$path)
 $_collect = [];
 
 // import composer autoload
-$_collect['autoload'] = wpnb_safe_require(IRM_WP_NOTIF_BELL_PTH, 'vendor', 'autoload.php');
+$_collect['autoload'] = wpnb_safe_require(MM8X_WP_NOTIF_BELL_PTH, 'vendor', 'autoload.php');
 
 // return anything main handler must know
 return $_collect;
