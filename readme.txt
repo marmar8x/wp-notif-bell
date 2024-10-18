@@ -18,6 +18,8 @@ In terms of implementation, this plugin needs to be implemented by the programme
 
 The capabilities and sending pages, as well as notification management, exist in the WordPress admin section, but you need to display the received notifications for each user to themselves. For this, you need to know a bit of coding and implement the menu using the functions of this plugin along with some styling.
 
+- Docs: https://github.com/marmar8x/wp-notif-bell/wiki
+
 * Lightweight and flexible coding
 * All features of pagination and page layout
 * Ajax active for management
