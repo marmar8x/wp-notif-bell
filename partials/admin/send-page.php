@@ -24,18 +24,18 @@ $_txt_formats = wpnb_get_text_formats();
 
 // add 'recommanded' to pure-text name
 if (isset($_txt_formats['pure-text'])) {
-    $_txt_formats['pure-text'] .= ' (' . __('recommanded', 'wp-notif-bell') . ')';
+    $_txt_formats['pure-text'] .= ' (' . __('recommanded', 'notif-bell') . ')';
 }
 
 // check for edit action
 $_is_edit = isset($_GET['action']) && isset($_GET['key']) && $_GET['action'] === 'edit';
-$_key     = $_GET['key'] ?? '';
+$_key     = sanitize_key($_GET['key'] ?? '');
 
 // get target notif if edit enabled
 if ($_is_edit) {
     $_collector = (new Collector)
         ->config([ 'use_textmagic' => false ])
-        ->target_by_key($_GET['key']);
+        ->target_by_key($_key);
 
     $_collector->select()->limit(0, 1);
 
@@ -68,6 +68,11 @@ $_get_field_data = function (string $key, string $type = 'string') use ($notif)
         $value  = $notif[$key];
     }
 
+    // sanitize data: `content` is a html base data
+    if ($key !== 'content') {
+        $value = sanitize_text_field($value);
+    }
+
     if (gettype($value) !== $type) {
         settype($value, $type);
     }
@@ -92,12 +97,12 @@ $_editor_base = wpnb_get_setting('admin.ui.editor_base', 'visual');
 <div class="wpnb-ad-box">
     <div class="wpnb-ad-header">
         <h3 class="wpnb-ad-header-title">
-            🔔 <?php esc_html_e('WP Notif Bell', 'wp-notif-bell'); ?>
-            <span class="wpnb-ad-header-tab rnd org"><?php $_is_edit ? esc_html_e('Edit', 'wp-notif-bell') : esc_html_e('Send', 'wp-notif-bell'); ?></span>
+            🔔 <?php esc_html_e('WP Notif Bell', 'notif-bell'); ?>
+            <span class="wpnb-ad-header-tab rnd org"><?php $_is_edit ? esc_html_e('Edit', 'notif-bell') : esc_html_e('Send', 'notif-bell'); ?></span>
         </h3>
 
         <p class="wpnb-ad-header-text">
-            <?php $_is_edit ? esc_html_e('Editing notification', 'wp-notif-bell') : esc_html_e('Sending notification', 'wp-notif-bell'); ?>
+            <?php $_is_edit ? esc_html_e('Editing notification', 'notif-bell') : esc_html_e('Sending notification', 'notif-bell'); ?>
         </p>
     </div>
 
@@ -109,8 +114,8 @@ $_editor_base = wpnb_get_setting('admin.ui.editor_base', 'visual');
 
     <?php if (is_null($notif) && $_is_edit): ?>
     <div class="wpnb-w-100">
-        <?php esc_html_e('There is no notification with the key you entered.', 'wp-notif-bell'); ?>
-        <a href="<?php menu_page_url('wpnb-list'); ?>"><?php esc_html_e('Back to list', 'wp-notif-bell'); ?></a>
+        <?php esc_html_e('There is no notification with the key you entered.', 'notif-bell'); ?>
+        <a href="<?php menu_page_url('wpnb-list'); ?>"><?php esc_html_e('Back to list', 'notif-bell'); ?></a>
     </div>
     <?php else: ?>
     <div class="wpnb-ad-l-box">
@@ -120,7 +125,7 @@ $_editor_base = wpnb_get_setting('admin.ui.editor_base', 'visual');
                     <div class="wpnb-input-row">
                         <label for="wpnb_send_title">
                             <span class="wpnb-dashicon wpnb-txt-primary dashicons dashicons-heading"></span>
-                            <?php esc_html_e('Notification title', 'wp-notif-bell'); ?>
+                            <?php esc_html_e('Notification title', 'notif-bell'); ?>
                             <i class="wpnb-txt-danger">*</i>
                         </label>
                         <input value="<?php echo esc_attr($_get_field_data('title')); ?>" class="wpnb-input-txt" type="text" id="wpnb_send_title" />
@@ -131,7 +136,7 @@ $_editor_base = wpnb_get_setting('admin.ui.editor_base', 'visual');
                     <div class="wpnb-input-row">
                         <label for="wpnb_send_sender">
                             <span class="wpnb-dashicon wpnb-txt-primary dashicons dashicons-admin-users"></span>
-                            <?php esc_html_e('Notification sender', 'wp-notif-bell'); ?> <small>[a-z0-9-]</small> <i class="wpnb-txt-danger">*</i>
+                            <?php esc_html_e('Notification sender', 'notif-bell'); ?> <small>[a-z0-9-]</small> <i class="wpnb-txt-danger">*</i>
                         </label>
                         <input value="<?php echo !empty($_get_field_data('sender')) ? esc_attr($_get_field_data('sender')) : 'manual-' . get_current_user_id(); ?>" class="wpnb-input-txt" type="text" id="wpnb_send_sender" style="direction: ltr;" />
                     </div>
@@ -139,10 +144,10 @@ $_editor_base = wpnb_get_setting('admin.ui.editor_base', 'visual');
                     <div class="wpnb-input-row">
                         <label for="wpnb_send_tags">
                             <span class="wpnb-dashicon wpnb-txt-primary dashicons dashicons-tag"></span>
-                            <?php esc_html_e('Notification tags', 'wp-notif-bell'); ?>
-                            <small>[a-z0-9-]</small> <small class="wpnb-dt-tags-count wpnb-txt-danger">[<?php esc_html_e('Optional', 'wp-notif-bell'); ?>]</small>
+                            <?php esc_html_e('Notification tags', 'notif-bell'); ?>
+                            <small>[a-z0-9-]</small> <small class="wpnb-dt-tags-count wpnb-txt-danger">[<?php esc_html_e('Optional', 'notif-bell'); ?>]</small>
                         </label>
-                        <input value="<?php echo esc_attr($_get_field_data('tags')); ?>" class="wpnb-input-txt" type="text" id="wpnb_send_tags" placeholder="<?php esc_attr_e('Separate tags with commas (,)', 'wp-notif-bell'); ?>" style="direction: ltr;" />
+                        <input value="<?php echo esc_attr($_get_field_data('tags')); ?>" class="wpnb-input-txt" type="text" id="wpnb_send_tags" placeholder="<?php esc_attr_e('Separate tags with commas (,)', 'notif-bell'); ?>" style="direction: ltr;" />
                     </div>
                 </div>
 
@@ -150,7 +155,7 @@ $_editor_base = wpnb_get_setting('admin.ui.editor_base', 'visual');
                     <div class="wpnb-input-row">
                         <label for="wpnb_send_text_type">
                             <span class="wpnb-dashicon wpnb-txt-primary dashicons dashicons-editor-code"></span>
-                            <?php esc_html_e('Text format', 'wp-notif-bell'); ?>
+                            <?php esc_html_e('Text format', 'notif-bell'); ?>
                             <i class="wpnb-txt-danger">*</i>
                         </label>
                         <select id="wpnb_send_text_type" class="wpnb-input-slc">
@@ -164,9 +169,9 @@ $_editor_base = wpnb_get_setting('admin.ui.editor_base', 'visual');
                     <div class="wpnb-input-row">
                         <label for="wpnb_send_date">
                             <span class="wpnb-dashicon wpnb-txt-primary dashicons dashicons-admin-users"></span>
-                            <?php esc_html_e('Notification send date', 'wp-notif-bell'); ?> <small>(yyyy-mm-dd HH:ii:ss)</small> <small class="wpnb-dt-date-st wpnb-txt-danger"><?php esc_html_e('Empty: Auto fill', 'wp-notif-bell'); ?></small>
+                            <?php esc_html_e('Notification send date', 'notif-bell'); ?> <small>(yyyy-mm-dd HH:ii:ss)</small> <small class="wpnb-dt-date-st wpnb-txt-danger"><?php esc_html_e('Empty: Auto fill', 'notif-bell'); ?></small>
                         </label>
-                        <input value="<?php echo esc_attr($_get_field_data('sent_at')); ?>" class="wpnb-input-txt" type="text" id="wpnb_send_date" placeholder="Example: <?php echo esc_html( Date::by_format('Y-m-d H:i:s') ); ?> (<?php esc_html_e('Leave it blank for current time', 'wp-notif-bell'); ?>)" style="direction: ltr;" />
+                        <input value="<?php echo esc_attr($_get_field_data('sent_at')); ?>" class="wpnb-input-txt" type="text" id="wpnb_send_date" placeholder="Example: <?php echo esc_html( Date::by_format('Y-m-d H:i:s') ); ?> (<?php esc_html_e('Leave it blank for current time', 'notif-bell'); ?>)" style="direction: ltr;" />
                     </div>
                 </div>
 
@@ -176,7 +181,7 @@ $_editor_base = wpnb_get_setting('admin.ui.editor_base', 'visual');
                             <div class="wpnb-input-row">
                                 <label for="wpnb_send_text">
                                     <span class="wpnb-dashicon wpnb-txt-primary dashicons dashicons-admin-comments"></span>
-                                    <?php esc_html_e('Notification text', 'wp-notif-bell'); ?>
+                                    <?php esc_html_e('Notification text', 'notif-bell'); ?>
                                     <i class="wpnb-txt-danger">*</i>
                                 </label>
 
@@ -190,21 +195,6 @@ $_editor_base = wpnb_get_setting('admin.ui.editor_base', 'visual');
                                         <?php if ($_visual_text_editor === 'wp'): ?>
                                             <?php wp_editor($_text_content, 'wpnb_mce_editor', ['media_buttons' => false]); ?>
                                         <?php else: ?>
-                                            <style id="wpnb_inner_style_send_page">
-                                                .ql-container .ql-editor *, .ql-container .ql-blank::before {
-                                                    font-size: 16px;
-                                                }
-
-                                                .ql-container, .ql-toolbar {
-                                                    border: 1px solid #8c8f94 !important;
-                                                }
-
-                                                .ql-toolbar, .ql-formats {
-                                                    position: relative !important;
-                                                    z-index: 999 !important;
-                                                }
-                                            </style>
-
                                             <div id="wpnb_quill_editor"></div>
                                         <?php endif; ?>
                                     </div>
@@ -212,14 +202,7 @@ $_editor_base = wpnb_get_setting('admin.ui.editor_base', 'visual');
                                         <div id="wpnb_code_editor">
                                             <div id="wpnb_ed_html_cm" style="direction: ltr !important;"></div>
                                         </div>
-                                    <?php endif; ?>
-
-                                    <style>
-                                        .cm-editor {
-                                            font-size: 12pt;
-                                            border: 1px #8c8f94 solid;
-                                        } 
-                                    </style>    
+                                    <?php endif; ?> 
 
                                     <!-- Markdown editor -->
                                     <div id="wpnb_area_cm_md" style="display: none;">
@@ -229,40 +212,40 @@ $_editor_base = wpnb_get_setting('admin.ui.editor_base', 'visual');
 
                                 <!-- simple/pure -->
                                 <div id="wpnb_simple_editor" style="display: none;">
-                                    <textarea id="wpnb_simple_text" rows="5" class="wpnb-txt-editor wpnb-input-txa" spellcheck="false" placeholder="<?php esc_attr_e('Notif text ...', 'wp-notif-bell'); ?>"><?php echo esc_html($_text_content); ?></textarea>
+                                    <textarea id="wpnb_simple_text" rows="5" class="wpnb-txt-editor wpnb-input-txa" spellcheck="false" placeholder="<?php esc_attr_e('Notif text ...', 'notif-bell'); ?>"><?php echo esc_html($_text_content); ?></textarea>
                                 </div>
                             </div>
                         </div>
 
                         <div class="cell:100 cell-sm:50">
                             <h4>Text Magic</h4>
-                            <?php esc_html_e('You can use text magic to insert dynamic and variable text. Text magic is entered in the form of an open and closed bracket []. You can use registered variables or user-provided information.', 'wp-notif-bell'); ?>
+                            <?php esc_html_e('You can use text magic to insert dynamic and variable text. Text magic is entered in the form of an open and closed bracket []. You can use registered variables or user-provided information.', 'notif-bell'); ?>
                             <ul>
                                 <li>
-                                    <b style="color:red;">[variable]</b> <?php esc_html_e('get a variable data', 'wp-notif-bell'); ?>
+                                    <b style="color:red;">[variable]</b> <?php esc_html_e('get a variable data', 'notif-bell'); ?>
                                 </li>
                                 <li>
-                                    <b style="color:red;">[user:key]</b> <?php /* translators: %s: class name */ printf( __('get user data from %s', 'wp-notif-bell'), 'WP_User' ); ?>
+                                    <b style="color:red;">[user:key]</b> <?php /* translators: %s: class name */ printf( __('get user data from %s', 'notif-bell'), 'WP_User' ); ?>
                                 </li>
                                 <li>
-                                    <b style="color:red;">[user-meta:name]</b> <?php esc_html_e('get user meta value', 'wp-notif-bell'); ?>
+                                    <b style="color:red;">[user-meta:name]</b> <?php esc_html_e('get user meta value', 'notif-bell'); ?>
                                 </li>
                                 <li>
-                                    <b style="color:red;">[opt:name]</b> <?php esc_html_e('get an option', 'wp-notif-bell'); ?>
+                                    <b style="color:red;">[opt:name]</b> <?php esc_html_e('get an option', 'notif-bell'); ?>
                                 </li>
                                 <li>
-                                    <b style="color:red;">[date:format|now]</b> <?php esc_html_e('get date', 'wp-notif-bell'); ?>
+                                    <b style="color:red;">[date:format|now]</b> <?php esc_html_e('get date', 'notif-bell'); ?>
                                 </li>
                                 <li>
-                                    <b style="color:red;">[date-i18n:format|now]</b> <?php esc_html_e('get i18n date', 'wp-notif-bell'); ?>
+                                    <b style="color:red;">[date-i18n:format|now]</b> <?php esc_html_e('get i18n date', 'notif-bell'); ?>
                                 </li>
                                 <li>
-                                <b style="color:red;">[data:key]</b> <?php esc_html_e('get data value from `Notif Data`', 'wp-notif-bell'); ?>
+                                <b style="color:red;">[data:key]</b> <?php esc_html_e('get data value from `Notif Data`', 'notif-bell'); ?>
                                 </li>
                             </ul>
                         </div>
                         <div class="cell:100 cell-sm:50">
-                            <h4><?php esc_html_e('Preview', 'wp-notif-bell'); ?> <small>(<?php esc_html_e('renew every 5 seconds', 'wp-notif-bell'); ?>)</small></h4>
+                            <h4><?php esc_html_e('Preview', 'notif-bell'); ?> <small>(<?php esc_html_e('renew every 5 seconds', 'notif-bell'); ?>)</small></h4>
                             <iframe class="wpnb-preview-fr" id="wpnb_preview_frame"></iframe>
                         </div>
                     </div>
@@ -273,40 +256,40 @@ $_editor_base = wpnb_get_setting('admin.ui.editor_base', 'visual');
                         <div class="cell:100 cell-sm:30">
                             <h3 class="wpnb-top-title">
                                 <span class="wpnb-dashicon wpnb-txt-primary dashicons dashicons-buddicons-pm"></span>
-                                <?php esc_html_e('Receivers', 'wp-notif-bell'); ?>
+                                <?php esc_html_e('Receivers', 'notif-bell'); ?>
                                 <small class="wpnb-dt-res-count"></small>
                                 <i class="wpnb-txt-danger">*</i>
                             </h3>
-                            <span><?php esc_html_e('List of notification recipients', 'wp-notif-bell'); ?></span>
+                            <span><?php esc_html_e('List of notification recipients', 'notif-bell'); ?></span>
                         </div>
 
                         <div class="cell:100 cell-sm:30">
                             <div class="wpnb-input-row">
                                 <select id="wpnb_send_res_form_name_slc" class="wpnb-input-slc">
-                                    <optgroup label="<?php esc_attr_e('Defaults', 'wp-notif-bell'); ?>">
-                                        <option value="user-id" data-wpnb-text="<?php esc_attr_e("The user's ID (exa: 3724) [int]", 'wp-notif-bell'); ?>" selected><?php esc_attr_e('User ID (User unique ID)', 'wp-notif-bell'); ?></option>
-                                        <option value="user-name" data-wpnb-text="<?php esc_attr_e("The user's Login (exa: nova) [str]", 'wp-notif-bell'); ?>"><?php esc_attr_e('User Name (User Login)', 'wp-notif-bell'); ?></option>
-                                        <option value="user-mail" data-wpnb-text="<?php esc_attr_e("The user's Mail (exa: h@my.com) [e-mail]", 'wp-notif-bell'); ?>"><?php esc_attr_e('User Mail (Email address)', 'wp-notif-bell'); ?></option>
-                                        <option value="user-role" data-wpnb-text="<?php esc_attr_e("The user's Role [wp-role]", 'wp-notif-bell'); ?>"><?php esc_attr_e('User Role (Roles and Capabilities)', 'wp-notif-bell'); ?></option>
-                                        <option value="command" data-wpnb-text="<?php esc_attr_e("The command name (exa: all) [str]", 'wp-notif-bell'); ?>"><?php esc_attr_e('Command (An order for groups)', 'wp-notif-bell'); ?></option>
+                                    <optgroup label="<?php esc_attr_e('Defaults', 'notif-bell'); ?>">
+                                        <option value="user-id" data-wpnb-text="<?php esc_attr_e("The user's ID (exa: 3724) [int]", 'notif-bell'); ?>" selected><?php esc_attr_e('User ID (User unique ID)', 'notif-bell'); ?></option>
+                                        <option value="user-name" data-wpnb-text="<?php esc_attr_e("The user's Login (exa: nova) [str]", 'notif-bell'); ?>"><?php esc_attr_e('User Name (User Login)', 'notif-bell'); ?></option>
+                                        <option value="user-mail" data-wpnb-text="<?php esc_attr_e("The user's Mail (exa: h@my.com) [e-mail]", 'notif-bell'); ?>"><?php esc_attr_e('User Mail (Email address)', 'notif-bell'); ?></option>
+                                        <option value="user-role" data-wpnb-text="<?php esc_attr_e("The user's Role [wp-role]", 'notif-bell'); ?>"><?php esc_attr_e('User Role (Roles and Capabilities)', 'notif-bell'); ?></option>
+                                        <option value="command" data-wpnb-text="<?php esc_attr_e("The command name (exa: all) [str]", 'notif-bell'); ?>"><?php esc_attr_e('Command (An order for groups)', 'notif-bell'); ?></option>
                                     </optgroup>
 
                                     <?php if (!empty(Statics::$rec_list)): ?>
-                                    <optgroup label="<?php esc_attr_e('Also', 'wp-notif-bell'); ?>">
+                                    <optgroup label="<?php esc_attr_e('Also', 'notif-bell'); ?>">
                                         <?php wpnb_render_rec_list(); ?>
                                     </optgroup>
                                     <?php endif; ?>
 
                                     <?php if (!empty(Statics::$eza_list)): ?>
-                                    <optgroup label="<?php esc_attr_e('Easy access', 'wp-notif-bell'); ?>">
+                                    <optgroup label="<?php esc_attr_e('Easy access', 'notif-bell'); ?>">
                                         <?php wpnb_render_eza_list(); ?>
                                     </optgroup>
                                     <?php endif; ?>
 
-                                    <option value="custom" data-wpnb-text="<?php esc_attr_e("An arbitrary value ...", 'wp-notif-bell'); ?>"><?php esc_html_e('Custom', 'wp-notif-bell'); ?> *</option>
+                                    <option value="custom" data-wpnb-text="<?php esc_attr_e("An arbitrary value ...", 'notif-bell'); ?>"><?php esc_html_e('Custom', 'notif-bell'); ?> *</option>
                                 </select>
                                 
-                                <input style="display: none;" class="wpnb-input-txt" type="text" id="wpnb_send_res_form_name_str" placeholder="<?php esc_attr_e('Custom name (Double click to return)', 'wp-notif-bell'); ?>" />
+                                <input style="display: none;" class="wpnb-input-txt" type="text" id="wpnb_send_res_form_name_str" placeholder="<?php esc_attr_e('Custom name (Double click to return)', 'notif-bell'); ?>" />
                             </div>
                         </div>
 
@@ -325,7 +308,7 @@ $_editor_base = wpnb_get_setting('admin.ui.editor_base', 'visual');
 
                         <div class="cell:100 cell-sm:10">
                             <button class="button button-primary" id="wpnb_res_add_btn">
-                            <?php esc_html_e('Add', 'wp-notif-bell'); ?>
+                            <?php esc_html_e('Add', 'notif-bell'); ?>
                             </button>
                         </div>
                     </div>
@@ -333,10 +316,10 @@ $_editor_base = wpnb_get_setting('admin.ui.editor_base', 'visual');
                     <div class="wpnb-w-100 wpnb-space-top-2" id="wpnb_res_alert_none">
                         <div class="wpnb-no-value-block">
                             <span class="wpnb-title wpnb-red">
-                                <?php esc_html_e('No recipient!', 'wp-notif-bell'); ?>
+                                <?php esc_html_e('No recipient!', 'notif-bell'); ?>
                             </span>
                             <small class="wpnb-txt">
-                                <?php esc_html_e('Use "Add" button to add some', 'wp-notif-bell'); ?>
+                                <?php esc_html_e('Use "Add" button to add some', 'notif-bell'); ?>
                             </small>
                         </div>
                     </div>
@@ -349,7 +332,7 @@ $_editor_base = wpnb_get_setting('admin.ui.editor_base', 'visual');
 
                 <div class="cell:100">
                     <button class="button button-primary" id="wpnb_act_send" data-wpnb-action="<?php echo $_is_edit ? 'edit' : 'send' ; ?>">
-                        <?php $_is_edit ? esc_html_e('Edit notification', 'wp-notif-bell') : esc_html_e('Send notification', 'wp-notif-bell'); ?>
+                        <?php $_is_edit ? esc_html_e('Edit notification', 'notif-bell') : esc_html_e('Send notification', 'notif-bell'); ?>
                     </button>
 
                     <div id="wpnb_response_area"></div>

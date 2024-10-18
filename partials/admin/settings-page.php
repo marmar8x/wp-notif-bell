@@ -10,19 +10,19 @@
 defined('WPINC') || die;
 
 // get setting page tab
-$_section = $_GET['section'] ?? '';
+$_section = sanitize_key($_GET['section'] ?? '');
 
 ?>
 
 <div class="wpnb-ad-box">
     <div class="wpnb-ad-header">
         <h3 class="wpnb-ad-header-title">
-            🔔 <?php esc_html_e('WP Notif Bell', 'wp-notif-bell'); ?>
-            <span class="wpnb-ad-header-tab rnd org"><?php esc_html_e('Settings', 'wp-notif-bell'); ?></span>
+            🔔 <?php esc_html_e('WP Notif Bell', 'notif-bell'); ?>
+            <span class="wpnb-ad-header-tab rnd org"><?php esc_html_e('Settings', 'notif-bell'); ?></span>
         </h3>
 
         <p class="wpnb-ad-header-text">
-            <?php esc_html_e('Plugin settings', 'wp-notif-bell'); ?>
+            <?php esc_html_e('Plugin settings', 'notif-bell'); ?>
         </p>
     </div>
 
