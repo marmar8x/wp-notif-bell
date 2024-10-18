@@ -1,0 +1,19 @@
+.ql-container .ql-editor *, .ql-container .ql-blank::before {
+  font-size: 16px;
+}
+
+.ql-container, .ql-toolbar {
+  border: 1px solid #8c8f94 !important;
+}
+
+.ql-toolbar, .ql-formats {
+  position: relative !important;
+  z-index: 999 !important;
+}
+
+.cm-editor {
+  font-size: 12pt;
+  border: 1px #8c8f94 solid;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGVBQWU7QUFDakI7O0FBRUE7RUFDRSxvQ0FBb0M7QUFDdEM7O0FBRUE7RUFDRSw2QkFBNkI7RUFDN0IsdUJBQXVCO0FBQ3pCOztBQUVBO0VBQ0UsZUFBZTtFQUNmLHlCQUF5QjtBQUMzQiIsImZpbGUiOiJjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIucWwtY29udGFpbmVyIC5xbC1lZGl0b3IgKiwgLnFsLWNvbnRhaW5lciAucWwtYmxhbms6OmJlZm9yZSB7XG4gIGZvbnQtc2l6ZTogMTZweDtcbn1cblxuLnFsLWNvbnRhaW5lciwgLnFsLXRvb2xiYXIge1xuICBib3JkZXI6IDFweCBzb2xpZCAjOGM4Zjk0ICFpbXBvcnRhbnQ7XG59XG5cbi5xbC10b29sYmFyLCAucWwtZm9ybWF0cyB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZSAhaW1wb3J0YW50O1xuICB6LWluZGV4OiA5OTkgIWltcG9ydGFudDtcbn1cblxuLmNtLWVkaXRvciB7XG4gIGZvbnQtc2l6ZTogMTJwdDtcbiAgYm9yZGVyOiAxcHggIzhjOGY5NCBzb2xpZDtcbn1cblxuLyojIHNvdXJjZU1hcHBpbmdVUkw9c2VuZC1wLmNzcy5tYXAgKi9cbiJdfQ== */
