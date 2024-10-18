@@ -18,7 +18,7 @@ use Irmmr\WpNotifBell\Db;
  * @param   string  $tab
  * @return  string
  */
-function _make_tab_url(string $tab): string
+function mm8x_make_tab_url(string $tab): string
 {
     return add_query_arg('tab', $tab);
 }
@@ -73,7 +73,7 @@ if (isset($_GET['wpnb-process']) && isset($_GET['nonce'])) {
     <div class="wpnb-w-100" style="line-height: 1.7rem;font-size: 1.0rem;">
         <h2 class="nav-tab-wrapper" style="border-bottom: 0; margin-bottom: -21px; padding-left: 10px; padding-right: 10px; ">
             <?php foreach ($_tabs as $tb => $data): ?>
-                <a href="<?php echo esc_url(_make_tab_url($tb)); ?>" class="nav-tab<?php echo $tb === $_tab ? ' nav-tab-active' : ''; ?>"><?php echo esc_html($data['name']); ?></a>
+                <a href="<?php echo esc_url( mm8x_make_tab_url($tb) ); ?>" class="nav-tab<?php echo $tb === $_tab ? ' nav-tab-active' : ''; ?>"><?php echo esc_html($data['name']); ?></a>
             <?php endforeach; ?>
         </h2>
 
