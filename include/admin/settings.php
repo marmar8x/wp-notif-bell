@@ -301,7 +301,7 @@ function wpnb_render_settings(string $active_section = ''): void
         echo '</div>';
     }
 
-    submit_button( __('Save settings', 'wp-notif-bell') );
+    submit_button( __('Save settings', 'notif-bell') );
 
     echo '</div>';
     echo '</div>';
