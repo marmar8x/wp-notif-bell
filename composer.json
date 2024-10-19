@@ -15,9 +15,13 @@
     },
     "authors": [
         {
+            "name": "MarMar8x",
+            "email": "marmar8x.code@gmail.com"
+        },
+        {
             "name": "Irmmr",
-            "email": "irmm.ir@gmail.com"
-        }
+            "email": "irmmr.ir@gmail.com"
+        } 
     ],
     "require": {
         "nilportugues/sql-query-builder": "^1.8",
