@@ -19,7 +19,7 @@ if (defined('MM8X_WP_NOTIF_BELL')) {
 // I add an "MM8X" as a prefix to avoid php errors due to
 // same constant names!
 const MM8X_WP_NOTIF_BELL     = 'wp-notif-bell';
-const MM8X_WP_NOTIF_BELL_VER = '0.9.0';
+const MM8X_WP_NOTIF_BELL_VER = '0.9.5';
 const MM8X_WP_NOTIF_BELL_PHP = '7.4';
 const MM8X_WP_NOTIF_BELL_DOM = 'notif-bell';
 
