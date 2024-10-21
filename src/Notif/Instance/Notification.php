@@ -65,10 +65,21 @@ class Notification
     public array $data = [];
 
     /**
-     * @since   0.9.0
+     * without any changes, real content
+     * 
+     * @since   0.9.5
      * @var     string
      */
-    public string $content;
+    public string $pure_content;
+
+    /**
+     * rendered to html or any readable text
+     * for display, not using text magic yet
+     * 
+     * @since   0.9.5
+     * @var     string
+     */
+    public string $main_content;
 
     /**
      * @since   0.9.0
@@ -171,15 +182,15 @@ class Notification
         $this->format       = $fetch->format ?? 'pure-text';
 
         // get every notif data from db fetch
-        $this->id           = intval($fetch->id ?? 0);
-        $this->key          = $fetch->key ?? '';
-        $this->sender       = $fetch->sender ?? '';
-        $this->title        = $fetch->title ?? '';
-        $this->content      = $fetch->content ?? '';
-        $this->send_date    = $fetch->created_at ?? '';
-        $this->update_date  = $fetch->updated_at ?? '';
-        $this->create_date  = $fetch->created_at ?? '';
-        $this->tags         = Tags::parse($fetch->tags ?? '');
+        $this->id                = intval($fetch->id ?? 0);
+        $this->key               = $fetch->key ?? '';
+        $this->sender            = $fetch->sender ?? '';
+        $this->title             = $fetch->title ?? '';
+        $this->pure_content      = $fetch->content ?? '';
+        $this->send_date         = $fetch->created_at ?? '';
+        $this->update_date       = $fetch->updated_at ?? '';
+        $this->create_date       = $fetch->created_at ?? '';
+        $this->tags              = Tags::parse($fetch->tags ?? '');
 
         // data parse into Data Instance
         $data_fetch = Data::parse($fetch->data);
@@ -227,25 +238,48 @@ class Notification
         if ($this->format === 'markdown') {
             $parsedown = new Parsedown;
 
-            $this->content = $parsedown->text($this->content);
+            $this->main_content = $parsedown->text($this->pure_content);
         }
     }
 
     /**
-     * get content after render
-     * $this->content           =>  pure
-     * $this->get_content()     =>  rendered
+     * get content
      * 
-     * @since   0.9.0
-     * @return  string
+     * @deprecated  0.9.5   use $this->content
+     * @since       0.9.0
+     * @return      string
      */
     public function get_content(): string
     {
-        if ($this->configs['use_textmagic']) {
-            return $this->text_magic->render($this->content);
-        }
+        _deprecated_function(__METHOD__, '0.9.5', 'use "content" method instead ($this->content)');
 
         return $this->content;
+    }
+
+    /**
+     * magic method for getting data
+     * 
+     * @since   0.9.5
+     * @param   string  $name
+     * @return  mixed|null
+     */
+    public function __get(string $name)
+    {
+        // get content after TextMagic render
+        if ($name === 'content') {
+            if ($this->configs['use_textmagic']) {
+                return $this->text_magic->render($this->main_content);
+            }
+
+            return $this->main_content;
+        }
+
+        // get other keys
+        if (isset($this->$name)) {
+            return $this->$name;
+        }
+
+        return null;
     }
 
     // user methods
