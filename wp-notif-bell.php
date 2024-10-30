@@ -15,7 +15,7 @@
  * Plugin Name:       Notif Bell
  * Plugin URI:        https://github.com/marmar8x/wp-notif-bell
  * Description:       This plugin implements the user notification bell for a WordPress website.
- * Version:           0.9.5
+ * Version:           0.9.6
  * Author:            MarMar8x
  * Author URI:        https://github.com/marmar8x
  * License:           GPL-2.0+
