@@ -138,7 +138,7 @@ $_editor_base = wpnb_get_setting('admin.ui.editor_base', 'visual');
                             <span class="wpnb-dashicon wpnb-txt-primary dashicons dashicons-admin-users"></span>
                             <?php esc_html_e('Notification sender', 'notif-bell'); ?> <small>[a-z0-9-]</small> <i class="wpnb-txt-danger">*</i>
                         </label>
-                        <input value="<?php echo !empty($_get_field_data('sender')) ? esc_attr($_get_field_data('sender')) : 'manual-' . get_current_user_id(); ?>" class="wpnb-input-txt" type="text" id="wpnb_send_sender" style="direction: ltr;" />
+                        <input value="<?php echo esc_attr( !empty($_get_field_data('sender')) ? $_get_field_data('sender') : 'manual-' . get_current_user_id() ); ?>" class="wpnb-input-txt" type="text" id="wpnb_send_sender" style="direction: ltr;" />
                     </div>
 
                     <div class="wpnb-input-row">
@@ -225,7 +225,7 @@ $_editor_base = wpnb_get_setting('admin.ui.editor_base', 'visual');
                                     <b style="color:red;">[variable]</b> <?php esc_html_e('get a variable data', 'notif-bell'); ?>
                                 </li>
                                 <li>
-                                    <b style="color:red;">[user:key]</b> <?php /* translators: %s: class name */ printf( __('get user data from %s', 'notif-bell'), 'WP_User' ); ?>
+                                    <b style="color:red;">[user:key]</b> <?php /* translators: %s: class name */ echo esc_html( sprintf( __('get user data from %s', 'notif-bell'), 'WP_User' ) ); ?>
                                 </li>
                                 <li>
                                     <b style="color:red;">[user-meta:name]</b> <?php esc_html_e('get user meta value', 'notif-bell'); ?>

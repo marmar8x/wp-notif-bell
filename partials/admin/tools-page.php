@@ -11,6 +11,7 @@ defined('WPINC') || die;
 
 use Irmmr\WpNotifBell\Admin\Utils\Notice;
 use Irmmr\WpNotifBell\Db;
+use Irmmr\WpNotifBell\Helpers\Esc;
 
 /**
  * create tab url for tab btn
@@ -67,7 +68,7 @@ if (isset($_GET['wpnb-process']) && isset($_GET['nonce'])) {
     </div>
 
     <?php foreach ($_messages as $_msg): ?>
-        <?php echo $_msg; ?>
+        <?php echo wp_kses( $_msg, Esc::get_allowed_html_notice() ); ?>
     <?php endforeach; ?>
 
     <div class="wpnb-w-100" style="line-height: 1.7rem;font-size: 1.0rem;">

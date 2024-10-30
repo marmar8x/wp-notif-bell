@@ -10,6 +10,7 @@
 defined('WPINC') || die;
 
 use Irmmr\WpNotifBell\Helpers\Element;
+use Irmmr\WpNotifBell\Helpers\Esc;
 use Irmmr\WpNotifBell\Settings;
 
 /**
@@ -52,7 +53,7 @@ function wpnb_settings_msg(): void
     }
 
     foreach ($wpnb_settings_msg as $msg) {
-        echo $msg;
+        echo wp_kses( $msg, Esc::get_allowed_html_notice() );
     }
 }
 
@@ -84,6 +85,10 @@ function wpnb_render_settings_field(array $args, string $value = ''): void {
     $element_type  = $args['_type'] ?? '';
     $element_value = $args['_value'] ?? '';
 
+    // escaping html
+    // https://developer.wordpress.org/apis/security/escaping/
+    $allowed_html = [];
+
     // select fields
     if ($element_type === 'select') {
         $element_options = $args['_options'] ?? [];
@@ -95,6 +100,9 @@ function wpnb_render_settings_field(array $args, string $value = ''): void {
             }
 
             $fetch_options .= Element::create('option', $option['_value'], $option);
+
+            // add esc allowed: option
+            $allowed_html = array_merge($allowed_html, Esc::create_kses_allowed('option', $option));
         }
 
         $element_value = $fetch_options;
@@ -109,7 +117,10 @@ function wpnb_render_settings_field(array $args, string $value = ''): void {
         }
     }
 
-    echo Element::create($element_type, $element_value, $args);
+    // add esc allowed: main element
+    $allowed_html = array_merge($allowed_html, Esc::create_kses_allowed($element_type, $args));
+
+    echo wp_kses( Element::create($element_type, $element_value, $args), $allowed_html );
 }
 
 /**
@@ -149,7 +160,7 @@ function wpnb_do_settings_fields(string $section, string $tab): void
         echo '</div>';
 
         echo '<div class="cell:30 wpnb-settings-text">';
-        echo $field['text'];
+        echo wp_kses( $field['text'], Esc::get_allowed_html_text() );
         echo '</div>';
 
         echo '</div>';

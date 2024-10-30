@@ -11,6 +11,7 @@ defined('WPINC') || die;
 
 use Irmmr\WpNotifBell\Admin\Statics;
 use Irmmr\WpNotifBell\Helpers\Element;
+use Irmmr\WpNotifBell\Helpers\Esc;
 
 /**
  * [Admin]
@@ -33,7 +34,7 @@ function wpnb_render_eza_list(): void
             ...$data['args'] ?? []
         ];
 
-        echo Element::create('option', esc_html($data['value'] ?? ''), $args);
+        echo wp_kses( Element::create('option', $data['value'] ?? '', $args), Esc::create_kses_allowed('option', $args) );
     }
 }
 
@@ -61,6 +62,6 @@ function wpnb_render_rec_list(): void
             ...$data['args']
         ];
 
-        echo Element::create('option', esc_html($data['title'] ?? ''), $args);
+        echo wp_kses( Element::create('option', $data['title'] ?? '', $args), Esc::create_kses_allowed('optiaon', $args) );
     }
 }

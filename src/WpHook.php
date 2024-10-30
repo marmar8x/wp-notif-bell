@@ -38,7 +38,7 @@ final class WpHook
         if (version_compare($php_version, $required_php, '<')) {
             $msg = sprintf('This plugin requires at least PHP version %s to run. Your PHP version: %s', $required_php, $php_version);
 
-            die($msg);
+            die( esc_html( $msg ) );
         }
 
         // before, creating required folders to prevent errors

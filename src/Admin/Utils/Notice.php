@@ -5,6 +5,8 @@ namespace Irmmr\WpNotifBell\Admin\Utils;
 // If this file is called directly, abort.
 defined('WPINC') || die;
 
+use Irmmr\WpNotifBell\Helpers\Esc;
+
 /**
  * Class Notice
  * render and create notices with html
@@ -69,6 +71,6 @@ class Notice
      */
     public static function print($message, string $type = self::INFO, bool $dismissible = true): void
     {
-        echo self::render($message, $type, $dismissible);
+        echo wp_kses( self::render($message, $type, $dismissible), Esc::get_allowed_html_notice() );
     }
 }
