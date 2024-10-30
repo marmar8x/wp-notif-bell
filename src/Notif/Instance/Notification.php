@@ -186,7 +186,7 @@ class Notification
         $this->key               = $fetch->key ?? '';
         $this->sender            = $fetch->sender ?? '';
         $this->title             = $fetch->title ?? '';
-        $this->pure_content      = $fetch->content ?? '';
+        $this->pure_content      = $this->main_content = $fetch->content ?? '';
         $this->send_date         = $fetch->created_at ?? '';
         $this->update_date       = $fetch->updated_at ?? '';
         $this->create_date       = $fetch->created_at ?? '';
