@@ -1,6 +1,6 @@
 === Notif Bell ===
 Contributors: marmar8x
-Tags: notification, notification bell, notif bell, plugin, wordpress
+Tags: notification, notification bell, notif bell
 Requires at least: 5.0
 Tested up to: 6.6
 Stable tag: 0.9.6
@@ -18,7 +18,8 @@ In terms of implementation, this plugin needs to be implemented by the programme
 
 The capabilities and sending pages, as well as notification management, exist in the WordPress admin section, but you need to display the received notifications for each user to themselves. For this, you need to know a bit of coding and implement the menu using the functions of this plugin along with some styling.
 
-- Docs: https://github.com/marmar8x/wp-notif-bell/wiki
+Docs: [https://github.com/marmar8x/wp-notif-bell/wiki](https://github.com/marmar8x/wp-notif-bell/wiki)
+
 
 * Lightweight and flexible coding
 * All features of pagination and page layout
@@ -30,7 +31,10 @@ The capabilities and sending pages, as well as notification management, exist in
 
 = How do I use the plugin? =
 
-You are divided into two groups: 1- The group that is looking for a notification bell plugin to set up the notification section for the users of their website, and 2- The group that wants a miraculous display of a list of notifications with the current theme style for their users after installing the plugin.
+You are divided into two groups:
+
+1- The group that is looking for a notification bell plugin to set up the notification section for the users of their website, and
+2- The group that wants a miraculous display of a list of notifications with the current theme style for their users after installing the plugin.
 
 For the first group, with a simple review of the behavior of the wpnb notification functions, you only need one style and everything else is ready. For the second group, this plugin cannot be implemented without initial implementation by yourself and coding.
 
@@ -41,3 +45,19 @@ For the first group, with a simple review of the behavior of the wpnb notificati
 3. Recipients
 4. Writing content by text-magic
 5. Settings
+
+== Installation ==
+
+1. Upload `notif-bell` folder to the `/wp-content/plugins/` directory.
+2. Activate the plugin through the 'Plugins' menu in WordPress.
+
+== Upgrade Notice ==
+
+= 0.9.6 =
+This version is a stable and basic version of the plugin.
+
+== Changelog ==
+
+= 0.9.6 =
+* Improve `Notification` instance.
+* Fix some plugin issues.
