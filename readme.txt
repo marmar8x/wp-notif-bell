@@ -36,6 +36,8 @@ For the first group, with a simple review of the behavior of the wpnb notificati
 
 == Screenshots ==
 
-1. Send page
-2. Settings page
-3. List of notifications
+1. List of notifications
+2. Send notification
+3. Recipients
+4. Writing content by text-magic
+5. Settings
