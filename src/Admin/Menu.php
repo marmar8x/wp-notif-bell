@@ -25,27 +25,6 @@ class Menu implements CapInterface
     public function __construct()
     {
         add_action('admin_menu', [$this, 'register']);
-        add_action('admin_bar_menu', [$this, 'register_bar']);
-    }
-
-    /**
-     * [main] register all menus in admin bar
-     * 
-     * @since    0.9.0
-     * @return   void
-     */
-    public function register_bar(\WP_Admin_Bar $wp_admin_bar): void
-    {
-        $admin_url = get_admin_url();
-
-        if (current_user_can(self::CAPS['send'])) {
-            $wp_admin_bar->add_node([
-                'id'        => 'wpnb_notif',
-                'title'     => __('Notif', 'notif-bell'),
-                'href'      => $admin_url . 'admin.php?page=wpnb-send',
-                'parent'    => 'new-content'
-            ]);
-        }
     }
 
     /**
@@ -69,7 +48,7 @@ class Menu implements CapInterface
             'wpnb-main',
             __('Send', 'notif-bell'),
             __('Send', 'notif-bell'),
-            'wpnb_can_send',
+            self::CAPS['send'],
             'wpnb-send',
             [$this, 'send_content']
         );

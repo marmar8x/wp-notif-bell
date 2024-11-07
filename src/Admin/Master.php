@@ -94,6 +94,7 @@ final class Master
 
         new Assets;
         new Menu;
+        new MenuBar;
         new Settings;
         new Notices;
         new Ajax;
