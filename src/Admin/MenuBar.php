@@ -37,9 +37,6 @@ class MenuBar implements CapInterface
     {
         // top `+ new` menu bars
         $this->add_new_bars($wp_admin_bar);
-
-        // create notifs bar
-        $this->add_notifs_bar($wp_admin_bar);
     }
 
     /**
