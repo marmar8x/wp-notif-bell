@@ -3,7 +3,7 @@ Contributors: marmar8x
 Tags: notification, notification bell, notif bell
 Requires at least: 5.0
 Tested up to: 6.7
-Stable tag: 0.9.6
+Stable tag: 0.9.7
 Requires PHP: 7.4
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
