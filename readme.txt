@@ -2,7 +2,7 @@
 Contributors: marmar8x
 Tags: notification, notification bell, notif bell
 Requires at least: 5.0
-Tested up to: 6.6
+Tested up to: 6.7
 Stable tag: 0.9.6
 Requires PHP: 7.4
 License: GPLv2
@@ -57,6 +57,9 @@ For the first group, with a simple review of the behavior of the wpnb notificati
 This version is a stable and basic version of the plugin.
 
 == Changelog ==
+
+= 0.9.7 =
+* Sync with wordpress `6.7`.
 
 = 0.9.6 =
 * Improve `Notification` instance.
