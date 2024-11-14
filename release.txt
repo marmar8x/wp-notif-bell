@@ -1,0 +1,12 @@
+Change version
+----------------------------------
+1. readme.txt           > Stable tag
+2. wp-notif-bell.php    > Version
+3. wpnb-config.php      > const:MM8X_WP_NOTIF_BELL_VER
+
+Delete
+----------------------------------
+- D     /assets    * just keep -> /dist , /lib , readme.txt
+- D     /bin       *
+- D     /vendor    .gitignore , *.yml , *.md , composer.json , *.dist , /tests , /test
+- F     release.txt , .gitignore , README.md , composer.*
