@@ -684,6 +684,9 @@ const loadPreview = () => {
     // highlight text-magic
     data = data.replace(/\[[a-zA-Z0-9\:\.\_\-]*\]/g, '<code style="color:red;">$&</code>');
 
+    // @ts-ignore
+    data = filterXSS(data);
+
     frame_doc.writeln(data);
     frame_doc.close();
 }
