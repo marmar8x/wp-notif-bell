@@ -5,8 +5,10 @@ namespace Irmmr\WpNotifBell\Admin;
 // If this file is called directly, abort.
 defined('WPINC') || die;
 
+use Irmmr\WpNotifBell\Container;
 use Irmmr\WpNotifBell\Helpers\Data;
 use Irmmr\WpNotifBell\Helpers\Notif;
+use Irmmr\WpNotifBell\Logger;
 use Irmmr\WpNotifBell\Notif\Collector;
 use Irmmr\WpNotifBell\Notif\Instance\Receiver;
 use Irmmr\WpNotifBell\Notif\Sender;
@@ -182,6 +184,11 @@ class Ajax
         // create a notif sender
         $nb_sender = new Sender;
 
+        // [Debug] runs only when debugging
+        if (Container::$debugging) {
+            Logger::add('Ajax (admin): notif data received via ajax - send', Logger::N_DEBUG, Logger::LEVEL_LOG, (array) $notif);
+        }
+
         // pass values
         $nb_sender
             ->set_title($notif['title'])
@@ -259,6 +266,11 @@ class Ajax
 
         // create a notif sender
         $nb_updater = new Updater;
+
+        // [Debug] runs only when debugging
+        if (Container::$debugging) {
+            Logger::add('Ajax (admin): notif data received via ajax - update', Logger::N_DEBUG, Logger::LEVEL_LOG, (array) $notif);
+        }
 
         // pass values
         $nb_updater

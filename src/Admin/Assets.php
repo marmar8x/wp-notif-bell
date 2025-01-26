@@ -144,8 +144,11 @@ class Assets
             // markdown parser js -> marked
             wp_enqueue_script('wpnb_lib_marked', MM8X_WP_NOTIF_BELL_URL . 'assets/lib/marked/marked.min.js?refID=f123754263', [], '13.0.2', true);
 
+            // xss js
+            wp_enqueue_script('wpnb_lib_xss', MM8X_WP_NOTIF_BELL_URL . 'assets/lib/jsxss/xss.js?refID=dweq346v3', [], '1.0.15', true);
+
             // send script
-            wp_enqueue_script('wpnb_send_scr', MM8X_WP_NOTIF_BELL_URL . 'assets/dist/js/send-adm.js?refID=faf453g3', ['jquery'], MM8X_WP_NOTIF_BELL_VER, true);
+            wp_enqueue_script('wpnb_send_scr', MM8X_WP_NOTIF_BELL_URL . 'assets/dist/js/send-adm.js?refID=fa32fsv3', ['jquery'], MM8X_WP_NOTIF_BELL_VER, true);
 
             // main wpnb object
             wp_localize_script('wpnb_send_scr', 'wpnb_data_obj', [
