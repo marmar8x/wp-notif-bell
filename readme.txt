@@ -2,8 +2,8 @@
 Contributors: marmar8x
 Tags: notification, notification bell, notif bell
 Requires at least: 5.0
-Tested up to: 6.7
-Stable tag: 0.9.8
+Tested up to: 6.7.1
+Stable tag: 0.9.9
 Requires PHP: 7.4
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -53,10 +53,17 @@ For the first group, with a simple review of the behavior of the wpnb notificati
 
 == Upgrade Notice ==
 
+= 0.9.9 =
+The XSS security bug fixed in this version. Upgrade immediately.
+
 = 0.9.6 =
 This version is a stable and basic version of the plugin.
 
 == Changelog ==
+
+= 0.9.9 =
+* Security: fix XSS bug in formatter and send page preview.
+* Improve debugging logs.
 
 = 0.9.8 =
 * Fix versions: not any changes.
