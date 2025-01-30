@@ -228,7 +228,7 @@ final class Sender
      */
     public function set_title(string $title): self
     {
-        $this->title = DataHelper::clean_db($title);
+        $this->title = $title;
 
         return $this;
     }
@@ -362,7 +362,7 @@ final class Sender
      */
     public function set_content(string $content): self
     {
-        $this->content = DataHelper::clean_db($content);
+        $this->content = $content;
 
         return $this;
     }

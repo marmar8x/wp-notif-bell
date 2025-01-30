@@ -433,6 +433,9 @@
 
         return $(raw ? ids.raw_content : ids.text_content).val();
     };
+    var stripHtml = function (html) {
+        return html.replace(/<[^>]*>?/gm, '');
+    };
     var loadPreview = function () {
         var eid = ids.preview_fr;
         var el = document.querySelector(eid);
@@ -448,10 +451,15 @@
             data = markdown.parse(data);
         }
         else if (format === 'text') {
-            data = data.replace(/\n/g, '<br />');
+            data = stripHtml(data).replace(/\n/g, '<br />');
+        }
+        else if (format === 'pure-text') {
+            data = stripHtml(data);
+        }
+        if (format === 'markdown' || format === 'html') {
+            data = filterXSS(data);
         }
         data = data.replace(/\[[a-zA-Z0-9\:\.\_\-]*\]/g, '<code style="color:red;">$&</code>');
-        data = filterXSS(data);
         frame_doc.writeln(data);
         frame_doc.close();
     };

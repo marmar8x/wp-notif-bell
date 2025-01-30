@@ -148,7 +148,7 @@ class Assets
             wp_enqueue_script('wpnb_lib_xss', MM8X_WP_NOTIF_BELL_URL . 'assets/lib/jsxss/xss.js?refID=dweq346v3', [], '1.0.15', true);
 
             // send script
-            wp_enqueue_script('wpnb_send_scr', MM8X_WP_NOTIF_BELL_URL . 'assets/dist/js/send-adm.js?refID=fa32fsv3', ['jquery'], MM8X_WP_NOTIF_BELL_VER, true);
+            wp_enqueue_script('wpnb_send_scr', MM8X_WP_NOTIF_BELL_URL . 'assets/dist/js/send-adm.js?refID=f12734sd3', ['jquery'], MM8X_WP_NOTIF_BELL_VER, true);
 
             // main wpnb object
             wp_localize_script('wpnb_send_scr', 'wpnb_data_obj', [

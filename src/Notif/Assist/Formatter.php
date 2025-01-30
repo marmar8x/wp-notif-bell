@@ -8,7 +8,9 @@ defined('WPINC') || die;
 use HTMLPurifier_Config;
 use HTMLPurifier;
 use Irmmr\WpNotifBell\Container;
+use Irmmr\WpNotifBell\Helpers\Esc;
 use Irmmr\WpNotifBell\Logger;
+use Irmmr\WpNotifBell\Helpers\Data;
 use stdClass;
 
 /**
@@ -38,26 +40,46 @@ class Formatter
      */
     public static function encode(array $data): array
     {
+        // title
+        if (isset($data['title'])) {
+            $data['title'] = Data::clean_db( strip_tags( $data['title'] ) );
+        }
+
+        // content
         if (isset($data['content'])) {
             // get pure html for start encoding
-            $content = self::decodeHtmlChars( $data['content'] );
+            $init_content   = $data['content'];
+            $content        = $init_content;
 
-            // preventing xss, excusable html codes :/
-            $config     = HTMLPurifier_Config::createDefault();
-            $config->set('Core.Encoding', 'UTF-8');
+            // checking the content type
+            $format  = $data['format'] ?? 'pure-text';
 
-            $purifier   = new HTMLPurifier($config);
-            $clean_html = $purifier->purify($content);
+            // remove all html tags for pure-text & text
+            if ($format === 'pure-text' || $format === 'text') {
+                $content = strip_tags($content);
 
-            // [Debug] runs only when debugging
-            if (Container::$debugging) {
-                Logger::add('Formatter: encoding html content', Logger::N_DEBUG, Logger::LEVEL_LOG, [
-                    'content' => $content,
-                    'encoded' => $clean_html
-                ]);
+            } elseif ($format === 'html' || $format === 'markdown') {
+                // preventing xss, excusable html codes :/
+                $config     = HTMLPurifier_Config::createDefault();
+                $config->set('Core.Encoding', 'UTF-8');
+
+                $purifier   = new HTMLPurifier($config);
+                $content    = $purifier->purify($content);
+
+                // xss: filter all html elements with attrs [escaping]
+                $content    = wp_kses($content, Esc::get_allowed_html_content());
+
+                // [Debug] runs only when debugging
+                if (Container::$debugging) {
+                    Logger::add('Formatter: encoding html content', Logger::N_DEBUG, Logger::LEVEL_LOG, [
+                        'content' => $init_content,
+                        'encoded' => $content
+                    ]);
+                }
+
             }
 
-            $data['content'] = htmlentities( $clean_html );
+            $data['content'] = Data::clean_db($content);
         }
 
         return $data;
@@ -72,11 +94,14 @@ class Formatter
      */
     public static function decode(stdClass $data): stdClass
     {
-        if (isset($data->content)) {
-            $data->content = self::decodeHtmlChars( $data->content );
-            $data->content = wp_unslash($data->content);
+        // title
+        if (isset($data->title)) {
+            $data->title    = wp_unslash( self::decodeHtmlChars( $data->title ) );
+        }
 
-            $data->title  = wp_unslash($data->title);
+        // content
+        if (isset($data->content)) {
+            $data->content  = wp_unslash( self::decodeHtmlChars( $data->content ) );
         }
 
         return $data;

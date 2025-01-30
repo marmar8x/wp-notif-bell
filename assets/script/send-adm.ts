@@ -654,6 +654,11 @@ const getTextStatic = (raw: boolean = true): string => {
     return $(raw ? ids.raw_content : ids.text_content).val();
 }
 
+// strip html codes
+const stripHtml = (html: string): string => {
+    return html.replace(/<[^>]*>?/gm, '');
+}
+
 // laod preview for ediotr text
 const loadPreview = () => {
     const eid = ids.preview_fr;
@@ -676,16 +681,21 @@ const loadPreview = () => {
     if (format === 'markdown') {
         data = markdown.parse(data);
     } else if (format === 'text') {
-        data = data.replace(/\n/g, '<br />');
+        data = stripHtml(data).replace(/\n/g, '<br />');
+    } else if (format === 'pure-text') {
+        data = stripHtml(data);
+    }
+
+    // xss block: just for preview
+    if (format === 'markdown' || format === 'html') {
+        // @ts-ignore
+        data = filterXSS(data);
     }
 
     // html, pure-text => same as data
 
     // highlight text-magic
     data = data.replace(/\[[a-zA-Z0-9\:\.\_\-]*\]/g, '<code style="color:red;">$&</code>');
-
-    // @ts-ignore
-    data = filterXSS(data);
 
     frame_doc.writeln(data);
     frame_doc.close();

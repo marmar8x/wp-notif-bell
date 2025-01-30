@@ -68,4 +68,65 @@ class Esc
             'pre'       => []
         ];
     }
+
+    /**
+     * escaping notif html content
+     *
+     * @since   0.9.5
+     * @return  array
+     */
+    public static function get_allowed_html_content(): array
+    {
+        $def_attr = [ 'title' => [], 'class' => [], 'style' => [], 'id' => [] ];
+        $fetch   = [];
+
+        $allowed = [
+            'h1'       => [],
+            'h2'       => [],
+            'h3'       => [],
+            'h4'       => [],
+            'h5'       => [],
+            'h6'       => [],
+            'ul'       => [],
+            'li'       => [],
+            'ol'       => [],
+            'div'       => [],
+            'p'         => [],
+            'b'         => [],
+            'a'         => [ 'href' => [], 'target' => [] ],
+            'strong'    => [],
+            'code'      => [],
+            'span'      => [],
+            'samp'      => [],
+            'pre'       => [],
+            'br'        => [],
+            'em'        => [],
+            's'         => [],
+            'blockquote' => [],
+            'label'     => [ 'for' => [] ],
+            'img'       => [
+                'alt' => [],
+                'height' => [],
+                'src' => [],
+                'width' => []
+            ],
+            'path' => [ 'd' => [], 'fill' => [] ],
+            'svg'  => [
+                'xmlns'       => [],
+                'fill'        => [],
+                'viewbox'     => [],
+                'role'        => [],
+                'aria-hidden' => [],
+                'focusable'   => [],
+                'height'      => [],
+                'width'       => []
+            ],
+        ];
+
+        foreach ($allowed as $e => $attr) {
+            $fetch[ $e ] = array_merge($def_attr, $attr);
+        }
+
+        return $fetch;
+    }
 }

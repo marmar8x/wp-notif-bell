@@ -209,7 +209,7 @@ final class Updater
      */
     public function set_content(string $content): self
     {
-        $this->setter['content'] = Data::clean_db($content);
+        $this->setter['content'] = $content;
 
         return $this;
     }
@@ -399,6 +399,11 @@ final class Updater
         // check notif content
         if (isset($setter['content']) && empty($setter['content'])) {
             $err->add( Err::_('empty_content', 'Notif content is not set.') );
+        }
+
+        // can not set content without format
+        if (isset($setter['content']) && !isset($setter['format'])) {
+            $err->add( Err::_('needs_format', 'Notif content can not set without format.') );
         }
 
         // ! do not check receivers for allow updater to remove all
