@@ -53,6 +53,9 @@ For the first group, with a simple review of the behavior of the wpnb notificati
 
 == Upgrade Notice ==
 
+= 1.0.0 =
+XSS bug fixed, Upgrade immediately!
+
 = 0.9.9 =
 The XSS security bug fixed in this version. Upgrade immediately.
 
@@ -60,6 +63,10 @@ The XSS security bug fixed in this version. Upgrade immediately.
 This version is a stable and basic version of the plugin.
 
 == Changelog ==
+
+= 1.0.0 =
+* XSS bug fixed.
+* Notif content not filtering based on format.
 
 = 0.9.9 =
 * Security: fix XSS bug in formatter and send page preview.
