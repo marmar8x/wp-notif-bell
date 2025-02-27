@@ -37,10 +37,10 @@ const MM8X_WPNB_LOGS_PATH    = MM8X_WPNB_STORAGE_PATH . DIRECTORY_SEPARATOR . 'l
 
 /**
  * Safe require for plugin
- * 
- * @since   0.9.0
- * @param   string  $path
+ *
+ * @param   string      ...$path
  * @return  mixed|null
+ * @since   0.9.0
  */
 function wpnb_safe_require(string ...$path)
 {
