@@ -26,6 +26,7 @@
     "require": {
         "nilportugues/sql-query-builder": "^1.8",
         "erusev/parsedown": "^1.7",
-        "ezyang/htmlpurifier": "^4.18"
+        "ezyang/htmlpurifier": "^4.18",
+        "ext-gmp": "*"
     }
 }
