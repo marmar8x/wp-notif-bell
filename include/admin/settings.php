@@ -102,7 +102,7 @@ function wpnb_render_settings_field(array $args, string $value = ''): void {
             $fetch_options .= Element::create('option', $option['_value'], $option);
 
             // add esc allowed: option
-            $allowed_html = array_merge($allowed_html, Esc::create_kses_allowed('option', $option));
+            $allowed_html = array_merge_recursive($allowed_html, Esc::create_kses_allowed('option', $option));
         }
 
         $element_value = $fetch_options;
@@ -118,7 +118,7 @@ function wpnb_render_settings_field(array $args, string $value = ''): void {
     }
 
     // add esc allowed: main element
-    $allowed_html = array_merge($allowed_html, Esc::create_kses_allowed($element_type, $args));
+    $allowed_html = array_merge_recursive($allowed_html, Esc::create_kses_allowed($element_type, $args));
 
     echo wp_kses( Element::create($element_type, $element_value, $args), $allowed_html );
 }
