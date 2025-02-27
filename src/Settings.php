@@ -212,6 +212,52 @@ class Settings implements SettingInterface
             ],
         ];
 
+        // add modules section
+        $settings['modules'] = [];
+
+        // add eye fields
+        $settings['modules']['eye'] = [
+            [
+                '_title'        => __('Eye method', 'notif-bell'),
+                '_text'         => __('The module method for write and read data. [recommended: auto]', 'notif-bell'),
+                '_type'         => 'select',
+                'id'            => 'method',
+                'required'      => 'true',
+                '_options'      => [
+                    [
+                        'value'     => 'auto',
+                        '_value'    => __('Auto [select based on data size]', 'notif-bell')
+                    ],
+                    [
+                        'value'     => 'bin',
+                        '_value'    => __('Binary [large]', 'notif-bell')
+                    ],
+                    [
+                        'value'     => 'comma',
+                        '_value'    => __('Comma separated [small]', 'notif-bell')
+                    ],
+                ]
+            ],
+            [
+                '_title'        => __('Eye manager status', 'notif-bell'),
+                '_text'         => __('Manager can modify and change data types and methods based on entry data for "AUTO" method. [recommended: enable]', 'notif-bell'),
+                '_type'         => 'select',
+                'id'            => 'manager',
+                'required'      => 'true',
+                '_options'      => $options_enable
+            ],
+            [
+                '_title'        => __('Eye count limit', 'notif-bell'),
+                '_text'         => __('After this count of notifications ids that inserted in "seen" list, module will automatically convert list ot binary.', 'notif-bell'),
+                '_type'         => 'input',
+                'type'          => 'number',
+                'id'            => 'count_limit',
+                'max'           => 300,
+                'min'           => 30,
+                'required'      => 'true'
+            ],
+        ];
+
        return $settings; 
     }
 

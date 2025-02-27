@@ -54,6 +54,8 @@ class Settings
             'tab_manage'     => __('Manage', 'notif-bell'),
             'sec_api'        => __('Api', 'notif-bell'),
             'tab_ajax'       => __('Ajax', 'notif-bell'),
+            'sec_modules'    => __('Modules', 'notif-bell'),
+            'tab_eye'        => __('Eye', 'notif-bell'),
         ];
     }
 
