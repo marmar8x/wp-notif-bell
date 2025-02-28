@@ -19,6 +19,7 @@ use Irmmr\WpNotifBell\Notif\Module\User as ModuleUser;
 use Irmmr\WpNotifBell\Traits\ConfigTrait;
 use Irmmr\WpNotifBell\User;
 use NilPortugues\Sql\QueryBuilder\Manipulation\Select;
+use WP_User;
 
 /**
  * Class Collector
@@ -120,6 +121,19 @@ final class Collector
     }
 
     /**
+     * get all results
+     *
+     * @since   1.0.0
+     * @return  array
+     */
+    public function get_results(): array
+    {
+        $query  = $this->query->get();
+
+        return (array) $this->db->get_results($query, $this->query->get_builder_values());
+    }
+
+    /**
      * get database results (pure)
      * 
      * @since   0.9.0
@@ -127,8 +141,7 @@ final class Collector
      */
     public function get(): array
     {
-        $query  = $this->query->get();
-        $fetch  = (array) $this->db->get_results($query, $this->query->get_builder_values());
+        $fetch  = $this->get_results();
         $format = [];
 
         // decode and clean collected list
@@ -203,8 +216,9 @@ final class Collector
     public function get_target_query(Receiver $receiver): string
     {
         $json   = $receiver->get_json();
-        
-        return sprintf('JSON_CONTAINS(`recipients`, \'%s\')', $json);
+
+        // "JSON_UNQUOTE" added by @deepseek recommend
+        return sprintf('JSON_CONTAINS(`recipients`, JSON_UNQUOTE(\'%s\'))', $json);
     }
 
     /**
@@ -254,8 +268,6 @@ final class Collector
                 $select->asLiteral( $this->get_target_query($receiver) );
             }
         }
-
-        $select->end();
 
         return $this;
     }
@@ -328,8 +340,6 @@ final class Collector
             $select->asLiteral($target);
         }
 
-        $select->end();
-
         return $this;
     }
 
@@ -393,10 +403,10 @@ final class Collector
      * start observer over collector
      * 
      * @since   0.9.0
-     * @param   \WP_User    $user
+     * @param   WP_User    $user
      * @return  Observer
      */
-    public function observer(\WP_User $user): Observer
+    public function observer(WP_User $user): Observer
     {
         return new Observer($user, $this);
     }
@@ -407,7 +417,7 @@ final class Collector
      * start user module
      * 
      * @since   0.9.0
-     * @param   \WP_User    $user
+     * @param   WP_User    $user
      * @return  ModuleUser
      */
     public function user(\WP_User $user): ModuleUser
@@ -431,6 +441,7 @@ final class Collector
         $query = new Query(
             $this->table_name,
             $this->query->builder(),
+            // TODO: using __clone() directly is getting error from IDE, using "clone" itself is not really getting a cloned version of selector :/
             $this->query->selector()->__clone()
         );
 
@@ -456,10 +467,9 @@ final class Collector
 
     /**
      * check for any result exists
-     * 
+     *
+     * @return  bool
      * @since   0.9.0
-     * @param   bool    $ignore_limit
-     * @return  int
      */
     public function has(): bool
     {

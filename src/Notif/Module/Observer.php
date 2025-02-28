@@ -6,8 +6,12 @@ namespace Irmmr\WpNotifBell\Notif\Module;
 defined('WPINC') || die;
 
 use Irmmr\WpNotifBell\Db;
+use Irmmr\WpNotifBell\Interfaces\UserInterface;
+use Irmmr\WpNotifBell\Logger;
 use Irmmr\WpNotifBell\Module\Query\Selector as QuerySelector;
 use Irmmr\WpNotifBell\Notif\Collector;
+use Irmmr\WpNotifBell\User\Eye;
+use WP_User;
 
 /**
  * Class Observer
@@ -27,7 +31,7 @@ class Observer
     // the meta_key name for `usermeta` where we store
     // seen notif ids
     // @since 0.9.0
-    protected const META_KEY = 'wpnb_seen_list';
+    protected const META_KEY = UserInterface::SEEN_META_KEY;
 
     /**
      * collector, main notif collector
@@ -41,9 +45,17 @@ class Observer
      * user to watch it
      * 
      * @since   0.9.0
-     * @var     \WP_User    $user
+     * @var     WP_User    $user
      */
-    protected \WP_User $user;
+    protected WP_User $user;
+
+    /**
+     * eye of user
+     *
+     * @since   1.0.0
+     * @var     Eye    $eye
+     */
+    protected Eye $eye;
 
     /**
      * filter type [seen|unseen]
@@ -55,14 +67,16 @@ class Observer
 
     /**
      * class constructor
-     * 
-     * @since   0.9.0
+     *
+     * @param   WP_User    $user
      * @param   Collector   $collector
+     * @since   0.9.0
      */
-    public function __construct(\WP_User $user, Collector $collector)
+    public function __construct(WP_User $user, Collector $collector)
     {
         $this->user      = $user;
         $this->collector = $collector;
+        $this->eye       = new Eye($user);
     }
 
     /**
@@ -105,6 +119,9 @@ class Observer
     {
         global $wpdb;
 
+        // checking Eye data method
+        $method = $this->eye->get_seen_method();
+
         // get database prefix
         //$db_prefix  = $wpdb->prefix;
 
@@ -119,26 +136,39 @@ class Observer
 
         // user query selector
         // trying to search in seen list for notif id
-        $meta_query->selector()
+        $selecting = $meta_query->selector()
             ->count()
             ->where()
                 ->equals('meta_key', self::META_KEY)
-                ->equals('user_id', $this->user->ID)
-                ->asLiteral("find_in_set({$notifs_table}.id,{$user_meta_table}.meta_value)")
-                ->end();
-        
-        // create final query with prepared values
-        $meta_query_str = $meta_query->get_prepared([
-            'semicolon' => false
-        ]);
+                ->equals('user_id', $this->user->ID);
 
-        // define type of final statement
-        // tou want list all unseen notifs by user
-        // or only seen notifs
-        if ($this->filter_type === self::FILTER_TYPE_UNSEEN) {
-            $final_query = "({$meta_query_str}) = 0";
-        } else {
+        if ($method === Eye::BY_COMMA) {
+            $selecting->asLiteral("find_in_set({$notifs_table}.id,{$user_meta_table}.meta_value)")->end();
+
+            $meta_query_str = $meta_query->get_prepared([
+                'semicolon' => false
+            ]);
+
+            if ($this->filter_type === self::FILTER_TYPE_UNSEEN) {
+                $final_query = "({$meta_query_str}) = 0";
+            } else {
+                $final_query = "({$meta_query_str}) > 0";
+            }
+
+        } elseif ($method === Eye::BY_BIN) {
+            $bin_status = $this->filter_type === self::FILTER_TYPE_UNSEEN ? '0' : '1';
+            $selecting->asLiteral("IF(LENGTH({$user_meta_table}.meta_value) < {$notifs_table}.id, 0, SUBSTRING(REVERSE({$user_meta_table}.meta_value) ,{$notifs_table}.id,1)) = '{$bin_status}'")->end();
+
+            $meta_query_str = $meta_query->get_prepared([
+                'semicolon' => false
+            ]);
+
             $final_query = "({$meta_query_str}) > 0";
+
+        } else {
+            Logger::add('X: Error when looking for data method. (observer, eye)', Logger::N_MAIN, Logger::LEVEL_ERROR);
+
+            return $this;
         }
 
         // add all query as a `where` condition to main collector
