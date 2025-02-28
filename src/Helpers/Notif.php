@@ -6,6 +6,7 @@ namespace Irmmr\WpNotifBell\Helpers;
 defined('WPINC') || die;
 
 use Irmmr\WpNotifBell\Container;
+use Irmmr\WpNotifBell\Notif\Collector;
 
 /**
  * Class Notif
@@ -28,5 +29,26 @@ class Notif
         $formats = Container::$text_formats;
 
         return array_key_exists($format, $formats);
+    }
+
+    /**
+     * get max notifications id
+     *
+     * @since   1.0.0
+     * @return  int
+     */
+    public static function get_max_id(): int
+    {
+        $collector = new Collector;
+
+        $collector->select()->setColumns([])->setFunctionAsColumn('MAX', ['id'], 'max_id');
+
+        $result = $collector->get_results();
+
+        if (!isset( $result[0] )) {
+            return 0;
+        }
+
+        return intval( $result[0]->max_id ?? 0 );
     }
 }
