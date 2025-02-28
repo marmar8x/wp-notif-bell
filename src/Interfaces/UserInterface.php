@@ -20,6 +20,10 @@ interface UserInterface
     // @since 0.9.0
     public const SEEN_META_KEY = 'wpnb_seen_list';
 
+    // seen list data method
+    // @since 1.0.0
+    public const SEEN_METHOD_KEY = 'wpnb_seen_method';
+
     // @since 0.9.0
     public const SEEN_SEPARATOR = ','; 
 }

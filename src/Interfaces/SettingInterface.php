@@ -36,6 +36,10 @@ interface SettingInterface
         'admin.manage.rm_data'          => 'yes',
         // Api
         'api.ajax.status'               => 'enable',
-        'api.ajax.add_seen_list'        => 'enable'
+        'api.ajax.add_seen_list'        => 'enable',
+        // Modules
+        'modules.eye.method'            => 'auto',
+        'modules.eye.manager'           => 'enable',
+        'modules.eye.count_limit'       => 100
     ];
 }
