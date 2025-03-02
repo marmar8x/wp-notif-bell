@@ -5,6 +5,7 @@ namespace Irmmr\WpNotifBell\Core;
 // If this file is called directly, abort.
 defined('WPINC') || die;
 
+use Irmmr\WpNotifBell\Api\Starter;
 use Irmmr\WpNotifBell\Helpers\Data;
 use Irmmr\WpNotifBell\Notif\Collector;
 use Irmmr\WpNotifBell\Settings;
@@ -12,7 +13,14 @@ use Irmmr\WpNotifBell\User;
 
 /**
  * Class Api
- * create rest api routes for plugin
+ * create ajax routes for wp site
+ * this type of request are only using for
+ * own site simple requests in admin or website.
+ *
+ * !! Note: for more security you can just **DISABLE** "ajax"
+ * and use wp-rest in /api
+ *
+ * # wpnb_add_seen    ->      notif_id     [single]
  * 
  * @since    0.9.0
  * @package  Irmmr\WpNotifBell\Core
@@ -35,6 +43,11 @@ class Api
             if (Settings::get('api.ajax.add_seen_list') === 'enable') {
                 add_action('wp_ajax_wpnb_add_seen', [$this, 'ajax_add_seen']);
             }
+        }
+
+        // rest api
+        if (Settings::get('api.rest.status', 'enable') === 'enable') {
+            new Starter();
         }
     }
 
