@@ -344,6 +344,39 @@ final class Collector
     }
 
     /**
+     * find notifs with selected tags [OR]
+     *
+     * @since   1.0.0
+     * @param   array<string> $tags
+     * @return  self
+     */
+    public function target_by_tags(array $tags): self
+    {
+        // remove duplicate targets
+        $tags = array_unique($tags);
+
+        // trim every tag
+        $tags = array_map('trim', $tags);
+
+        if (empty($tags)) {
+            return $this;
+        }
+
+        $select = $this->select()->where( $this->get_where_operator() )
+            ->subWhere();
+
+        foreach ($tags as $tag) {
+            if (!empty($tag)) {
+                $tag = sanitize_key($tag);
+
+                $select->asLiteral( sprintf("FIND_IN_SET('%s', `tags`) > 0", $tag) );
+            }
+        }
+
+        return $this;
+    }
+
+    /**
      * target with notif unique key
      * 
      * @since   0.9.0
@@ -474,5 +507,16 @@ final class Collector
     public function has(): bool
     {
         return $this->get_count() > 0;
+    }
+
+    /**
+     * clone this object
+     *
+     * @since   1.0.0
+     * @return  self
+     */
+    public function __clone()
+    {
+        return \unserialize(\serialize($this));
     }
 }
