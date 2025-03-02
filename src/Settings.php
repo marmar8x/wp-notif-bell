@@ -212,6 +212,18 @@ class Settings implements SettingInterface
             ],
         ];
 
+        // add rest api fields
+        $settings['api']['rest'] = [
+            [
+                '_title'        => __('Service status', 'notif-bell'),
+                '_text'         => __('Do you want the Rest Api service of the plugin to be enabled?', 'notif-bell'),
+                '_type'         => 'select',
+                'id'            => 'status',
+                'required'      => 'true',
+                '_options'      => $options_enable
+            ]
+        ];
+
         // add modules section
         $settings['modules'] = [];
 
@@ -240,7 +252,7 @@ class Settings implements SettingInterface
             ],
             [
                 '_title'        => __('Eye manager status', 'notif-bell'),
-                '_text'         => __('Manager can modify and change data types and methods based on entry data for "AUTO" method. [recommended: enable]', 'notif-bell'),
+                '_text'         => __('The manager can change and modify the types of data and methods for the "AUTO" method based on the input data. [recommended: enable]', 'notif-bell'),
                 '_type'         => 'select',
                 'id'            => 'manager',
                 'required'      => 'true',
@@ -248,7 +260,7 @@ class Settings implements SettingInterface
             ],
             [
                 '_title'        => __('Eye count limit', 'notif-bell'),
-                '_text'         => __('After this count of notifications ids that inserted in "seen" list, module will automatically convert list ot binary.', 'notif-bell'),
+                '_text'         => __('After this number of notifications is saved in the seen list, the module will automatically change the list to binary. If the number decreases, it will automatically convert to a comma list.', 'notif-bell'),
                 '_type'         => 'input',
                 'type'          => 'number',
                 'id'            => 'count_limit',
