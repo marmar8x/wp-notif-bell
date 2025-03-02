@@ -37,6 +37,7 @@ interface SettingInterface
         // Api
         'api.ajax.status'               => 'enable',
         'api.ajax.add_seen_list'        => 'enable',
+        'api.rest.status'               => 'enable',
         // Modules
         'modules.eye.method'            => 'auto',
         'modules.eye.manager'           => 'enable',
