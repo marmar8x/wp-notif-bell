@@ -6,8 +6,8 @@ namespace Irmmr\WpNotifBell;
 defined('WPINC') || die;
 
 use Irmmr\WpNotifBell\Interfaces\UserInterface;
-use Irmmr\WpNotifBell\Module\Query\Selector as QuerySelector;
-use Irmmr\WpNotifBell\Notif\Module\Database;
+use Irmmr\WpNotifBell\User\Eye;
+use WP_User;
 
 /**
  * Class User
@@ -20,10 +20,10 @@ class User implements UserInterface
 {
     /**
      * get user data by user id
-     * 
-     * @since   0.9.0
-     * @param   int|WP_User     $user_id
+     *
+     * @param   WP_User|int     $user
      * @return  WP_User|null
+     * @since   0.9.0
      */
     public static function get_data($user): ?\WP_User
     {
@@ -51,7 +51,7 @@ class User implements UserInterface
     }
 
     /**
-     * get user name by user id
+     * get username by user id
      * 
      * @since   0.9.0
      * @param   int|WP_User $user
@@ -110,33 +110,29 @@ class User implements UserInterface
 
     /**
      * get notifs seen list of user
-     * 
+     *
+     * @deprecated  1.0.0   use Irmmr\WpNotifBell\User\Eye::get_seen
+     *
      * @since   0.9.0
      * @param   int $user_id
      * @return  array<number>
      */
     public static function get_seen_list(int $user_id): array
     {
-        $list = strval( get_user_meta($user_id, self::SEEN_META_KEY, true) );
+        $user = get_userdata($user_id);
 
-        if (empty($list)) {
-            return [];
+        if ($user instanceof \WP_User) {
+            return (new Eye( $user ))->get_seen();
         }
 
-        $fetch = explode(self::SEEN_SEPARATOR, $list);
-
-        $fetch = array_map(function ($i) {
-            return intval($i);
-        }, $fetch);
-
-        return array_filter($fetch, function ($i) {
-            return $i !== 0;
-        });
+        return [];
     }
 
     /**
      * add notif id to seen list
-     * 
+     *
+     * @deprecated  1.0.0   use Irmmr\WpNotifBell\User\Eye::set_seen
+     *
      * @since   0.9.0
      * @param   int     $notif_id
      * @param   int     $user_id
@@ -144,34 +140,25 @@ class User implements UserInterface
      */
     public static function add_seen_list(int $notif_id, int $user_id): bool
     {
-        $old_list = self::get_seen_list($user_id);
+        $user = get_userdata($user_id);
 
-        if (in_array($notif_id, $old_list)) {
+        if ($user instanceof \WP_User) {
+            (new Eye( $user ))->set_seen($notif_id);
+
             return true;
         }
 
-        $old_list[] = $notif_id;
-
-        $value = implode(self::SEEN_SEPARATOR, $old_list);
-
-        // [Debug] runs only when debugging
-        if (Container::$debugging) {
-            Logger::add("adding notif #{$notif_id} to seen list of user #{$user_id}", Logger::N_DEBUG, Logger::LEVEL_LOG, [
-                'user_id'  => $user_id,
-                'notif_id' => $notif_id
-            ]);
-        }
-
-        return update_user_meta($user_id, self::SEEN_META_KEY, $value);
+        return false;
     }
 
     /**
      * check if a notif seen by user.
      * ! using database selector instead of simple usermeta to
      * increase speed.
-     * 
+     *
      * @see     Observer, Observer->apply
-     * 
+     * @deprecated  1.0.0   use Irmmr\WpNotifBell\User\Eye::get_status
+     *
      * @since   0.9.0
      * @param   int     $notif_id
      * @param   int     $user_id
@@ -179,47 +166,31 @@ class User implements UserInterface
      */
     public static function in_seen_list(int $notif_id, int $user_id): bool
     {
-        /*
-         * To prevent decrease server usage i don't use
-         * this part. (huge data)
+        $user = get_userdata($user_id);
 
-        $list = self::get_seen_list($user_id);
-
-        foreach ($list as $id) {
-            if ($id == $notif_id) {
-                return true;
-            }
+        if ($user instanceof WP_User) {
+            $eye = new Eye( $user );
+            return $eye->get_status($notif_id);
         }
 
         return false;
-        */
+    }
 
-        global $wpdb;
+    /**
+     * get current/selected user eye
+     *
+     * @since   1.0.0
+     * @param   WP_User|null    $user
+     * @return  Eye|null        null for failure
+     */
+    public static function eye(?WP_User $user = null): ?Eye
+    {
+        $user = $user ?? get_userdata( get_current_user_id() );
 
-        // get database prefix
-        $db_prefix  = $wpdb->prefix;
+        if (is_null($user)) {
+            return null;
+        }
 
-        // get `usermeta` table name
-        $user_meta_table = $db_prefix . 'usermeta';
-
-        // create new mysql query
-        $query = new QuerySelector($user_meta_table);
-
-        // user query selector
-        // trying to search in seen list for notif id
-        // $notif_id is a safe entered integer
-        $query->selector()
-            ->count()
-            ->where()
-                ->equals('meta_key', self::SEEN_META_KEY)
-                ->equals('user_id', $user_id)
-                ->asLiteral('find_in_set('.$notif_id.',wp_usermeta.meta_value)')
-                ->end();
-
-        // get database result
-        $db = new Database;
-        $result = intval( $db->get_var($query->get(), $query->get_builder_values()) );
-
-        return $result > 0;
+        return new Eye($user);
     }
 }
