@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Notif Bell 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/notif-bell\n"
 "POT-Creation-Date: 2025-03-02T23:45:43+00:00\n"
-"PO-Revision-Date: 2025-03-03 03:29+0330\n"
+"PO-Revision-Date: 2025-03-03 03:33+0330\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fa_IR\n"
@@ -65,22 +65,22 @@ msgstr "زنگ اطلاع رسانی کاربر برای وردپرس"
 
 #: partials/admin/main-page.php:27
 msgid ""
-"This plugin is designed for implementing the notification section of WordPress. "
-"The purpose of this plugin is to create a suitable platform for designing the "
-"display section of user-specific notifications for each user."
+"This plugin is designed for implementing the notification section of WordPress. The "
+"purpose of this plugin is to create a suitable platform for designing the display "
+"section of user-specific notifications for each user."
 msgstr ""
 "این افزونه برای پیاده‌سازی بخش اعلان‌های وردپرس طراحی شده است. هدف این افزونه ایجاد "
 "یک بستر مناسب برای طراحی بخش نمایش اعلان‌های خاص هر کاربر برای هر کاربر است."
 
 #: partials/admin/main-page.php:29
 msgid ""
-"This plugin does not automatically place a bell or notification display area in "
-"the user section, and you cannot use it simply by installing the plugin without "
-"initial implementation."
+"This plugin does not automatically place a bell or notification display area in the "
+"user section, and you cannot use it simply by installing the plugin without initial "
+"implementation."
 msgstr ""
-"این پلاگین به طور خودکار یک زنگ یا ناحیه نمایش اعلان در بخش کاربر قرار نمی‌دهد و "
-"شما نمی‌توانید تنها با نصب پلاگین از آن استفاده کنید بدون اینکه پیاده‌سازی اولیه "
-"انجام دهید."
+"این پلاگین به طور خودکار یک زنگ یا ناحیه نمایش اعلان در بخش کاربر قرار نمی‌دهد و شما "
+"نمی‌توانید تنها با نصب پلاگین از آن استفاده کنید بدون اینکه پیاده‌سازی اولیه انجام "
+"دهید."
 
 #: partials/admin/main-page.php:31
 msgid ""
@@ -88,9 +88,8 @@ msgid ""
 "just need to use a bit of HTML and CSS along with the helper functions of the "
 "plugin to execute everything."
 msgstr ""
-"این افزونه می‌تواند کار نمایش اعلان‌ها را برای شما بسیار آسان کند. شما فقط نیاز "
-"دارید کمی HTML و CSS به همراه توابع کمکی این افزونه استفاده کنید تا همه چیز را "
-"اجرا کنید."
+"این افزونه می‌تواند کار نمایش اعلان‌ها را برای شما بسیار آسان کند. شما فقط نیاز دارید "
+"کمی HTML و CSS به همراه توابع کمکی این افزونه استفاده کنید تا همه چیز را اجرا کنید."
 
 #: partials/admin/main-page.php:36
 msgid ""
@@ -105,8 +104,8 @@ msgid ""
 "These sections essentially play the roles of `Insert`, `Select`, `Update`, and "
 "`Delete` for the database."
 msgstr ""
-"این بخش‌ها اساساً نقش‌های `Insert`، `Select`، `Update` و `Delete` را برای پایگاه "
-"داده ایفا می‌کنند."
+"این بخش‌ها اساساً نقش‌های `Insert`، `Select`، `Update` و `Delete` را برای پایگاه داده "
+"ایفا می‌کنند."
 
 #. translators: %s: page link
 #: partials/admin/main-page.php:39
@@ -180,8 +179,7 @@ msgstr "فرمت محتوا"
 msgid "Notification send date"
 msgstr "تاریخ ارسال نوتیف"
 
-#: partials/admin/send-page.php:172 src/Admin/Assets.php:210
-#: src/Admin/Assets.php:211
+#: partials/admin/send-page.php:172 src/Admin/Assets.php:210 src/Admin/Assets.php:211
 msgid "Empty: Auto fill"
 msgstr "خالی: خودکار"
 
@@ -204,8 +202,8 @@ msgid ""
 "user-provided information."
 msgstr ""
 "شما می‌توانید از متن جادوئی برای وارد کردن متن‌های پویا و متغیر استفاده کنید. متن "
-"جادوئی به صورت یک براکت باز و بسته [] وارد می‌شود. شما می‌توانید از متغیرهای ثبت "
-"شده یا اطلاعات ارائه شده توسط کاربر استفاده کنید."
+"جادوئی به صورت یک براکت باز و بسته [] وارد می‌شود. شما می‌توانید از متغیرهای ثبت شده "
+"یا اطلاعات ارائه شده توسط کاربر استفاده کنید."
 
 #: partials/admin/send-page.php:225
 msgid "get a variable data"
@@ -413,12 +411,12 @@ msgstr "بروزرسانی"
 #: partials/admin/tools-page.php:138
 msgid ""
 "This tool helps you reset all notification data and the user's seen status. It is "
-"recommended to start everything over after long-term use and a very high number "
-"of notifications (over 10,000)."
+"recommended to start everything over after long-term use and a very high number of "
+"notifications (over 10,000)."
 msgstr ""
 "این ابزار به شما کمک می‌کند تا تمام داده‌های نوتیف ها و وضعیت دیده شده کاربر را "
-"بازنشانی کنید. توصیه می‌شود پس از استفاده طولانی‌مدت و تعداد بسیار بالای اعلان‌ها "
-"(بیش از ۱۰,۰۰۰) همه چیز را از نو شروع کنید."
+"بازنشانی کنید. توصیه می‌شود پس از استفاده طولانی‌مدت و تعداد بسیار بالای اعلان‌ها (بیش "
+"از ۱۰,۰۰۰) همه چیز را از نو شروع کنید."
 
 #: partials/admin/tools-page.php:141
 msgid "MAX ID"
@@ -437,11 +435,10 @@ msgid "It's better for the data to be reset."
 msgstr "بهتره که داده ها ریست بشن."
 
 #: partials/admin/tools-page.php:150
-msgid ""
-"Please note: This action will delete all stored data related to notifications."
+msgid "Please note: This action will delete all stored data related to notifications."
 msgstr ""
-"لطفاً توجه داشته باشید: این عمل تمام داده‌های ذخیره شده مربوط به اعلان‌ها را حذف "
-"خواهد کرد."
+"لطفاً توجه داشته باشید: این عمل تمام داده‌های ذخیره شده مربوط به اعلان‌ها را حذف خواهد "
+"کرد."
 
 #: partials/admin/tools-page.php:157
 msgid "The desired tab does not exist."
@@ -453,8 +450,7 @@ msgstr "دیتای ارسالی ناقص است."
 
 #: src/Admin/Ajax.php:52
 msgid "Recipients are either not entered or not entered correctly."
-msgstr ""
-"هیچ دریافت کننده ای وارد نشده یا دریافت کنندگان به صورت نادرست وارد شده اند."
+msgstr "هیچ دریافت کننده ای وارد نشده یا دریافت کنندگان به صورت نادرست وارد شده اند."
 
 #: src/Admin/Ajax.php:54
 msgid "The tags are not entered correctly."
@@ -483,8 +479,8 @@ msgstr "دریافت کننده نامی ندارد!"
 #: src/Admin/Assets.php:180
 msgid "Receiver name is unvalid! Use (a-zA-Z0-9) and \"-\" for enter receiver name."
 msgstr ""
-"نام دریافت کننده نامعتبر است! باید تنها از  حروف کوچک و بزرگ لاتین و اعداد به "
-"همراه - استفاده کنید."
+"نام دریافت کننده نامعتبر است! باید تنها از  حروف کوچک و بزرگ لاتین و اعداد به همراه "
+"- استفاده کنید."
 
 #: src/Admin/Assets.php:181
 msgid "Please fill the data field first."
@@ -536,8 +532,7 @@ msgstr "شما نمی توانید نوتیف را بدون هیچ دریافت 
 
 #: src/Admin/Assets.php:194
 msgid ""
-"Notif date must entered as yyyy-mm-dd hh:ii:ss or just leave it blank for auto "
-"fill."
+"Notif date must entered as yyyy-mm-dd hh:ii:ss or just leave it blank for auto fill."
 msgstr "تاریخ ارسال باید درست وارد شود. برای پر کردن خودکار به صورت خالی رها کنید."
 
 #: src/Admin/Assets.php:195
@@ -626,8 +621,8 @@ msgstr "nonce امنیتی نامعتبر است! لطفا صفحه را رفر�
 
 #: src/Admin/Notices.php:80
 msgid ""
-"The plugin database is outdated and needs to be updated. Please update the "
-"database now by going to the tools section."
+"The plugin database is outdated and needs to be updated. Please update the database "
+"now by going to the tools section."
 msgstr ""
 "دیتابیس افزونه بروز نیست و نیاز به بروزرسانی دارد. لطفا همین حالا با ورود به بخش "
 "ابزار ها دیتابیس را بروز کنید."
@@ -805,8 +800,8 @@ msgstr "مخفی کردن اعلامیه ها"
 #: src/Settings.php:72
 msgid "Hiding notices helps the system not do any processing to display notices."
 msgstr ""
-"پنهان کردن اعلامیه ها به سیستم کمک می کند تا هیچ پردازشی برای نمایش اعلان ها "
-"انجام ندهد."
+"پنهان کردن اعلامیه ها به سیستم کمک می کند تا هیچ پردازشی برای نمایش اعلان ها انجام "
+"ندهد."
 
 #: src/Settings.php:83
 msgid "Debug level"
@@ -814,8 +809,8 @@ msgstr "سطح اشکال یابی"
 
 #: src/Settings.php:84
 msgid ""
-"You can select the plugin debug level. Active or Disable or syncing with "
-"wordpress debug?"
+"You can select the plugin debug level. Active or Disable or syncing with wordpress "
+"debug?"
 msgstr ""
 "می توانید سطح اشکال زدایی افزونه را انتخاب کنید. فعال یا غیرفعال یا همگام سازی با "
 "اشکال زدایی وردپرس؟"
@@ -835,8 +830,7 @@ msgstr "ادیتور متن"
 #: src/Settings.php:112
 msgid "Select the text editor that plugin must use in send page and other."
 msgstr ""
-"ویرایشگر متنی را که افزونه باید در صفحه ارسال و سایر موارد استفاده کند، انتخاب "
-"کنید."
+"ویرایشگر متنی را که افزونه باید در صفحه ارسال و سایر موارد استفاده کند، انتخاب کنید."
 
 #: src/Settings.php:118
 msgid "Audo detect (by format)"
@@ -902,8 +896,8 @@ msgstr "پاک کردن داده ها با حذف نصب"
 msgid ""
 "Remove all plugin data when uninstalling the plugin on the WordPress plugins page?"
 msgstr ""
-"آیا می‌خواهید هنگام حذف افزونه از صفحه افزونه‌های وردپرس، تمام داده‌های افزونه را "
-"حذف کنید؟"
+"آیا می‌خواهید هنگام حذف افزونه از صفحه افزونه‌های وردپرس، تمام داده‌های افزونه را حذف "
+"کنید؟"
 
 #: src/Settings.php:198 src/Settings.php:218
 msgid "Service status"
@@ -921,14 +915,11 @@ msgstr "ایجکس: اضافه به لیست مشاهده"
 msgid ""
 "An Ajax specifically for adding notification IDs as seen for the user through an "
 "Ajax request."
-msgstr ""
-"یک درخواست ایجکس برای اضافه کردن شناسه نوتیف ها به لیست مشاهده شده های کاربر."
+msgstr "یک درخواست ایجکس برای اضافه کردن شناسه نوتیف ها به لیست مشاهده شده های کاربر."
 
 #: src/Settings.php:219
-#, fuzzy
-#| msgid "Do you want the Ajax service of the plugin to be enabled?"
 msgid "Do you want the Rest Api service of the plugin to be enabled?"
-msgstr "آیا می خواهید بخش ایجکس برای افزونه فعال شود؟"
+msgstr "آیا می‌خواهید سرویس Rest Api پلاگین فعال شود؟"
 
 #: src/Settings.php:233
 msgid "Eye method"
@@ -959,8 +950,8 @@ msgid ""
 "The manager can change and modify the types of data and methods for the \"AUTO\" "
 "method based on the input data. [recommended: enable]"
 msgstr ""
-"مدیر می‌تواند انواع داده‌ها و روش‌ها را برای روش \"AUTO\" بر اساس داده‌های ورودی "
-"تغییر و اصلاح کند. [پیشنهاد: فعال کنید]"
+"مدیر می‌تواند انواع داده‌ها و روش‌ها را برای روش \"AUTO\" بر اساس داده‌های ورودی تغییر "
+"و اصلاح کند. [پیشنهاد: فعال کنید]"
 
 #: src/Settings.php:262
 msgid "Eye count limit"
@@ -972,6 +963,6 @@ msgid ""
 "automatically change the list to binary. If the number decreases, it will "
 "automatically convert to a comma list."
 msgstr ""
-"پس از اینکه این تعداد اعلان‌ها در لیست دیده شده ذخیره شد، ماژول به‌طور خودکار لیست "
-"را به فرمت باینری تغییر خواهد داد. اگر تعداد کاهش یابد، به‌طور خودکار به لیست کاما "
+"پس از اینکه این تعداد اعلان‌ها در لیست دیده شده ذخیره شد، ماژول به‌طور خودکار لیست را "
+"به فرمت باینری تغییر خواهد داد. اگر تعداد کاهش یابد، به‌طور خودکار به لیست کاما "
 "تبدیل خواهد شد."
