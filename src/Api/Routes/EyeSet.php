@@ -6,6 +6,7 @@ namespace Irmmr\WpNotifBell\Api\Routes;
 defined('WPINC') || die;
 
 use Irmmr\WpNotifBell\Api\RoutAbstract;
+use Irmmr\WpNotifBell\Notif\Collector;
 use Irmmr\WpNotifBell\User;
 use WP_Error;
 use WP_REST_Request;
@@ -40,6 +41,23 @@ class EyeSet extends RoutAbstract
             'permission_callback'   => [$this, 'checkPermission'],
             'args'                  => $this->getArguments()
         ]);
+    }
+
+    /**
+     * check if user owns notif by id
+     *
+     * @since   1.0.0
+     * @param   WP_User $user
+     * @param   int     $id
+     * @return  bool
+     */
+    protected function isUserNotifExists(WP_User $user, int $id): bool
+    {
+        $c = (new Collector)->target_by_user($user);
+
+        $c->select()->where()->equals('id', $id);
+
+        return $c->has();
     }
 
     /**
@@ -78,9 +96,11 @@ class EyeSet extends RoutAbstract
                 $data = $request->get_param('data');
 
                 foreach ($data as $id => $status) {
-                    $eye->set_status($status, $id);
+                    if ($this->isUserNotifExists($user, $id)) {
+                        $eye->set_status($status, $id);
 
-                    $this->data[ $id ] = $status ? 'seen' : 'unseen';
+                        $this->data[ $id ] = $status ? 'seen' : 'unseen';
+                    }
                 }
             }
 
