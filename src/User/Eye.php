@@ -105,7 +105,7 @@ class Eye implements UserInterface
      *  manager [bool]  data manager status
      * @since   1.0.0
      */
-    public function __construct(WP_User $user, array $options = self::DEF_OPTIONS)
+    public function __construct(WP_User $user, array $options = [])
     {
         $this->user = $user;
 
@@ -122,7 +122,7 @@ class Eye implements UserInterface
      * @since   1.0.0
      * @return  self
      */
-    public static function ins(WP_User $user, array $options = self::DEF_OPTIONS): self
+    public static function ins(WP_User $user, array $options = []): self
     {
         return new self($user, $options);
     }

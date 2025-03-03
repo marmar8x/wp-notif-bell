@@ -83,11 +83,12 @@ function wpnb_user_get_unseen_count(\WP_User $user): int
 /**
  * get user eye for seen/unseen management
  *
- * @since   1.0.0
  * @param   WP_User|null    $user
+ * @param   array           $options
  * @return  User\Eye|null
+ * @since   1.0.0
  */
-function wpnb_user_eye(?\WP_User $user = null): ?User\Eye
+function wpnb_user_eye(?\WP_User $user = null, array $options = []): ?User\Eye
 {
-    return User::eye($user);
+    return User::eye($user, $options);
 }

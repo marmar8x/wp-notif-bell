@@ -179,11 +179,12 @@ class User implements UserInterface
     /**
      * get current/selected user eye
      *
-     * @since   1.0.0
      * @param   WP_User|null    $user
+     * @param   array           $options
      * @return  Eye|null        null for failure
+     * @since   1.0.0
      */
-    public static function eye(?WP_User $user = null): ?Eye
+    public static function eye(?WP_User $user = null, array $options = []): ?Eye
     {
         $user = $user ?? get_userdata( get_current_user_id() );
 
@@ -191,6 +192,6 @@ class User implements UserInterface
             return null;
         }
 
-        return new Eye($user);
+        return new Eye($user, $options);
     }
 }
