@@ -1,57 +1,57 @@
-# Copyright (C) 2024 Irmmr
+# Copyright (C) 2025 MarMar8x
 # This file is distributed under the GPL-2.0+.
 msgid ""
 msgstr ""
-"Project-Id-Version: Notif Bell 0.9.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-notif-bell\n"
-"POT-Creation-Date: 2024-09-30T20:27:45+00:00\n"
-"PO-Revision-Date: 2024-10-01 00:00+0330\n"
+"Project-Id-Version: Notif Bell 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/notif-bell\n"
+"POT-Creation-Date: 2025-03-02T23:45:43+00:00\n"
+"PO-Revision-Date: 2025-03-03 03:29+0330\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.5\n"
 "X-Domain: notif-bell\n"
 
 #. Plugin Name of the plugin
-#: E:\xampp\htdocs\wordpress\wp-content\plugins\wp-notif-bell\wp-notif-bell.php
-#: src/Admin/Menu.php:60 src/Admin/Menu.php:61
+#: P:\wampp\www\wp2\wp-content\plugins\notif-bell\wp-notif-bell.php
+#: src/Admin/Menu.php:39 src/Admin/Menu.php:40
 msgid "Notif Bell"
 msgstr "زنگ اعلان"
 
 #. Plugin URI of the plugin
-#: E:\xampp\htdocs\wordpress\wp-content\plugins\wp-notif-bell\wp-notif-bell.php
+#: P:\wampp\www\wp2\wp-content\plugins\notif-bell\wp-notif-bell.php
 msgid "https://github.com/marmar8x/wp-notif-bell"
 msgstr ""
 
 #. Description of the plugin
-#: E:\xampp\htdocs\wordpress\wp-content\plugins\wp-notif-bell\wp-notif-bell.php
+#: P:\wampp\www\wp2\wp-content\plugins\notif-bell\wp-notif-bell.php
 msgid "This plugin implements the user notification bell for a WordPress website."
 msgstr "ابن افزونه بخش اعلان ها و زنگوله را برای سایت وردپرسی پیاده سازی می کند."
 
 #. Author of the plugin
-#: E:\xampp\htdocs\wordpress\wp-content\plugins\wp-notif-bell\wp-notif-bell.php
+#: P:\wampp\www\wp2\wp-content\plugins\notif-bell\wp-notif-bell.php
 msgid "MarMar8x"
 msgstr ""
 
 #. Author URI of the plugin
-#: E:\xampp\htdocs\wordpress\wp-content\plugins\wp-notif-bell\wp-notif-bell.php
+#: P:\wampp\www\wp2\wp-content\plugins\notif-bell\wp-notif-bell.php
 msgid "https://github.com/marmar8x"
 msgstr ""
 
-#: include/admin/settings.php:304
+#: include/admin/settings.php:315
 msgid "Save settings"
 msgstr "ذخیره تنظیمات"
 
 #: partials/admin/list-page.php:23 partials/admin/main-page.php:17
-#: partials/admin/send-page.php:95 partials/admin/settings-page.php:20
-#: partials/admin/tools-page.php:60
+#: partials/admin/send-page.php:100 partials/admin/settings-page.php:20
+#: partials/admin/tools-page.php:97
 msgid "WP Notif Bell"
 msgstr "زنگ اعلان وردپرس"
 
-#: partials/admin/list-page.php:24 src/Admin/Menu.php:79 src/Admin/Menu.php:80
+#: partials/admin/list-page.php:24 src/Admin/Menu.php:58 src/Admin/Menu.php:59
 msgid "List"
 msgstr "لیست"
 
@@ -128,76 +128,76 @@ msgstr ""
 msgid "recommanded"
 msgstr "پیشنهادی"
 
-#: partials/admin/send-page.php:96 src/Admin/NotifList.php:278
+#: partials/admin/send-page.php:101 src/Admin/NotifList.php:278
 msgid "Edit"
 msgstr "ویرایش"
 
-#: partials/admin/send-page.php:96 src/Admin/Menu.php:70 src/Admin/Menu.php:71
+#: partials/admin/send-page.php:101 src/Admin/Menu.php:49 src/Admin/Menu.php:50
 msgid "Send"
 msgstr "ارسال"
 
-#: partials/admin/send-page.php:100
+#: partials/admin/send-page.php:105
 msgid "Editing notification"
 msgstr "در حال ویرایش نوتیف"
 
-#: partials/admin/send-page.php:100
+#: partials/admin/send-page.php:105
 msgid "Sending notification"
 msgstr "در حال ارسال نوتیف"
 
-#: partials/admin/send-page.php:112
+#: partials/admin/send-page.php:117
 msgid "There is no notification with the key you entered."
 msgstr "هیچ نوتیفی با کلید وارد شده شما وجود ندارد."
 
-#: partials/admin/send-page.php:113
+#: partials/admin/send-page.php:118
 msgid "Back to list"
 msgstr "بازگشت به لیست"
 
-#: partials/admin/send-page.php:123
+#: partials/admin/send-page.php:128
 msgid "Notification title"
 msgstr "عنوان نوتیف"
 
-#: partials/admin/send-page.php:134
+#: partials/admin/send-page.php:139
 msgid "Notification sender"
 msgstr "ارسال کننده نوتیف"
 
-#: partials/admin/send-page.php:142
+#: partials/admin/send-page.php:147
 msgid "Notification tags"
 msgstr "تگ های نوتیف"
 
-#: partials/admin/send-page.php:143
+#: partials/admin/send-page.php:148
 msgid "Optional"
 msgstr "اختیاری"
 
-#: partials/admin/send-page.php:145
+#: partials/admin/send-page.php:150
 msgid "Separate tags with commas (,)"
 msgstr "تگ ها را با کاما از هم جدا کنید (,)"
 
-#: partials/admin/send-page.php:153
+#: partials/admin/send-page.php:158
 msgid "Text format"
 msgstr "فرمت محتوا"
 
-#: partials/admin/send-page.php:167
+#: partials/admin/send-page.php:172
 msgid "Notification send date"
 msgstr "تاریخ ارسال نوتیف"
 
-#: partials/admin/send-page.php:167 src/Admin/Assets.php:207
-#: src/Admin/Assets.php:208
+#: partials/admin/send-page.php:172 src/Admin/Assets.php:210
+#: src/Admin/Assets.php:211
 msgid "Empty: Auto fill"
 msgstr "خالی: خودکار"
 
-#: partials/admin/send-page.php:169
+#: partials/admin/send-page.php:174
 msgid "Leave it blank for current time"
 msgstr "برای تاریخ فعلی خالی بگزارید"
 
-#: partials/admin/send-page.php:179
+#: partials/admin/send-page.php:184
 msgid "Notification text"
 msgstr "محتوای نوتیف"
 
-#: partials/admin/send-page.php:210
+#: partials/admin/send-page.php:215
 msgid "Notif text ..."
 msgstr "محتوای نوتیف ..."
 
-#: partials/admin/send-page.php:217
+#: partials/admin/send-page.php:222
 msgid ""
 "You can use text magic to insert dynamic and variable text. Text magic is entered "
 "in the form of an open and closed bracket []. You can use registered variables or "
@@ -207,136 +207,136 @@ msgstr ""
 "جادوئی به صورت یک براکت باز و بسته [] وارد می‌شود. شما می‌توانید از متغیرهای ثبت "
 "شده یا اطلاعات ارائه شده توسط کاربر استفاده کنید."
 
-#: partials/admin/send-page.php:220
+#: partials/admin/send-page.php:225
 msgid "get a variable data"
 msgstr "نمایش مقدار یک متغیر تعریف شده"
 
 #. translators: %s: class name
-#: partials/admin/send-page.php:223
+#: partials/admin/send-page.php:228
 msgid "get user data from %s"
 msgstr "دریافت اطلاعات کاربر از %s"
 
-#: partials/admin/send-page.php:226
+#: partials/admin/send-page.php:231
 msgid "get user meta value"
 msgstr "نمایش اطلاعات از لیست متای کاربر وارد شده"
 
-#: partials/admin/send-page.php:229
+#: partials/admin/send-page.php:234
 msgid "get an option"
 msgstr "دریافت از لیست مقادیر ذخیره شده (option)"
 
-#: partials/admin/send-page.php:232
+#: partials/admin/send-page.php:237
 msgid "get date"
 msgstr "نمایش تاریخ و ساعت"
 
-#: partials/admin/send-page.php:235
+#: partials/admin/send-page.php:240
 msgid "get i18n date"
 msgstr "نمایش تاریخ و ساعت محلی دریافت شده"
 
-#: partials/admin/send-page.php:238
+#: partials/admin/send-page.php:243
 msgid "get data value from `Notif Data`"
 msgstr "دریافت مقدار از دیتای خود نوتیف"
 
-#: partials/admin/send-page.php:243
+#: partials/admin/send-page.php:248
 msgid "Preview"
 msgstr "پیشنمایش"
 
-#: partials/admin/send-page.php:243
+#: partials/admin/send-page.php:248
 msgid "renew every 5 seconds"
 msgstr "بروزرسانی در هر 5 ثانیه"
 
-#: partials/admin/send-page.php:254
+#: partials/admin/send-page.php:259
 msgid "Receivers"
 msgstr "دریافت کنندگان"
 
-#: partials/admin/send-page.php:258
+#: partials/admin/send-page.php:263
 msgid "List of notification recipients"
 msgstr "لیست دریافت کنندگان نوتیف"
 
-#: partials/admin/send-page.php:264
+#: partials/admin/send-page.php:269
 msgid "Defaults"
 msgstr "پیشفرض ها"
 
-#: partials/admin/send-page.php:265
+#: partials/admin/send-page.php:270
 msgid "The user's ID (exa: 3724) [int]"
 msgstr "آیدی کاربر (نمونه: 3724) (عددی)"
 
-#: partials/admin/send-page.php:265
+#: partials/admin/send-page.php:270
 msgid "User ID (User unique ID)"
 msgstr "آیدی کاربر"
 
-#: partials/admin/send-page.php:266
+#: partials/admin/send-page.php:271
 msgid "The user's Login (exa: nova) [str]"
 msgstr "نام کاربری کاربر (نمونه: nova) (رشته)"
 
-#: partials/admin/send-page.php:266
+#: partials/admin/send-page.php:271
 msgid "User Name (User Login)"
 msgstr "نام کاربری"
 
-#: partials/admin/send-page.php:267
+#: partials/admin/send-page.php:272
 msgid "The user's Mail (exa: h@my.com) [e-mail]"
 msgstr "ایمیل کاربر (مثال: h@my.com) (ایمیل)"
 
-#: partials/admin/send-page.php:267
+#: partials/admin/send-page.php:272
 msgid "User Mail (Email address)"
 msgstr "ایمیل کاربر"
 
-#: partials/admin/send-page.php:268
+#: partials/admin/send-page.php:273
 msgid "The user's Role [wp-role]"
 msgstr "نقش کاربر (نقش های کاربری وردپرس)"
 
-#: partials/admin/send-page.php:268
+#: partials/admin/send-page.php:273
 msgid "User Role (Roles and Capabilities)"
 msgstr "نقش کاربر (بخش نقش های کاربری وردپرس)"
 
-#: partials/admin/send-page.php:269
+#: partials/admin/send-page.php:274
 msgid "The command name (exa: all) [str]"
 msgstr "دستور (نمونه: all) (رشته)"
 
-#: partials/admin/send-page.php:269
+#: partials/admin/send-page.php:274
 msgid "Command (An order for groups)"
 msgstr "دستور (یک دستور همگانی)"
 
-#: partials/admin/send-page.php:273
+#: partials/admin/send-page.php:278
 msgid "Also"
 msgstr "همچنین"
 
-#: partials/admin/send-page.php:279
+#: partials/admin/send-page.php:284
 msgid "Easy access"
 msgstr "دسترسی آسان"
 
-#: partials/admin/send-page.php:284
+#: partials/admin/send-page.php:289
 msgid "An arbitrary value ..."
 msgstr "یک مقدار دلخواه ..."
 
-#: partials/admin/send-page.php:284
+#: partials/admin/send-page.php:289
 msgid "Custom"
 msgstr "سفارشی"
 
-#: partials/admin/send-page.php:287
+#: partials/admin/send-page.php:292
 msgid "Custom name (Double click to return)"
 msgstr "نام دلخواه (دابل کلیک برای بازگشت)"
 
-#: partials/admin/send-page.php:306
+#: partials/admin/send-page.php:311
 msgid "Add"
 msgstr "اضافه"
 
-#: partials/admin/send-page.php:314
+#: partials/admin/send-page.php:319
 msgid "No recipient!"
 msgstr "بدون دریافت کننده!"
 
-#: partials/admin/send-page.php:317
+#: partials/admin/send-page.php:322
 msgid "Use \"Add\" button to add some"
 msgstr "از دکمه \"اضافه\" برای افزودن دریافت کننده استفاده کنید"
 
-#: partials/admin/send-page.php:330
+#: partials/admin/send-page.php:335
 msgid "Edit notification"
 msgstr "ویرایش نوتیف"
 
-#: partials/admin/send-page.php:330
+#: partials/admin/send-page.php:335
 msgid "Send notification"
 msgstr "ارسال نوتیف"
 
-#: partials/admin/settings-page.php:21 src/Admin/Menu.php:88 src/Admin/Menu.php:89
+#: partials/admin/settings-page.php:21 src/Admin/Menu.php:67 src/Admin/Menu.php:68
 msgid "Settings"
 msgstr "تنظیمات"
 
@@ -344,27 +344,45 @@ msgstr "تنظیمات"
 msgid "Plugin settings"
 msgstr "تنظیمات افزونه"
 
-#: partials/admin/tools-page.php:35
+#: partials/admin/tools-page.php:40
 msgid "Database Updater"
 msgstr "بروزرسان پایگاه داده"
 
-#: partials/admin/tools-page.php:48
+#: partials/admin/tools-page.php:43 partials/admin/tools-page.php:152
+msgid "Reset"
+msgstr "بازنشانی"
+
+#: partials/admin/tools-page.php:59
 msgid "The database has been successfully updated."
 msgstr "پایگاه داده با موفقیت به‌روزرسانی شده است."
 
-#: partials/admin/tools-page.php:51
+#: partials/admin/tools-page.php:70
+msgid "An issue has occurred! Please try again."
+msgstr "یک مشکل پیش آمده است! لطفاً دوباره تلاش کنید."
+
+#: partials/admin/tools-page.php:73
+msgid "There is absolutely nothing to reset!"
+msgstr "هیچ چیزی برای بازنشانی وجود ندارد!"
+
+#: partials/admin/tools-page.php:83
+#, fuzzy
+#| msgid "The database has been successfully updated."
+msgid "Everything has been successfully reset."
+msgstr "پایگاه داده با موفقیت به‌روزرسانی شده است."
+
+#: partials/admin/tools-page.php:88
 msgid "The submitted request is not valid."
 msgstr "تاریخ ارسال به صورت نادرست وارد شده."
 
-#: partials/admin/tools-page.php:61 src/Admin/Menu.php:97 src/Admin/Menu.php:98
+#: partials/admin/tools-page.php:98 src/Admin/Menu.php:76 src/Admin/Menu.php:77
 msgid "Tools"
 msgstr "ابزار ها"
 
-#: partials/admin/tools-page.php:65
+#: partials/admin/tools-page.php:102
 msgid "Tools needed"
 msgstr "ابزار های مورد نیاز"
 
-#: partials/admin/tools-page.php:83
+#: partials/admin/tools-page.php:120
 msgid ""
 "This tool helps you keep the tables and information related to this plugin up to "
 "date."
@@ -372,176 +390,209 @@ msgstr ""
 "این ابزار به شما کمک می‌کند تا جداول و اطلاعات مربوط به این افزونه را به‌روز نگه "
 "دارید."
 
-#: partials/admin/tools-page.php:85
+#: partials/admin/tools-page.php:122
 msgid "Last version"
 msgstr "آخرین نسخه"
 
-#: partials/admin/tools-page.php:86
+#: partials/admin/tools-page.php:123
 msgid "Your version"
 msgstr "نسخه شما"
 
-#: partials/admin/tools-page.php:89
+#: partials/admin/tools-page.php:126
 msgid "The database is up to date."
 msgstr "پایگاه داده به روز است."
 
-#: partials/admin/tools-page.php:91
+#: partials/admin/tools-page.php:128
 msgid "The database needs to be updated."
 msgstr "پایگاه داده نیاز به به‌روزرسانی دارد."
 
-#: partials/admin/tools-page.php:92 src/Admin/Notices.php:81
+#: partials/admin/tools-page.php:131 src/Admin/Notices.php:81
 msgid "Update"
 msgstr "بروزرسانی"
 
-#: partials/admin/tools-page.php:97
+#: partials/admin/tools-page.php:138
+msgid ""
+"This tool helps you reset all notification data and the user's seen status. It is "
+"recommended to start everything over after long-term use and a very high number "
+"of notifications (over 10,000)."
+msgstr ""
+"این ابزار به شما کمک می‌کند تا تمام داده‌های نوتیف ها و وضعیت دیده شده کاربر را "
+"بازنشانی کنید. توصیه می‌شود پس از استفاده طولانی‌مدت و تعداد بسیار بالای اعلان‌ها "
+"(بیش از ۱۰,۰۰۰) همه چیز را از نو شروع کنید."
+
+#: partials/admin/tools-page.php:141
+msgid "MAX ID"
+msgstr "آخرین آیدی"
+
+#: partials/admin/tools-page.php:142
+msgid "Notifs count"
+msgstr "تعداد نوتیف ها"
+
+#: partials/admin/tools-page.php:145
+msgid "Everything looks good."
+msgstr "همه چی به نظر خوبه."
+
+#: partials/admin/tools-page.php:147
+msgid "It's better for the data to be reset."
+msgstr "بهتره که داده ها ریست بشن."
+
+#: partials/admin/tools-page.php:150
+msgid ""
+"Please note: This action will delete all stored data related to notifications."
+msgstr ""
+"لطفاً توجه داشته باشید: این عمل تمام داده‌های ذخیره شده مربوط به اعلان‌ها را حذف "
+"خواهد کرد."
+
+#: partials/admin/tools-page.php:157
 msgid "The desired tab does not exist."
 msgstr "فرمت وارد شده تعریف نشده است."
 
-#: src/Admin/Ajax.php:48
+#: src/Admin/Ajax.php:50
 msgid "The data sent is incomplete."
 msgstr "دیتای ارسالی ناقص است."
 
-#: src/Admin/Ajax.php:50
+#: src/Admin/Ajax.php:52
 msgid "Recipients are either not entered or not entered correctly."
 msgstr ""
 "هیچ دریافت کننده ای وارد نشده یا دریافت کنندگان به صورت نادرست وارد شده اند."
 
-#: src/Admin/Ajax.php:52
+#: src/Admin/Ajax.php:54
 msgid "The tags are not entered correctly."
 msgstr "تگ ها به درستی وارد نشده اند."
 
-#: src/Admin/Ajax.php:54
+#: src/Admin/Ajax.php:56
 msgid "The sending date entered is invalid."
 msgstr "تاریخ ارسال به صورت نادرست وارد شده."
 
-#: src/Admin/Ajax.php:56
+#: src/Admin/Ajax.php:58
 msgid "The entered format is not defined."
 msgstr "فرمت وارد شده تعریف نشده است."
 
-#: src/Admin/Ajax.php:59
+#: src/Admin/Ajax.php:61
 msgid "Unknown error"
 msgstr "خطای نامشخص"
 
-#: src/Admin/Ajax.php:246
+#: src/Admin/Ajax.php:260
 msgid "No Notif were found with the entered key."
 msgstr "هیچ نوتیفی با کلید وارد شده پیدا نشد."
 
-#: src/Admin/Assets.php:176
+#: src/Admin/Assets.php:179
 msgid "The reseiver has no name!"
 msgstr "دریافت کننده نامی ندارد!"
 
-#: src/Admin/Assets.php:177
+#: src/Admin/Assets.php:180
 msgid "Receiver name is unvalid! Use (a-zA-Z0-9) and \"-\" for enter receiver name."
 msgstr ""
 "نام دریافت کننده نامعتبر است! باید تنها از  حروف کوچک و بزرگ لاتین و اعداد به "
 "همراه - استفاده کنید."
 
-#: src/Admin/Assets.php:178
+#: src/Admin/Assets.php:181
 msgid "Please fill the data field first."
 msgstr "لطفا ابتدا فیلد مقدار را پر کنید."
 
-#: src/Admin/Assets.php:179 src/Admin/Assets.php:180
+#: src/Admin/Assets.php:182 src/Admin/Assets.php:183
 msgid "The receiver is duplicate!"
 msgstr "دریافت کننده تکراری است!"
 
-#: src/Admin/Assets.php:181
+#: src/Admin/Assets.php:184
 msgid "Incorrect"
 msgstr "نادرست"
 
-#: src/Admin/Assets.php:182
+#: src/Admin/Assets.php:185
 msgid "Notif Text ..."
 msgstr "محتوای نوتیف ..."
 
-#: src/Admin/Assets.php:183
+#: src/Admin/Assets.php:186
 msgid "Markdown here ..."
 msgstr "مقدار Markdown ..."
 
-#: src/Admin/Assets.php:184
+#: src/Admin/Assets.php:187
 msgid "HTML here ..."
 msgstr "مقدار HTML ..."
 
-#: src/Admin/Assets.php:185
+#: src/Admin/Assets.php:188
 msgid "Please wait until the notif is sent."
 msgstr "لطفا تا ارسال نوتیف صبر کنید."
 
-#: src/Admin/Assets.php:186
+#: src/Admin/Assets.php:189
 msgid "Notif sender is required!"
 msgstr "ارسال کننده نوتیف ضروری است!"
 
-#: src/Admin/Assets.php:187
+#: src/Admin/Assets.php:190
 msgid "Notif title is required!"
 msgstr "عنوان نوتیف ضروری است!"
 
-#: src/Admin/Assets.php:188
+#: src/Admin/Assets.php:191
 msgid "Can not send notif without content!"
 msgstr "نمی توان نوتیف را بدون محتوا ارسال کرد!"
 
-#: src/Admin/Assets.php:189
+#: src/Admin/Assets.php:192
 msgid "Please select notif content format!"
 msgstr "لطفا فرمت محتوا را تعیین کنید!"
 
-#: src/Admin/Assets.php:190
+#: src/Admin/Assets.php:193
 msgid "You can not send notif without any receiver."
 msgstr "شما نمی توانید نوتیف را بدون هیچ دریافت کننده ای ارسال کنید."
 
-#: src/Admin/Assets.php:191
+#: src/Admin/Assets.php:194
 msgid ""
 "Notif date must entered as yyyy-mm-dd hh:ii:ss or just leave it blank for auto "
 "fill."
 msgstr "تاریخ ارسال باید درست وارد شود. برای پر کردن خودکار به صورت خالی رها کنید."
 
-#: src/Admin/Assets.php:192
+#: src/Admin/Assets.php:195
 msgid "Please fix the following error(s):"
 msgstr "لطفا خطا های زیر را رفع کنید:"
 
-#: src/Admin/Assets.php:193
+#: src/Admin/Assets.php:196
 msgid "Sending notification ..."
 msgstr "در حال ارسال ..."
 
-#: src/Admin/Assets.php:194
+#: src/Admin/Assets.php:197
 msgid "Updating notification ..."
 msgstr "در حال بروزرسانی ..."
 
-#: src/Admin/Assets.php:195
+#: src/Admin/Assets.php:198
 msgid "Result: The notification was updated."
 msgstr "نتیجه: نوتیف بروزرسانی شد."
 
-#: src/Admin/Assets.php:196
+#: src/Admin/Assets.php:199
 msgid "Result: An error occurred while updating."
 msgstr "نتیجه: خطایی هنگام بروزرسانی رخ داده است."
 
-#: src/Admin/Assets.php:197
+#: src/Admin/Assets.php:200
 msgid "Result: The notification was sent."
 msgstr "نتیجه: نوتیف ارسال شد."
 
-#: src/Admin/Assets.php:198
+#: src/Admin/Assets.php:201
 msgid "Result: An error occurred while sending."
 msgstr "نتیجه: خطایی هنگام ارسال رخ داد."
 
-#: src/Admin/Assets.php:199
+#: src/Admin/Assets.php:202
 msgid "The recipient is a duplicate."
 msgstr "گیرنده تکراری است!"
 
-#: src/Admin/Assets.php:201
+#: src/Admin/Assets.php:204
 msgid "Error code:"
 msgstr "کد خطا:"
 
-#: src/Admin/Assets.php:202
+#: src/Admin/Assets.php:205
 msgid "Error msg:"
 msgstr "پیام خطا:"
 
-#: src/Admin/Assets.php:203
+#: src/Admin/Assets.php:206
 msgid "Errors"
 msgstr "خطا ها"
 
-#: src/Admin/Assets.php:204
+#: src/Admin/Assets.php:207
 msgid "Data"
 msgstr "دیتا"
 
-#: src/Admin/Assets.php:205
+#: src/Admin/Assets.php:208
 msgid "Sender/Updater result:"
 msgstr "پاسخ بروزرسان/ارسال کننده:"
 
-#: src/Admin/Assets.php:206
+#: src/Admin/Assets.php:209
 msgid "Edit notif"
 msgstr "ویرایش نوتیف"
 
@@ -553,7 +604,7 @@ msgstr "ارسال به تمامی کاربران"
 msgid "Send to Subscribers"
 msgstr "ارسال به تمامی مشترکان"
 
-#: src/Admin/Menu.php:44
+#: src/Admin/MenuBar.php:56
 msgid "Notif"
 msgstr "نوتیف"
 
@@ -652,31 +703,56 @@ msgstr ""
 
 #: src/Admin/Settings.php:56
 msgid "Ajax"
-msgstr "ایجکس"
+msgstr ""
 
-#: src/Admin/Settings.php:145
+#: src/Admin/Settings.php:57
+msgid "Rest"
+msgstr ""
+
+#: src/Admin/Settings.php:58
+msgid "Modules"
+msgstr "ماژول ها"
+
+#: src/Admin/Settings.php:59
+msgid "Eye"
+msgstr ""
+
+#: src/Admin/Settings.php:152
 msgid "Settings saved."
 msgstr "تنظیمات ذخیره شد."
 
-#: src/Admin/Settings.php:147
+#: src/Admin/Settings.php:154
 msgid "No changes were saved."
 msgstr "هیچ تغییری رخ نداد."
 
-#: src/Admin/Settings.php:180
+#: src/Admin/Settings.php:187
 msgid "The wpnb token is invalid."
 msgstr "توکن نامعتبر است."
 
-#: src/Admin/Utils/Notice.php:45
+#: src/Admin/Utils/Notice.php:47
 msgid "Warning"
 msgstr "هشدار"
 
-#: src/Admin/Utils/Notice.php:46
+#: src/Admin/Utils/Notice.php:48
 msgid "Error"
 msgstr "خطا"
 
-#: src/Admin/Utils/Notice.php:52
+#: src/Admin/Utils/Notice.php:54
 msgid "WP Notif Bell:"
 msgstr "زنگ اعلان وردپرس:"
+
+#: src/Api/Routes/EyeFetch.php:53 src/Api/Routes/EyeSet.php:57
+#: src/Api/Routes/UserFetchRout.php:158
+msgid "Invalid user!"
+msgstr ""
+
+#: src/Api/Routes/EyeFetch.php:71
+msgid "Invalid ID!"
+msgstr ""
+
+#: src/Api/Routes/EyeSet.php:88
+msgid "Invalid action!"
+msgstr ""
 
 #: src/Core/Notif.php:64 src/Core/Notif.php:80
 msgid "Pure Text"
@@ -829,7 +905,7 @@ msgstr ""
 "آیا می‌خواهید هنگام حذف افزونه از صفحه افزونه‌های وردپرس، تمام داده‌های افزونه را "
 "حذف کنید؟"
 
-#: src/Settings.php:198
+#: src/Settings.php:198 src/Settings.php:218
 msgid "Service status"
 msgstr "وضعیت سرویس"
 
@@ -847,3 +923,55 @@ msgid ""
 "Ajax request."
 msgstr ""
 "یک درخواست ایجکس برای اضافه کردن شناسه نوتیف ها به لیست مشاهده شده های کاربر."
+
+#: src/Settings.php:219
+#, fuzzy
+#| msgid "Do you want the Ajax service of the plugin to be enabled?"
+msgid "Do you want the Rest Api service of the plugin to be enabled?"
+msgstr "آیا می خواهید بخش ایجکس برای افزونه فعال شود؟"
+
+#: src/Settings.php:233
+msgid "Eye method"
+msgstr "متد Eye"
+
+#: src/Settings.php:234
+msgid "The module method for write and read data. [recommended: auto]"
+msgstr "روش ماژول برای نوشتن و خواندن داده ها. [پیشنهاد: خودکار]"
+
+#: src/Settings.php:241
+msgid "Auto [select based on data size]"
+msgstr "خودکار [انتخاب بر اساس اندازه داده]"
+
+#: src/Settings.php:245
+msgid "Binary [large]"
+msgstr "باینری [بزرگ]"
+
+#: src/Settings.php:249
+msgid "Comma separated [small]"
+msgstr "لیست کاما [کوچک]"
+
+#: src/Settings.php:254
+msgid "Eye manager status"
+msgstr "وضعیت مدیر Eye"
+
+#: src/Settings.php:255
+msgid ""
+"The manager can change and modify the types of data and methods for the \"AUTO\" "
+"method based on the input data. [recommended: enable]"
+msgstr ""
+"مدیر می‌تواند انواع داده‌ها و روش‌ها را برای روش \"AUTO\" بر اساس داده‌های ورودی "
+"تغییر و اصلاح کند. [پیشنهاد: فعال کنید]"
+
+#: src/Settings.php:262
+msgid "Eye count limit"
+msgstr "محدودیت تعداد Eye"
+
+#: src/Settings.php:263
+msgid ""
+"After this number of notifications is saved in the seen list, the module will "
+"automatically change the list to binary. If the number decreases, it will "
+"automatically convert to a comma list."
+msgstr ""
+"پس از اینکه این تعداد اعلان‌ها در لیست دیده شده ذخیره شد، ماژول به‌طور خودکار لیست "
+"را به فرمت باینری تغییر خواهد داد. اگر تعداد کاهش یابد، به‌طور خودکار به لیست کاما "
+"تبدیل خواهد شد."
