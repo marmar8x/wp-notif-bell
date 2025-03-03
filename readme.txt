@@ -3,7 +3,7 @@ Contributors: marmar8x
 Tags: notification, notification bell, notif bell
 Requires at least: 5.0
 Tested up to: 6.7.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 Requires PHP: 7.4
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -63,6 +63,18 @@ The XSS security bug fixed in this version. Upgrade immediately.
 This version is a stable and basic version of the plugin.
 
 == Changelog ==
+
+= 1.0.1 =
+* Fix element render bug in settings fields.
+* Add Eye module settings fields. [binary/comma list]
+* Add new `Eye` module for manage Seen notifs list.
+* Change Collector->Observer based on new Eye module.
+* Add "Reset" tool page.
+* New helper: `Notif::get_max_id()`.
+* Collector new method: `get_results()`, `target_by_tags(array $tags), __clone()`.
+* Add rest api endpoints:
+- `/wpnb/v1/notifs`                 `GET`                     **Getting all user notifications [own]**
+- `/wpnb/v1/eye`                    `GET, POST, PUT, PATCH`   **Getting or Updating seen\unseen status**
 
 = 1.0.0 =
 * XSS bug fixed.
