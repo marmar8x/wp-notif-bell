@@ -112,6 +112,24 @@ Thanks
 
 The notification text will be rendered based on your selected format. Efforts will be made to ensure the output text is in **HTML**, and if other inputs are detected, they will be converted.
 
+### Eye
+This module is designed to save the status of notifications from the user's perspective. It changes for each user which notifications they have seen and can update the status of notifications based on their ID. Additionally, this module adds the capabilities of seen-all and unseen-all.
+
+```php
+// Irmmr\WpNotifBell\User\Eye
+// $eye = new Eye( WP_User, Options )
+$eye = wpnb_user_eye();
+
+// set seen [notif->id]
+$eye->set_seen(35, 2, 891);
+
+// set seen all
+$eye->set_seen_all();
+
+// check
+echo $eye->get_status(152) ? 'seen' : 'unseen';
+```
+
 ### How to use?
 
 To do this, you need to add some HTML and CSS to the discussion.
